@@ -12,7 +12,13 @@ export class AuthenticationService{
     loginGoogle() {
         return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     }
+    sendPasswordResetEmail(loginEmail) {
+        return this.afAuth.auth.sendPasswordResetEmail(loginEmail);
+    }
+    currentUser() {
+        return this.afAuth.auth.currentUser;
+    }
     logout() {
-        this.afAuth.auth.signOut();
+        return this.afAuth.auth.signOut();
     }
 }

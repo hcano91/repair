@@ -1,35 +1,75 @@
-<form #loginForm="ngForm" class="ui login form attached segment large" role="form" (submit)="onSubmit(loginForm, $event)">
-    <div class="field" [ngClass]="{ error: email.invalid }">
-        <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" placeholder="E-mail address" name="email" [(ngModel)]="login.email" #email="ngModel" required>
-        </div>
-        <div *ngIf="!email.valid">
-            <span *ngIf="email.control.hasError('required')">Please enter your email address</span>
-            <span *ngIf="email.control.hasError('invalidEmailAddress')">Please enter a valid email address</span>
-        </div>
+<div class="text-center form-wrapper">
+    <div class="">
+        <form *ngIf="!forgotPassword" #loginForm="ngForm" class="form-signin" role="form" (submit)="onSubmitLogin(loginForm, $event)">
+            <h1 class="h3 mb-3 font-weight-normal">Bienvenido</h1>
+            <div class="field" [ngClass]="{ error: email.invalid }">
+                <label for="email" class="sr-only">Correo electr&oacute;nico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <input type="email" class="form-control" placeholder="Correo electr&oacute;nico" name="email" [(ngModel)]="login.email" #email="ngModel" email="true" required>
+                </div>
+                <div *ngIf="!email.valid">
+                    <small *ngIf="email.errors.email && login.email.length>0" class="form-text text-muted text-left">*Correo electr&oacute;nico inv&aacute;lido</small>
+                    <small *ngIf="email.control.hasError('required')" class="form-text text-muted text-left">*Proporciona tu correo electr&oacute;nico</small>
+                </div>
+            </div>
+            <div class="field" [ngClass]="{ error: password.invalid }">
+                <label for="password" class="sr-only">Contrase&ntilde;a</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </div>
+                    <input class="form-control" type="password" name="password" placeholder="Contrase&ntilde;a" [(ngModel)]="login.password" #password="ngModel" required>
+                </div>
+                <div *ngIf="!password.valid">
+                    <small *ngIf="password.control.hasError('required')" class="form-text text-muted text-left">*Proporcione su contrase&ntilde;a.</small>
+                </div>
+            </div>
+            <br>
+            <a href="#" (click)="setForgotPassword(true, $event)">¿Olvido su contrase&ntilde;a?</a>
+            <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="! loginForm.valid " (click)="onLoginButtonClick(loginForm, $event)">
+                Iniciar Sesi&oacute;n
+            </button>
+            <!--<a class="btn btn-lg btn-primary btn-block" (click)="test()">
+                Test
+            </a>-->
+            <br>
+            <div class="alert alert-danger" *ngIf="errorMessage">
+                <ul class="text-left" *ngIf="errorMessage">
+                    <li>{{ errorMessage }}</li>
+                </ul>
+            </div>
+        </form>
+        <form *ngIf="forgotPassword" #loginForm="ngForm" class="form-forgot-password" role="form" (submit)="onSubmitForgotPassword(loginForm, $event)">
+            <div class="field" [ngClass]="{ error: email.invalid }">
+                <label for="email" class="sr-only">Correo electr&oacute;nico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <input type="email" class="form-control" placeholder="Correo electr&oacute;nico" name="email" [(ngModel)]="login.email" #email="ngModel" email="true" required>
+                </div>
+                <div *ngIf="!email.valid">
+                    <small *ngIf="email.errors.email && login.email.length>0" class="form-text text-muted text-left">*Correo electr&oacute;nico inv&aacute;lido</small>
+                    <small *ngIf="email.control.hasError('required')" class="form-text text-muted text-left">*Proporciona tu correo electr&oacute;nico</small>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="! loginForm.valid " (click)="onForgotPasswordButtonClick(loginForm, $event)">
+                Mandar Correo
+            </button>
+            <a href="#" (click)="setForgotPassword(false, $event)">Regresar a inicio.</a>
+            <!--<a class="btn btn-lg btn-primary btn-block" (click)="test()">
+                Test
+            </a>-->
+            <br>
+            <div class="alert alert-danger" *ngIf="errorMessage">
+                <ul class="text-left" *ngIf="errorMessage">
+                    <li>{{ errorMessage }}</li>
+                </ul>
+            </div>
+        </form>
     </div>
-    <div class="field" [ngClass]="{ error: password.invalid }">
-        <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="password" [(ngModel)]="login.password" #password="ngModel" required>
-        </div>
-        <div *ngIf="!password.valid">
-            <span *ngIf="password.control.hasError('required')">Please enter your password</span>
-        </div>
-    </div>
-    <div class="field">
-        <div class="ui checkbox" [ngClass]="{ checked: rememberMe }">
-            <input type="checkbox" name="rememberMe" [(ngModel)]="login.rememberMe" checked="" #rememberMe="ngModel">
-            <label>Remember me</label>
-        </div>
-    </div>
-    <button type="submit" [ngClass]="{ loading: sending }" class="ui fluid large submit button" [disabled]="! loginForm.valid || sending" (click)="onSubmit(loginForm.value, $event)">
-		Login
-	</button>
-</form>
-<div class="ui bottom attached negative message" *ngIf="errorMessage">
-    <ul class="list" *ngIf="errorMessage">
-        <li>{{ errorMessage }}</li>
-    </ul>
 </div>

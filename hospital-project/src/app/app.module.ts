@@ -12,10 +12,16 @@ import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AuthenticationService } from "./services/authentication.service"
+import { AuthenticationService } from "./services/authentication.service";
+import { DataService } from "./services/data.service";
+import { SystemState } from "./services/systemState.service";
 
 // Routes
 import { appRoutes } from './app.routing';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+//Guards
+import { AuthenticationGuard } from './authentication-guard/authentication.guard'
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBAlY1tLGPLFKnCts9XnzMR9vNBPQrZPjo",
@@ -29,7 +35,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,7 @@ export const firebaseConfig = {
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, DataService, AuthenticationGuard, SystemState],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
