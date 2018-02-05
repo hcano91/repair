@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class SystemState{
     userData;
+    public uid;
     constructor() {}
     setUserData(userData) {
         this.userData = userData;

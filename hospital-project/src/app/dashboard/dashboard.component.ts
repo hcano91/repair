@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("DATA", this.systemState.getUserData().val().names);
+    console.log("DATA", this.systemState.uid);
   }
 
 }

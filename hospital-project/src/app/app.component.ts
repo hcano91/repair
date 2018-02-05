@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from "angularfire2/auth";
+import { ErrorTranslationService } from "./services/errorTranslation.service";
 
 @Component({
   selector: 'app-root',
@@ -10,21 +12,23 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'app';
   router:Router;
-  constructor(router:Router,private authenticationService: AuthenticationService){
+  loadingLogoutButton:boolean = false;
+  constructor(router:Router,
+    private authenticationService:AuthenticationService,
+    private errorTranslationService:ErrorTranslationService,
+    public afAuth: AngularFireAuth){
     this.router = router;
   }
-  loggedIn(){
-    return !!this.authenticationService.currentUser();
-  }
   logout() {
+    this.loadingLogoutButton = true;
     this.authenticationService.logout()
       .then((data)=>{
-        console.log("SUCCESS", data);
+        this.loadingLogoutButton = false;
         this.router.navigate(['login']);
       })
       .catch((error)=>{
-        console.log("ERROR", error);
-        //this.errorMessage = error.message;
+        this.loadingLogoutButton = false;
+        console.log("ERROR", this.errorTranslationService.getTranslatedError(error));
       })
   }
 }

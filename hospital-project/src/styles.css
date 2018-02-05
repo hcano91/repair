@@ -2,6 +2,7 @@
 
 .alert ul {
     padding-left: 0;
+    margin-bottom: 0;
 }
 
 .alert ul li {
@@ -10,4 +11,8 @@
 
 i.fa {
     width: 1em;
+}
+
+button {
+    cursor: pointer;
 }
