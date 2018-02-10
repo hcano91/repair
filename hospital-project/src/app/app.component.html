@@ -5,8 +5,8 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <div class="form-inline my-2 my-md-0">
-                <div *ngIf="afAuth.authState | async as user; else showLogin">
-                    <button *ngIf="afAuth.authState" class="btn btn-secondary" (click)="logout()">
+                <div *ngIf="afAuth.authState | async as user;">
+                    <button class="btn btn-secondary" (click)="logout()">
                         <span>Cerrar Sesi&oacute;n</span><i *ngIf="loading" class="fa fa-spin fa-circle-o-notch"></i>
                     </button>
                 </div>
