@@ -30,7 +30,7 @@
             <br>
             <a href="#" (click)="setForgotPassword(true, $event)">¿Olvido su contrase&ntilde;a?</a>
             <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="! loginForm.valid " (click)="onLoginButtonClick(loginForm, $event)">
-                <span>Iniciar Sesi&oacute;n</span><i *ngIf="loading" class="fa fa-spin fa-circle-o-notch"></i>
+                <span>Iniciar Sesi&oacute;n</span> <i *ngIf="loading" class="fa fa-spin fa-circle-o-notch"></i>
             </button>
             <!--<a class="btn btn-lg btn-primary btn-block" (click)="test()">
                 Test
