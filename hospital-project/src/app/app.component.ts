@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from './services/authentication.service';
+import { AuthenticationService } from './services/core/authentication.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from "angularfire2/auth";
-import { ErrorTranslationService } from "./services/errorTranslation.service";
+import { ErrorTranslationService } from "./services/core/errorTranslation.service";
 
 @Component({
   selector: 'app-root',

@@ -3,7 +3,7 @@ import { AngularFireAuth } from "angularfire2/auth"
 import * as firebase from 'firebase/app';
 
 @Injectable()
-export class DataService{
+export class UserService{
     firebaseReferense;
     constructor(public afAuth: AngularFireAuth) {
         this.firebaseReferense = firebase.database().ref();

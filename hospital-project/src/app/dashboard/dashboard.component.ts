@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
-import { DataService } from '../services/data.service';
+import { AuthenticationService } from '../services/core/authentication.service';
+import { UserService } from '../services/core/user.service';
 import { FormControl, Validators } from '@angular/forms';
-import { SystemState } from '../services/systemState.service'
+import { SystemState } from '../services/core/systemState.service'
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +14,12 @@ export class DashboardComponent implements OnInit {
   router:Router;
   constructor( router:Router, 
       private authenticationService: AuthenticationService,
-      private dataService: DataService,
+      private userService: UserService,
       private systemState: SystemState ) {
     this.router = router;
   }
 
   ngOnInit() {
-    console.log("DATA", this.systemState.uid);
   }
 
 }

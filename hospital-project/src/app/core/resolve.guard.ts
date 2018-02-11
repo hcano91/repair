@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Resolve, Router } from '@angular/router';
 import { AngularFireAuth } from "angularfire2/auth";
 import { Subscription } from 'rxjs/Subscription';
-import { DataService } from '../services/data.service';
-import { SystemState } from '../services/systemState.service';
+import { UserService } from '../services/core/user.service';
+import { SystemState } from '../services/core/systemState.service';
 
 @Injectable()
 export class ResolveGuard implements Resolve<any> {
   constructor(
     private readonly afAuth: AngularFireAuth, 
     private readonly router: Router,
-    private dataService: DataService,
+    private userService: UserService,
     private systemState: SystemState,) {
   }
   resolve(): Subscription {

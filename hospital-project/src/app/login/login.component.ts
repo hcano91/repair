@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
-import { DataService } from '../services/data.service';
+import { AuthenticationService } from '../services/core/authentication.service';
+import { UserService } from '../services/core/user.service';
 import { FormControl, Validators } from '@angular/forms';
-import { SystemState } from '../services/systemState.service';
-import { ErrorTranslationService } from "../services/errorTranslation.service";
+import { SystemState } from '../services/core/systemState.service';
+import { ErrorTranslationService } from "../services/core/errorTranslation.service";
 import { trigger, state, style, animate, transition } from '@angular/animations'; 
 
 @Component({
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   constructor( router:Router, 
       private authenticationService: AuthenticationService,
-      private dataService: DataService,
+      private userService: UserService,
       private systemState: SystemState,
       private readonly errorTranslationService: ErrorTranslationService) {
     this.router = router;
@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
       .catch((error)=>{this.manageError(error);})
   }
   onLoginSuccessfull():void {
-    this.dataService.getUserDataQuery(this.authenticationService.currentUser().uid)
+    this.userService.getUserDataQuery(this.authenticationService.currentUser().uid)
       .then((data)=>{this.onLogin(data);})
       .catch((error)=>{this.manageError(error);})
   }

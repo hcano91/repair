@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { environment } from '../environments/environment'
 
 // Components
 import { AppComponent } from './app.component';
@@ -12,26 +13,17 @@ import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AuthenticationService } from "./services/authentication.service";
-import { DataService } from "./services/data.service";
-import { SystemState } from "./services/systemState.service";
-import { ErrorTranslationService } from "./services/errorTranslation.service";
+import { AuthenticationService } from "./services/core/authentication.service";
+import { UserService } from "./services/core/user.service";
+import { SystemState } from "./services/core/systemState.service";
+import { ErrorTranslationService } from "./services/core/errorTranslation.service";
 
 // Routes
 import { appRoutes } from './app.routing';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 //Guards
-import { ResolveGuard } from './core/resolve.guard'
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyBAlY1tLGPLFKnCts9XnzMR9vNBPQrZPjo",
-  authDomain: "repair-5a4b5.firebaseapp.com",
-  databaseURL: "https://repair-5a4b5.firebaseio.com",
-  projectId: "repair-5a4b5",
-  storageBucket: "repair-5a4b5.appspot.com",
-  messagingSenderId: "896016622141"
-};
+import { ResolveGuard } from './core/resolve.guard';
 
 @NgModule({
   declarations: [
@@ -43,7 +35,7 @@ export const firebaseConfig = {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(
@@ -51,7 +43,7 @@ export const firebaseConfig = {
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [AuthenticationService, DataService, SystemState, ErrorTranslationService, ResolveGuard],
+  providers: [AuthenticationService, UserService, SystemState, ErrorTranslationService, ResolveGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
