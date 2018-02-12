@@ -7,7 +7,8 @@ import { ErrorTranslationService } from "./services/core/errorTranslation.servic
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ AuthenticationService ]
 })
 export class AppComponent {
   title = 'app';

@@ -1,3 +1,8 @@
 <div class="row">
-
+    <div [hidden]="!editMode" class="col-md-12">
+        <app-patient (editModeEvent)="recieveEditModeEvent($event)"></app-patient>
+    </div>
+    <div [hidden]="editMode" class="col-md-12">
+        <app-patient-list (editModeEvent)="recieveEditModeEvent($event)"></app-patient-list>
+    </div>
 </div>

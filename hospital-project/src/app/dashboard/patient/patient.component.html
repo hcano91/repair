@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSubmitForm(patientForm)" #patientForm="ngForm">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="patientService.selectedPatient.$key">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.name" placeholder="Full Name" required pattern="[a-zA-Z][a-zA-Z]+">
+    </div>
+    <div class="form-group">
+        <label for="position">Position</label>
+        <input class="form-control" name="position" #position="ngModel" [(ngModel)]="patientService.selectedPatient.position" placeholder="Position">
+    </div>
+    <div class="form-group">
+        <label for="office">Office</label>
+        <input class="form-control" name="office" #office="ngModel" [(ngModel)]="patientService.selectedPatient.office" placeholder="Office">
+    </div>
+    <div class="form-group">
+        <label for="salary">Salary</label>
+        <input class="form-control" name="salary" #salary="ngModel" [(ngModel)]="patientService.selectedPatient.salary" placeholder="Salary" pattern="[0-9]*">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-secondary" type="submit" [disabled]="!patientForm.valid">
+          <i class="fa fa-floppy-o"></i>Submit
+        </button>
+        <button class="btn btn-secondary" type="button" (click)="onResetButtonClick(patientForm)">
+          <i class="fa fa-repeat"></i>
+          Reset</button>
+        <button class="btn btn-secondary" type="button" (click)="exitEditMode()">
+            <i class="fa fa-close"></i>
+            Cancel</button>
+    </div>
+</form>

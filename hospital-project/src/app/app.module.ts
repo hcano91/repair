@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { ToastrModule } from 'ngx-toastr';
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -24,12 +26,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 //Guards
 import { ResolveGuard } from './core/resolve.guard';
+import { PatientComponent } from './dashboard/patient/patient.component';
+import { PatientListComponent } from './dashboard/patient-list/patient-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    PatientComponent,
+    PatientListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,7 @@ import { ResolveGuard } from './core/resolve.guard';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
