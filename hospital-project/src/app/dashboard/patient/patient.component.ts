@@ -13,7 +13,7 @@ export class PatientComponent implements OnInit {
 
   @Output() editModeEvent = new EventEmitter<boolean>();
 
-  constructor(private patientService: PatientService,
+  constructor(public patientService: PatientService,
     private toastrService: ToastrService) {  }
 
   onSubmitForm(patientForm: NgForm) {
