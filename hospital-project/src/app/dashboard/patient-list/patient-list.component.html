@@ -4,26 +4,38 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form (ngSubmit)="onSubmitSearchForm(searchForm)" #searchForm="ngForm" class="form-inline my-2 my-lg-0">
+            <select class="form-control mr-sm-2" name="searchType" #searchType="ngModel" [(ngModel)]="options.searchType" required>
+                <option default value>Buscar Por...</option>
+                <option value="register">Registro</option>
+                <option value="fullName">Nombre</option>
+                <option value="curp">CURP</option>
+            </select>
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search" name="searchValue" #searchValue="ngModel" [(ngModel)]="options.searchValue" required>
+            <button [disabled]="searchForm.invalid" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Buscar</button>
+            <button (click)="onCleanSearchClick(searchForm)" class="btn my-2 my-sm-0" type="reset"><i class="fa fa-eraser"></i></button>
         </form>
     </div>
 </nav>
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Position</th>
+            <th>#Registro</th>
+            <th>Nombre</th>
+            <th>CURP</th>
+            <th></th>
         </tr>
     </thead>
     <tr *ngFor="let patient of patientList">
-        <td>{{patient.name}}</td>
-        <td>{{patient.position}}</td>
+        <td>{{patient.register}}</td>
+        <td>{{patient.names}} {{patient.fatherLastName}} {{patient.motherLastName}}</td>
+        <td>{{patient.curp}}</td>
         <td>
-            <a class="btn" (click)="onEditButtonClick(patient)">
+            <a class="btn float-right" (click)="onDeleteButtonClick(patient.$key)">
+                <i class="fa fa-trash"></i>
+            </a>
+            <a class="btn float-right" (click)="onEditButtonClick(patient)">
                 <i class="fa fa-pencil-square-o"></i>
             </a>
         </td>

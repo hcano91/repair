@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PatientService } from  '../../services/patient.service';
 import { Patient } from '../../models/patient.model';
 import * as _ from "lodash";
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-patient-list',
@@ -14,10 +15,16 @@ export class PatientListComponent implements OnInit {
   nextKey: any;
   previousKeys: any[] = [];
   subscription: any;
+  options: any;
   
   @Output() editModeEvent = new EventEmitter<boolean>();
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService) { 
+    this.options = {
+      searchType: '',
+      searchValue: ''
+    }
+  }
 
 
   onNextButtonClick() {
@@ -37,8 +44,20 @@ export class PatientListComponent implements OnInit {
     this.patientService.selectedPatient.data = Object.assign({}, patient);
   }
 
+  onCleanSearchClick(searchForm: NgForm) {
+    this.options = {
+      searchType: '',
+      searchValue: ''
+    }
+    this.getPatients();
+  }
+
+  onDeleteButtonClick($key:string) {
+    this.patientService.delete($key);
+  }
+
   getPatients(key?) {
-    this.subscription = this.patientService.getPatients(this.offset, key).snapshotChanges()
+    this.subscription = this.patientService.getPatients(this.offset, key, this.options).snapshotChanges()
       .subscribe(patients => {
         this.patientList = [];
         _.slice(patients, 0, this.offset).forEach(element => {
@@ -48,19 +67,14 @@ export class PatientListComponent implements OnInit {
         });
         this.nextKey = _.get(patients[this.offset], 'key');
       });
-    
-    /*x.snapshotChanges().subscribe(item => {
-      this.patientList = [];
-      item.forEach(element => {
-        var y  = element.payload.toJSON();
-        y["$key"] = element.key;
-        this.patientList.push(y as Patient);
-      })
-    });*/
   }
 
   enterEditMode() {
     this.editModeEvent.emit(true);
+  }
+
+  onSubmitSearchForm(searchForm: NgForm){
+    console.log(this.options.searchType, this.options.searchValue);
   }
 
   ngOnInit() {

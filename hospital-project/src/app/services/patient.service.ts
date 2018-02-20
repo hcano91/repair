@@ -7,9 +7,11 @@ export class PatientService {
   patientList: AngularFireList<any>;
   selectedPatient: Patient = new Patient();
 
-  constructor(private firebase: AngularFireDatabase ) { }
+  constructor(private firebase: AngularFireDatabase ) {
+    this.selectedPatient.data = {};
+  }
 
-  getPatients(offset, startKey?): AngularFireList<any> {
+  getPatients(offset, startKey?, options?): AngularFireList<any> {
     if( startKey == null ) {
       this.patientList = this.firebase.list('patients', ref => ref.orderByKey().limitToFirst(offset + 1));
     }
@@ -23,7 +25,7 @@ export class PatientService {
     var objectToPush = {};
     
     patientKeys.forEach(patientKey => {
-      objectToPush[patientKey] = patient.data[patientKey];
+      objectToPush[patientKey] = patient.data[patientKey] ? patient.data[patientKey] : '';
     });
     delete objectToPush['$key'];
     this.patientList.push(objectToPush);
@@ -33,7 +35,7 @@ export class PatientService {
     var patientKeys = Object.keys(patient.data);
     var objectToUpdate = {};
     patientKeys.forEach(patientKey => {
-      objectToUpdate[patientKey] = patient.data[patientKey];
+      objectToUpdate[patientKey] = patient.data[patientKey] ? patient.data[patientKey] : '';
     });
     delete objectToUpdate['$key'];
     this.patientList.update(patient.data.$key, objectToUpdate);

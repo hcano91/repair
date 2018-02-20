@@ -18,6 +18,22 @@ a.btn:hover {
     cursor: pointer;
 }
 
-input.ng-invalid.ng-dirty {
+.form-group.has-danger input {
     border: 1px solid red;
+}
+
+.form-group.has-success input {
+    border: 1px solid green;
+}
+
+.form-group.has-danger select {
+    border: 1px solid red;
+}
+
+.form-group.has-success select {
+    border: 1px solid green;
+}
+
+small {
+    color: red;
 }
