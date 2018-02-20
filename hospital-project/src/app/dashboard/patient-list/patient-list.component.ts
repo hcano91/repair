@@ -32,8 +32,9 @@ export class PatientListComponent implements OnInit {
   }
 
   onEditButtonClick(patient: Patient) {
+    console.log("onEdit", patient);
     this.enterEditMode();
-    this.patientService.selectedPatient = Object.assign({}, patient);
+    this.patientService.selectedPatient.data = Object.assign({}, patient);
   }
 
   getPatients(key?) {

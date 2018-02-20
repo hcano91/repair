@@ -6,17 +6,8 @@ import { Patient } from '../models/patient.model';
 export class PatientService {
   patientList: AngularFireList<any>;
   selectedPatient: Patient = new Patient();
-  private static MAX_PAGE_RESULT = 2;
 
   constructor(private firebase: AngularFireDatabase ) { }
-
-  getList(startWith?) {
-    if(startWith == null)
-      this.patientList = this.firebase.list('patients', ref => ref.limitToFirst(PatientService.MAX_PAGE_RESULT + 1));
-    else
-      this.patientList = this.firebase.list('patients', ref => ref.startAt(startWith).limitToFirst(PatientService.MAX_PAGE_RESULT + 1));
-    return this.patientList;
-  }
 
   getPatients(offset, startKey?): AngularFireList<any> {
     if( startKey == null ) {
@@ -28,24 +19,24 @@ export class PatientService {
   }
 
   insert(patient: Patient){
-    var patientKeys = Object.keys(patient);
+    var patientKeys = Object.keys(patient.data);
     var objectToPush = {};
     
     patientKeys.forEach(patientKey => {
-      objectToPush[patientKey] = patient[patientKey];
+      objectToPush[patientKey] = patient.data[patientKey];
     });
     delete objectToPush['$key'];
     this.patientList.push(objectToPush);
   }
 
   update( patient: Patient) {
-    var patientKeys = Object.keys(patient);
+    var patientKeys = Object.keys(patient.data);
     var objectToUpdate = {};
     patientKeys.forEach(patientKey => {
-      objectToUpdate[patientKey] = patient[patientKey];
+      objectToUpdate[patientKey] = patient.data[patientKey];
     });
     delete objectToUpdate['$key'];
-    this.patientList.update(patient.$key, objectToUpdate);
+    this.patientList.update(patient.data.$key, objectToUpdate);
   }
 
   delete($key: string){

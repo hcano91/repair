@@ -17,34 +17,37 @@ export class PatientComponent implements OnInit {
     private toastrService: ToastrService) {  }
 
   onSubmitForm(patientForm: NgForm) {
-    if(patientForm.value.$key == null)
-      this.patientService.insert(patientForm.value);
+    var upsertObject = {
+      data: patientForm.value
+    }
+    if(upsertObject.data.$key == null)
+      this.patientService.insert(upsertObject);
     else
-      this.patientService.update(patientForm.value);
+      this.patientService.update(upsertObject);
     this.onResetButtonClick(patientForm);
     this.editModeEvent.emit(false);
     this.toastrService.success('Submitted Successfully', "Patient Register");
   }
 
   onResetButtonClick(patientForm?: NgForm){
+    this.resetForm(patientForm);
+  }
+
+  resetForm(patientForm?: NgForm) {
     if(patientForm != null)
       patientForm.reset();
     this.patientService.selectedPatient = {
-      $key: null,
-      name: '',
-      position: '',
-      office: '',
-      salary: null
+      data: {}
     }
   }
 
   exitEditMode() {
-    this.onResetButtonClick();
+    this.resetForm();
     this.editModeEvent.emit(false);
   }
 
   ngOnInit() {
-    this.onResetButtonClick();
+    this.resetForm();
   }
 
 }

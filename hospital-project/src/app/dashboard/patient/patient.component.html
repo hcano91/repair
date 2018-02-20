@@ -1,20 +1,20 @@
 <form (ngSubmit)="onSubmitForm(patientForm)" #patientForm="ngForm">
-    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="patientService.selectedPatient.$key">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="patientService.selectedPatient.data.$key">
     <div class="form-group">
         <label for="name">Name</label>
-        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.name" placeholder="Full Name" required pattern="[a-zA-Z][a-zA-Z]+">
+        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.data.name" placeholder="Full Name" required pattern="[a-zA-Z][a-zA-Z]+">
     </div>
     <div class="form-group">
         <label for="position">Position</label>
-        <input class="form-control" name="position" #position="ngModel" [(ngModel)]="patientService.selectedPatient.position" placeholder="Position">
+        <input class="form-control" name="position" #position="ngModel" [(ngModel)]="patientService.selectedPatient.data.position" placeholder="Position">
     </div>
     <div class="form-group">
         <label for="office">Office</label>
-        <input class="form-control" name="office" #office="ngModel" [(ngModel)]="patientService.selectedPatient.office" placeholder="Office">
+        <input class="form-control" name="office" #office="ngModel" [(ngModel)]="patientService.selectedPatient.data.office" placeholder="Office">
     </div>
     <div class="form-group">
         <label for="salary">Salary</label>
-        <input class="form-control" name="salary" #salary="ngModel" [(ngModel)]="patientService.selectedPatient.salary" placeholder="Salary" pattern="[0-9]*">
+        <input class="form-control" name="salary" #salary="ngModel" [(ngModel)]="patientService.selectedPatient.data.salary" placeholder="Salary" pattern="[0-9]*">
     </div>
     <div class="form-group">
         <button class="btn btn-secondary" type="submit" [disabled]="!patientForm.valid">
