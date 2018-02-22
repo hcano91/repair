@@ -1,0 +1,11 @@
+.patient-information {
+    height: 700px;
+    overflow: scroll;
+    border: 1px black solid;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.patient-information .patient-information_edit-mode {
+    height: 400px;
+}
