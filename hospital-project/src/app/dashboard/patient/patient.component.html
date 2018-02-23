@@ -18,9 +18,9 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': names.invalid && (names.dirty || names.touched),
-                                'has-success': names.valid && (names.dirty || names.touched)
-                            }">
+                        'has-danger': names.invalid && (names.dirty || names.touched),
+                        'has-success': names.valid && (names.dirty || names.touched)
+                    }">
                     <label for="names">*Nombre(s)</label>
                     <input class="form-control" name="names" #names="ngModel" [(ngModel)]="patientService.selectedPatient.data.names" placeholder="John Doe" required pattern="^[A-zÀ-ÿ ]*$">
                     <small *ngIf="names.errors?.required && (names.touched || names.dirty)">*Campo Requerido</small>
@@ -29,9 +29,9 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': fatherLastName.invalid && (fatherLastName.dirty || fatherLastName.touched),
-                                'has-success': fatherLastName.valid && (fatherLastName.dirty || fatherLastName.touched)
-                            }">
+                        'has-danger': fatherLastName.invalid && (fatherLastName.dirty || fatherLastName.touched),
+                        'has-success': fatherLastName.valid && (fatherLastName.dirty || fatherLastName.touched)
+                    }">
                     <label for="fatherLastName">*Primer Apellido</label>
                     <input class="form-control" name="fatherLastName" #fatherLastName="ngModel" [(ngModel)]="patientService.selectedPatient.data.fatherLastName" placeholder="Garza" required pattern="^[A-zÀ-ÿ ]*$">
                     <small *ngIf="fatherLastName.errors?.required && (fatherLastName.touched || fatherLastName.dirty)">*Campo Requerido</small>
@@ -40,9 +40,9 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': motherLastName.invalid && (motherLastName.dirty || motherLastName.touched),
-                                'has-success': motherLastName.valid && (motherLastName.dirty || motherLastName.touched)
-                            }">
+                        'has-danger': motherLastName.invalid && (motherLastName.dirty || motherLastName.touched),
+                        'has-success': motherLastName.valid && (motherLastName.dirty || motherLastName.touched)
+                    }">
                     <label for="motherLastName">*Segundo Apellido</label>
                     <input class="form-control" name="motherLastName" #motherLastName="ngModel" [(ngModel)]="patientService.selectedPatient.data.motherLastName" placeholder="Franco" required pattern="^[A-zÀ-ÿ ]*$">
                     <small *ngIf="motherLastName.errors?.required && (motherLastName.touched || motherLastName.dirty)">*Campo Requerido</small>
@@ -51,31 +51,31 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': register.invalid && (register.dirty || register.touched),
-                                'has-success': register.valid && (register.dirty || register.touched)
-                            }">
+                        'has-danger': register.invalid && (register.dirty || register.touched),
+                        'has-success': register.valid && (register.dirty || register.touched)
+                    }">
                     <label for="register">*Registro</label>
-                    <input class="form-control" name="register" #register="ngModel" [(ngModel)]="patientService.selectedPatient.data.register" placeholder="##########" required>
+                    <input class="form-control" name="register" #register="ngModel" [(ngModel)]="patientService.selectedPatient.data.register" placeholder="##########" required pattern="[0-9]{10,10}">
                     <small *ngIf="register.errors?.required && (register.touched || register.dirty)">*Campo Requerido</small>
                     <small *ngIf="register.errors?.pattern && (register.touched || register.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': curp.invalid && (curp.dirty || curp.touched),
-                                'has-success': curp.valid && (curp.dirty || curp.touched)
-                            }">
+                        'has-danger': curp.invalid && (curp.dirty || curp.touched),
+                        'has-success': curp.valid && (curp.dirty || curp.touched)
+                    }">
                     <label for="curp">CURP</label>
-                    <input class="form-control" name="curp" #curp="ngModel" [(ngModel)]="patientService.selectedPatient.data.curp" placeholder="CURP" pattern="^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9][12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$">
+                    <input class="form-control" name="curp" #curp="ngModel" [(ngModel)]="patientService.selectedPatient.data.curp" placeholder="CURP" pattern="^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$">
                     <small *ngIf="curp.errors?.required && (curp.touched || curp.dirty)">*Campo Requerido</small>
                     <small *ngIf="curp.errors?.pattern && (curp.touched || curp.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': gender.invalid && (gender.dirty || gender.touched),
-                                'has-success': gender.valid && (gender.dirty || gender.touched)
-                            }">
+                        'has-danger': gender.invalid && (gender.dirty || gender.touched),
+                        'has-success': gender.valid && (gender.dirty || gender.touched)
+                    }">
                     <label for="gender">*G&eacute;nero</label>
                     <select class="form-control" name="gender" #gender="ngModel" [(ngModel)]="patientService.selectedPatient.data.gender" required>
                                 <option selected [ngValue]="gender" value="">Seleccione...</option>
@@ -88,9 +88,9 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched),
-                                'has-success': dateOfBirth.valid && (dateOfBirth.dirty || dateOfBirth.touched)
-                            }">
+                        'has-danger': dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched),
+                        'has-success': dateOfBirth.valid && (dateOfBirth.dirty || dateOfBirth.touched)
+                    }">
                     <label for="dateOfBirth">Fecha de Nacimiento</label>
                     <input class="form-control" type="date" name="dateOfBirth" #dateOfBirth="ngModel" [(ngModel)]="patientService.selectedPatient.data.dateOfBirth" required>
                     <small *ngIf="dateOfBirth.errors?.required && (dateOfBirth.touched || dateOfBirth.dirty)">*Campo Requerido</small>
@@ -99,67 +99,67 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': occupation.invalid && (occupation.dirty || occupation.touched),
-                                'has-success': occupation.valid && (occupation.dirty || occupation.touched)
-                            }">
+                        'has-danger': occupation.invalid && (occupation.dirty || occupation.touched),
+                        'has-success': occupation.valid && (occupation.dirty || occupation.touched)
+                    }">
                     <label for="occupation">Ocupaci&oacute;n</label>
                     <select class="form-control" name="occupation" #occupation="ngModel" [(ngModel)]="patientService.selectedPatient.data.occupation">
-                                    <option selected [ngValue]="occupation" value="">Seleccione...</option>
-                                    <option [ngValue]="occupation" value="Ama de casa">Ama de casa</option>
-                                    <option [ngValue]="occupation" value="Estudiante">Estudiante</option>
-                                    <option [ngValue]="occupation" value="Obrero">Obrero</option>
-                                    <option [ngValue]="occupation" value="Administrativo">Administrativo</option>
-                                    <option [ngValue]="occupation" value="Oficinista">Oficinista</option>
-                                    <option [ngValue]="occupation" value="Profesionista">Profesionista</option>
-                                    <option [ngValue]="occupation" value="Jubilado">Jubilado</option>
-                                    <option [ngValue]="occupation" value="Otro">Otro</option>
-                                </select>
+                        <option selected [ngValue]="occupation" value="">Seleccione...</option>
+                        <option [ngValue]="occupation" value="Ama de casa">Ama de casa</option>
+                        <option [ngValue]="occupation" value="Estudiante">Estudiante</option>
+                        <option [ngValue]="occupation" value="Obrero">Obrero</option>
+                        <option [ngValue]="occupation" value="Administrativo">Administrativo</option>
+                        <option [ngValue]="occupation" value="Oficinista">Oficinista</option>
+                        <option [ngValue]="occupation" value="Profesionista">Profesionista</option>
+                        <option [ngValue]="occupation" value="Jubilado">Jubilado</option>
+                        <option [ngValue]="occupation" value="Otro">Otro</option>
+                    </select>
                     <small *ngIf="occupation.errors?.required && (occupation.touched || occupation.dirty)">*Campo Requerido</small>
                     <small *ngIf="occupation.errors?.pattern && (occupation.touched || occupation.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': latestStudies.invalid && (latestStudies.dirty || latestStudies.touched),
-                                'has-success': latestStudies.valid && (latestStudies.dirty || latestStudies.touched)
-                            }">
+                        'has-danger': latestStudies.invalid && (latestStudies.dirty || latestStudies.touched),
+                        'has-success': latestStudies.valid && (latestStudies.dirty || latestStudies.touched)
+                    }">
                     <label for="latestStudies">Escolaridad</label>
                     <select class="form-control" name="latestStudies" #latestStudies="ngModel" [(ngModel)]="patientService.selectedPatient.data.latestStudies">
-                                <option selected [ngValue]="latestStudies" value="">Seleccione...</option>
-                                <option [ngValue]="latestStudies" value="Primaria">Primaria</option>
-                                <option [ngValue]="latestStudies" value="Secundaria">Secundaria</option>
-                                <option [ngValue]="latestStudies" value="Preparatoria">Preparatoria</option>
-                                <option [ngValue]="latestStudies" value="Universidad">Universidad</option>
-                                <option [ngValue]="latestStudies" value="Maestría">Maestría</option>
-                                <option [ngValue]="latestStudies" value="Doctorado">Doctorado</option>
-                            </select>
+                        <option selected [ngValue]="latestStudies" value="">Seleccione...</option>
+                        <option [ngValue]="latestStudies" value="Primaria">Primaria</option>
+                        <option [ngValue]="latestStudies" value="Secundaria">Secundaria</option>
+                        <option [ngValue]="latestStudies" value="Preparatoria">Preparatoria</option>
+                        <option [ngValue]="latestStudies" value="Universidad">Universidad</option>
+                        <option [ngValue]="latestStudies" value="Maestría">Maestría</option>
+                        <option [ngValue]="latestStudies" value="Doctorado">Doctorado</option>
+                    </select>
                     <small *ngIf="latestStudies.errors?.required && (latestStudies.touched || latestStudies.dirty)">*Campo Requerido</small>
                     <small *ngIf="latestStudies.errors?.pattern && (latestStudies.touched || latestStudies.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': maritalStatus.invalid && (maritalStatus.dirty || maritalStatus.touched),
-                                'has-success': maritalStatus.valid && (maritalStatus.dirty || maritalStatus.touched)
-                            }">
+                        'has-danger': maritalStatus.invalid && (maritalStatus.dirty || maritalStatus.touched),
+                        'has-success': maritalStatus.valid && (maritalStatus.dirty || maritalStatus.touched)
+                    }">
                     <label for="maritalStatus">*Estado Civil</label>
                     <select class="form-control" name="maritalStatus" #maritalStatus="ngModel" [(ngModel)]="patientService.selectedPatient.data.maritalStatus" required>
-                                <option selected [ngValue]="maritalStatus" value="">Seleccione...</option>
-                                <option [ngValue]="maritalStatus" value="Soltero">Soltero</option>
-                                <option [ngValue]="maritalStatus" value="Casado">Casado</option>
-                                <option [ngValue]="maritalStatus" value="Divorciado">Divorciado</option>
-                                <option [ngValue]="maritalStatus" value="Viudo">Viudo</option>
-                                <option [ngValue]="maritalStatus" value="Unión libre">Unión libre</option>
-                            </select>
+                        <option selected [ngValue]="maritalStatus" value="">Seleccione...</option>
+                        <option [ngValue]="maritalStatus" value="Soltero">Soltero</option>
+                        <option [ngValue]="maritalStatus" value="Casado">Casado</option>
+                        <option [ngValue]="maritalStatus" value="Divorciado">Divorciado</option>
+                        <option [ngValue]="maritalStatus" value="Viudo">Viudo</option>
+                        <option [ngValue]="maritalStatus" value="Unión libre">Unión libre</option>
+                    </select>
                     <small *ngIf="maritalStatus.errors?.required && (maritalStatus.touched || maritalStatus.dirty)">*Campo Requerido</small>
                     <small *ngIf="maritalStatus.errors?.pattern && (maritalStatus.touched || maritalStatus.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': birthPlace.invalid && (birthPlace.dirty || birthPlace.touched),
-                                'has-success': birthPlace.valid && (birthPlace.dirty || birthPlace.touched)
-                            }">
+                        'has-danger': birthPlace.invalid && (birthPlace.dirty || birthPlace.touched),
+                        'has-success': birthPlace.valid && (birthPlace.dirty || birthPlace.touched)
+                    }">
                     <label for="birthPlace">*Lugar de origen</label>
                     <input class="form-control" name="birthPlace" #birthPlace="ngModel" [(ngModel)]="patientService.selectedPatient.data.birthPlace" placeholder="birthPlace" required pattern="^[A-zÀ-ÿ ]*$">
                     <small *ngIf="birthPlace.errors?.required && (birthPlace.touched || birthPlace.dirty)">*Campo Requerido</small>
@@ -168,22 +168,22 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched),
-                                'has-success': phoneNumber.valid && (phoneNumber.dirty || phoneNumber.touched)
-                            }">
+                        'has-danger': phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched),
+                        'has-success': phoneNumber.valid && (phoneNumber.dirty || phoneNumber.touched)
+                    }">
                     <label for="phoneNumber">Tel&eacute;fono de casa</label>
-                    <input class="form-control" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="patientService.selectedPatient.data.phoneNumber" placeholder="phoneNumber" pattern="[0-9]*">
+                    <input class="form-control" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="patientService.selectedPatient.data.phoneNumber" placeholder="8181234567" pattern="[0-9]{10,10}">
                     <small *ngIf="phoneNumber.errors?.required && (phoneNumber.touched || phoneNumber.dirty)">*Campo Requerido</small>
                     <small *ngIf="phoneNumber.errors?.pattern && (phoneNumber.touched || phoneNumber.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': cellPhone.invalid && (cellPhone.dirty || cellPhone.touched),
-                                'has-success': cellPhone.valid && (cellPhone.dirty || cellPhone.touched)
-                            }">
+                        'has-danger': cellPhone.invalid && (cellPhone.dirty || cellPhone.touched),
+                        'has-success': cellPhone.valid && (cellPhone.dirty || cellPhone.touched)
+                    }">
                     <label for="cellPhone">Celular</label>
-                    <input class="form-control" name="cellPhone" #cellPhone="ngModel" [(ngModel)]="patientService.selectedPatient.data.cellPhone" placeholder="cellPhone" pattern="[0-9]*">
+                    <input class="form-control" name="cellPhone" #cellPhone="ngModel" [(ngModel)]="patientService.selectedPatient.data.cellPhone" placeholder="8181234567" pattern="[0-9]{10,10}">
                     <small *ngIf="cellPhone.errors?.required && (cellPhone.touched || cellPhone.dirty)">*Campo Requerido</small>
                     <small *ngIf="cellPhone.errors?.pattern && (cellPhone.touched || cellPhone.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -193,11 +193,11 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
-                                'has-danger': street.invalid && (street.dirty || street.touched),
-                                'has-success': street.valid && (street.dirty || street.touched)
-                            }">
+                        'has-danger': street.invalid && (street.dirty || street.touched),
+                        'has-success': street.valid && (street.dirty || street.touched)
+                    }">
                     <label for="street">Calle</label>
-                    <input class="form-control" name="street" #street="ngModel" [(ngModel)]="patientService.selectedPatient.data.street" placeholder="street" pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="street" #street="ngModel" [(ngModel)]="patientService.selectedPatient.data.street" placeholder="street" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     <small *ngIf="street.errors?.required && (street.touched || street.dirty)">*Campo Requerido</small>
                     <small *ngIf="street.errors?.pattern && (street.touched || street.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -208,7 +208,7 @@
                                 'has-success': houseNumber.valid && (houseNumber.dirty || houseNumber.touched)
                             }">
                     <label for="houseNumber">N&uacute;mero</label>
-                    <input class="form-control" name="houseNumber" #houseNumber="ngModel" [(ngModel)]="patientService.selectedPatient.data.houseNumber" placeholder="houseNumber" pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="houseNumber" #houseNumber="ngModel" [(ngModel)]="patientService.selectedPatient.data.houseNumber" placeholder="houseNumber" pattern="^[0-9]{1,}[a-z]?$">
                     <small *ngIf="houseNumber.errors?.required && (houseNumber.touched || houseNumber.dirty)">*Campo Requerido</small>
                     <small *ngIf="houseNumber.errors?.pattern && (houseNumber.touched || houseNumber.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -219,7 +219,7 @@
                                 'has-success': colony.valid && (colony.dirty || colony.touched)
                             }">
                     <label for="colony">Colonia</label>
-                    <input class="form-control" name="colony" #colony="ngModel" [(ngModel)]="patientService.selectedPatient.data.colony" placeholder="colony" pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="colony" #colony="ngModel" [(ngModel)]="patientService.selectedPatient.data.colony" placeholder="colony" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     <small *ngIf="colony.errors?.required && (colony.touched || colony.dirty)">*Campo Requerido</small>
                     <small *ngIf="colony.errors?.pattern && (colony.touched || colony.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -230,7 +230,7 @@
                                 'has-success': municipality.valid && (municipality.dirty || municipality.touched)
                             }">
                     <label for="municipality">Municipio o Localidad</label>
-                    <input class="form-control" name="municipality" #municipality="ngModel" [(ngModel)]="patientService.selectedPatient.data.municipality" placeholder="municipality" pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="municipality" #municipality="ngModel" [(ngModel)]="patientService.selectedPatient.data.municipality" placeholder="municipality" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     <small *ngIf="municipality.errors?.required && (municipality.touched || municipality.dirty)">*Campo Requerido</small>
                     <small *ngIf="municipality.errors?.pattern && (municipality.touched || municipality.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -252,7 +252,7 @@
                                 'has-success': zipCode.valid && (zipCode.dirty || zipCode.touched)
                             }">
                     <label for="zipCode">C&oacute;digo postal</label>
-                    <input class="form-control" name="zipCode" #zipCode="ngModel" [(ngModel)]="patientService.selectedPatient.data.zipCode" placeholder="zipCode" pattern="[0-9]*">
+                    <input class="form-control" name="zipCode" #zipCode="ngModel" [(ngModel)]="patientService.selectedPatient.data.zipCode" placeholder="zipCode" pattern="[0-9]{5,5}">
                     <small *ngIf="zipCode.errors?.required && (zipCode.touched || zipCode.dirty)">*Campo Requerido</small>
                     <small *ngIf="zipCode.errors?.pattern && (zipCode.touched || zipCode.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -266,7 +266,7 @@
                                 'has-success': reasonForConsultation.valid && (reasonForConsultation.dirty || reasonForConsultation.touched)
                             }">
                     <label for="reasonForConsultation">Motivo</label>
-                    <textarea class="form-control" name="reasonForConsultation" #reasonForConsultation="ngModel" [(ngModel)]="patientService.selectedPatient.data.reasonForConsultation" placeholder="reasonForConsultation" rows="15" required pattern="^[A-zÀ-ÿ ]*$"></textarea>
+                    <textarea class="form-control" name="reasonForConsultation" #reasonForConsultation="ngModel" [(ngModel)]="patientService.selectedPatient.data.reasonForConsultation" placeholder="reasonForConsultation" rows="15" required></textarea>
                     <small *ngIf="reasonForConsultation.errors?.required && (reasonForConsultation.touched || reasonForConsultation.dirty)">*Campo Requerido</small>
                     <small *ngIf="reasonForConsultation.errors?.pattern && (reasonForConsultation.touched || reasonForConsultation.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -333,12 +333,11 @@
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.ginecologyReference" #ginecologyReference="ngModel" name="ginecologyReference" value="Ginecología y Obstetricia">Ginecología y Obstetricia
-                                </label>
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.ginecologyReference" #ginecologyReference="ngModel" name="ginecologyReference" value="Ginecología y Obstetricia">Ginecología y Obstetricia
+                            </label>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.infectologyReference" #infectologyReference="ngModel" name="infectologyReference" value="Infectología">Infectología
@@ -409,7 +408,7 @@
                                 'has-success': familyBackground.valid && (familyBackground.dirty || familyBackground.touched)
                             }">
                     <label for="familyBackground">Antecedentes</label>
-                    <textarea class="form-control" name="familyBackground" #familyBackground="ngModel" [(ngModel)]="patientService.selectedPatient.data.familyBackground" placeholder="Antecedentes Familiares" rows="2" required pattern="^[A-zÀ-ÿ ]*$"></textarea>
+                    <textarea class="form-control" name="familyBackground" #familyBackground="ngModel" [(ngModel)]="patientService.selectedPatient.data.familyBackground" placeholder="Antecedentes Familiares" rows="2" required></textarea>
                     <small *ngIf="familyBackground.errors?.required && (familyBackground.touched || familyBackground.dirty)">*Campo Requerido</small>
                     <small *ngIf="familyBackground.errors?.pattern && (familyBackground.touched || familyBackground.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -426,7 +425,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.tabaquism" #tabaquism="ngModel" name="tabaquism">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!tabaquism.value" name="tabaquismDescription" #tabaquismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tabaquismDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!tabaquism.value" name="tabaquismDescription" #tabaquismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tabaquismDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -439,7 +438,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.alcoholism" #alcoholism="ngModel" name="alcoholism">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!alcoholism.value" name="alcoholismDescription" #alcoholismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alcoholismDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!alcoholism.value" name="alcoholismDescription" #alcoholismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alcoholismDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -452,7 +451,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.drugAddiction" #drugAddiction="ngModel" name="drugAddiction">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!drugAddiction.value" name="drugAddictionDescription" #drugAddictionDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.drugAddictionDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!drugAddiction.value" name="drugAddictionDescription" #drugAddictionDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.drugAddictionDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -465,7 +464,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.tatoos" #tatoos="ngModel" name="tatoos">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!tatoos.value" name="tatoosDescription" #tatoosDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tatoosDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!tatoos.value" name="tatoosDescription" #tatoosDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tatoosDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -478,7 +477,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.transfusions" #transfusions="ngModel" name="transfusions">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!transfusions.value" name="transfusionsDescription" #transfusionsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.transfusionsDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!transfusions.value" name="transfusionsDescription" #transfusionsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.transfusionsDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -491,7 +490,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.travels" #travels="ngModel" name="travels">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!travels.value" name="travelsDescription" #travelsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.travelsDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!travels.value" name="travelsDescription" #travelsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.travelsDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -504,7 +503,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.pdd" #pdd="ngModel" name="pdd">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!pdd.value" name="pddDescription" #pddDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.pddDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!pdd.value" name="pddDescription" #pddDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.pddDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -517,7 +516,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.combe" #combe="ngModel" name="combe">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!combe.value" name="combeDescription" #combeDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.combeDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!combe.value" name="combeDescription" #combeDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.combeDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -588,7 +587,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitus" #diabetesMelitus="ngModel" name="diabetesMelitus">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!diabetesMelitus.value" name="diabetesMelitusType" #diabetesMelitusDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitusType" placeholder="Tipo" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!diabetesMelitus.value" name="diabetesMelitusType" #diabetesMelitusDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitusType" placeholder="Tipo" pattern="^[A-zÀ-ÿ0-9 ]*$">
                         <input class="form-control" [disabled]="!diabetesMelitus.value" type="date" name="diabetesMelitusDate" #diabetesMelitusDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitusDate">
                     </div>
                     <label for="diabetesMelitusTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
@@ -674,7 +673,7 @@
                                 <input type="checkbox" [disabled]="!eVC.value" [(ngModel)]="patientService.selectedPatient.data.eVCSequel" #eVCSequel="ngModel" name="eVCSequel">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!eVCSequel.value" name="eVCSequelType" #eVCSequelType="ngModel" [(ngModel)]="patientService.selectedPatient.data.eVCSequelType" placeholder="Tipo" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!eVCSequel.value" name="eVCSequelType" #eVCSequelType="ngModel" [(ngModel)]="patientService.selectedPatient.data.eVCSequelType" placeholder="Tipo" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -687,7 +686,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.surgeries" #surgeries="ngModel" name="surgeries">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!surgeries.value" name="surgeriesDescription" #surgeriesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.surgeriesDescription" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!surgeries.value" name="surgeriesDescription" #surgeriesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.surgeriesDescription" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -700,7 +699,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.alergies" #alergies="ngModel" name="alergies">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!alergies.value" name="alergiesDescription" #alergiesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alergiesDescription" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!alergies.value" name="alergiesDescription" #alergiesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alergiesDescription" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
                 </div>
             </div>
@@ -710,7 +709,7 @@
                         'has-success': otherIllnesses.valid && (otherIllnesses.dirty || otherIllnesses.touched)
                     }">
                     <label for="otherIllnesses">Otras Enfermedades</label>
-                    <textarea class="form-control" name="otherIllnesses" #otherIllnesses="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherIllnesses" placeholder="otherIllnesses" rows="2" pattern="^[A-zÀ-ÿ ]*$"></textarea>
+                    <textarea class="form-control" name="otherIllnesses" #otherIllnesses="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherIllnesses" placeholder="otherIllnesses" rows="2"></textarea>
                     <small *ngIf="otherIllnesses.errors?.required && (otherIllnesses.touched || otherIllnesses.dirty)">*Campo Requerido</small>
                     <small *ngIf="otherIllnesses.errors?.pattern && (otherIllnesses.touched || otherIllnesses.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -724,11 +723,11 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.hospitalStay" #hospitalStay="ngModel" name="hospitalStay">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayHospital" #hospitalStayDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayHospital" placeholder="Hospital" pattern="^[A-zÀ-ÿ ]*$">
+                        <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayHospital" #hospitalStayDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayHospital" placeholder="Hospital" pattern="^[A-zÀ-ÿ0-9 ]*$">
                         <input class="form-control" [disabled]="!hospitalStay.value" type="date" name="hospitalStayDate" #hospitalStayDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayDate">
                     </div>
                     <label for="hospitalStayReason">Motivo</label>
-                    <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayReason" #hospitalStayReason="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayReason" placeholder="Motivo" pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayReason" #hospitalStayReason="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayReason" placeholder="Motivo" pattern="^[A-zÀ-ÿ0-9 ]*$">
                 </div>
             </div>
         </div>

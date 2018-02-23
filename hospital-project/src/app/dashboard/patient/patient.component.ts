@@ -34,8 +34,9 @@ export class PatientComponent implements OnInit {
   }
 
   resetForm(patientForm?: NgForm) {
-    /*if(!!patientForm)
-      patientForm.reset();*/
+    if(!!patientForm)
+      patientForm.reset();
+    this.patientService.selectedPatient = {data:{}};
   }
 
   exitEditMode() {
