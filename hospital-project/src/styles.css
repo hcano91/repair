@@ -37,3 +37,7 @@ a.btn:hover {
 small {
     color: red;
 }
+
+.float-center {
+    text-align: center;
+}

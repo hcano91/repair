@@ -44,5 +44,7 @@
         </td>
     </tr>
 </table>
-<button (click)="onPreviousButtonClick()" [disabled]="!previousKeys?.length" class="btn btn-secondary">Siguiente</button>
-<button (click)="onNextButtonClick()" [disabled]="!nextKey" class="btn btn-secondary">Anterior</button>
+<div class="float-center">
+    <button (click)="onPreviousButtonClick()" [disabled]="!previousKeys?.length" class="btn btn-secondary"><i class="fa fa-chevron-circle-left fa-3" aria-hidden="true"></i></button>
+    <button (click)="onNextButtonClick()" [disabled]="!nextKey" class="btn btn-secondary"><i class="fa fa-chevron-circle-right fa-3" aria-hidden="true"></i></button>
+</div>
