@@ -908,9 +908,34 @@
                     <textarea class="form-control" name="otherComplications" #otherComplications="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherComplications" placeholder="Proporcione detalle de otras complicaciones." rows="3"></textarea>
                 </div>
             </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="form-group" [ngClass]="{
+                            'has-danger': mostLikelyDiagnosis.invalid && (mostLikelyDiagnosis.dirty || mostLikelyDiagnosis.touched),
+                            'has-success': mostLikelyDiagnosis.valid && (mostLikelyDiagnosis.dirty || mostLikelyDiagnosis.touched)
+                        }">
+                    <label for="mostLikelyDiagnosis">Enfermedad Diagnosticada</label>
+                    <select class="form-control" name="mostLikelyDiagnosis" #mostLikelyDiagnosis="ngModel" [(ngModel)]="patientService.selectedPatient.data.mostLikelyDiagnosis" required>
+                        <option selected [ngValue]="mostLikelyDiagnosis" value="">Seleccione...</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Atritis Reumatoide">Atritis Reumatoide</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Osteoartritis">Osteoartritis</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Lupus Eritematoso sistem&aacute;tico">Lupus Eritematoso sistem&aacute;tico</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Cristales">Cristales</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Escleroderma">Escleroderma</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Miostisis">Miostisis</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Sjorgen">Sjorgen</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Espondiloartritis">Espondiloartritis</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Vasculitis">Vasculitis</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Otra">Otra</option>
+                    </select>
+                    <small *ngIf="mostLikelyDiagnosis.errors?.required && (mostLikelyDiagnosis.touched || mostLikelyDiagnosis.dirty)">*Campo Requerido</small>
+                    <small *ngIf="mostLikelyDiagnosis.errors?.pattern && (mostLikelyDiagnosis.touched || mostLikelyDiagnosis.dirty)">*Dato inv&aacute;lido</small>
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="form-group">
