@@ -1,10 +1,22 @@
-<h1>Datos de Paciente</h1>
-
 <form (ngSubmit)="onSubmitForm(patientForm)" #patientForm="ngForm">
-    <div class="patient-information">
+    <div class="patient-information--buttons">
+        <button class="btn btn-secondary" type="submit" [disabled]="!patientForm.valid">
+            <i class="fa fa-floppy-o"></i>Guardar
+        </button>
+        <button *ngIf="!isEditingPatient" class="btn btn-secondary" type="button" (click)="onResetButtonClick(patientForm)">
+            <i class="fa fa-repeat"></i>Limpiar
+        </button>
+        <button class="btn btn-secondary" type="button" (click)="exitEditMode()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>Volver a Pacientes
+        </button>
+    </div>
+    <div class="patient-information" [ngClass]="{ 'patient-information_edit-mode': isEditingPatient }">
         <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="patientService.selectedPatient.data.$key">
         <input type="hidden" name="fullName" [value]="names?.value + ' ' + fatherLastName?.value + ' ' + motherLastName?.value">
         <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h1>Datos de Paciente</h1>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h2>Ficha de identificaci&oacute;n</h2>
                 <small>
@@ -939,15 +951,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="form-group">
-                <button class="btn btn-secondary" type="submit" [disabled]="!patientForm.valid">
-                    <i class="fa fa-floppy-o"></i>Submit
-                </button>
-                <button class="btn btn-secondary" type="button" (click)="onResetButtonClick(patientForm)">
-                    <i class="fa fa-repeat"></i>Reset
-                </button>
-                <button class="btn btn-secondary" type="button" (click)="exitEditMode()">
-                    <i class="fa fa-close"></i>Cancel
-                </button>
+
             </div>
         </div>
     </div>

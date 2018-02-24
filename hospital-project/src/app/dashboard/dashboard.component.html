@@ -1,8 +1,15 @@
-<div class="row">
-    <div [hidden]="!editMode" class="col-md-12">
-        <app-patient (editModeEvent)="recieveEditModeEvent($event)"></app-patient>
-    </div>
-    <div [hidden]="editMode" class="col-md-12">
+<div [hidden]="editMode" class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <app-patient-list (editModeEvent)="recieveEditModeEvent($event)"></app-patient-list>
+    </div>
+</div>
+<div [hidden]="!editMode" class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <app-patient [isEditingPatient]="theresEditingPatient()" (editModeEvent)="recieveEditModeEvent($event)"></app-patient>
+    </div>
+</div>
+<div *ngIf="theresEditingPatient()" class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <app-patient-consultation-list></app-patient-consultation-list>
     </div>
 </div>

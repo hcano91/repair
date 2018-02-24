@@ -4,10 +4,10 @@ let win;
 
 function createWindow() {
     win = new BrowserWindow({
-        minHeight: 1000,
+        minHeight: 822,
         minWidth: 1200,
         width: 1200,
-        height: 1000
+        height: 822
     })
 
     win.loadURL(`file://${__dirname}/dist/index.html`)

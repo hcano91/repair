@@ -11,13 +11,13 @@ import { NgForm } from '@angular/forms';
 })
 export class PatientListComponent implements OnInit {
   patientList: Patient[];
-  offset = 3;
+  offset = 10;
   nextKey: any;
   previousKeys: any[] = [];
   subscription: any;
   options: any;
   
-  @Output() editModeEvent = new EventEmitter<boolean>();
+  @Output() editModeEvent = new EventEmitter<any>();
 
   constructor(private patientService: PatientService) { 
     this.options = {
@@ -25,7 +25,6 @@ export class PatientListComponent implements OnInit {
       searchValue: ''
     }
   }
-
 
   onNextButtonClick() {
     this.previousKeys.push(_.first(this.patientList)["$key"])
@@ -39,7 +38,6 @@ export class PatientListComponent implements OnInit {
   }
 
   onEditButtonClick(patient: Patient) {
-    console.log("onEdit", patient);
     this.enterEditMode();
     this.patientService.selectedPatient.data = Object.assign({}, patient);
   }

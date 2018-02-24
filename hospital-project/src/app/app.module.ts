@@ -28,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ResolveGuard } from './core/resolve.guard';
 import { PatientComponent } from './dashboard/patient/patient.component';
 import { PatientListComponent } from './dashboard/patient-list/patient-list.component';
+import { PatientConsultationListComponent } from './dashboard/patient-consultation-list/patient-consultation-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PatientListComponent } from './dashboard/patient-list/patient-list.comp
     LoginComponent,
     DashboardComponent,
     PatientComponent,
-    PatientListComponent
+    PatientListComponent,
+    PatientConsultationListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+.table-container {
+    height: 600px;
+    background: #e9ecef;
+    overflow-x: scroll;
+    margin-bottom: 16px;
+}
+
+table {
+    background: white;
+    margin-bottom: 0;
+}
+
+td {
+    height: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

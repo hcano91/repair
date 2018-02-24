@@ -1,7 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button type="button" class="btn btn-success" (click)="enterEditMode()">Agregar paciente</button>
-
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         </ul>
@@ -19,32 +17,35 @@
         </form>
     </div>
 </nav>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>#Registro</th>
-            <th>Nombre</th>
-            <th>CURP</th>
-            <th>Padecimiento</th>
-            <th></th>
+<div class="table-container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#Registro</th>
+                <th>Nombre</th>
+                <th>CURP</th>
+                <th>Padecimiento</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr *ngFor="let patient of patientList">
+            <td>{{patient.register}}</td>
+            <td>{{patient.names}} {{patient.fatherLastName}} {{patient.motherLastName}}</td>
+            <td>{{patient.curp}}</td>
+            <td>{{patient.mostLikelyDiagnosis}}</td>
+            <td>
+                <a class="btn float-right" (click)="onDeleteButtonClick(patient.$key)">
+                    <i class="fa fa-trash"></i>
+                </a>
+                <a class="btn float-right" (click)="onEditButtonClick(patient)">
+                    <i class="fa fa-pencil-square-o"></i>
+                </a>
+            </td>
         </tr>
-    </thead>
-    <tr *ngFor="let patient of patientList">
-        <td>{{patient.register}}</td>
-        <td>{{patient.names}} {{patient.fatherLastName}} {{patient.motherLastName}}</td>
-        <td>{{patient.curp}}</td>
-        <td>{{patient.mostLikelyDiagnosis}}</td>
-        <td>
-            <a class="btn float-right" (click)="onDeleteButtonClick(patient.$key)">
-                <i class="fa fa-trash"></i>
-            </a>
-            <a class="btn float-right" (click)="onEditButtonClick(patient)">
-                <i class="fa fa-pencil-square-o"></i>
-            </a>
-        </td>
-    </tr>
-</table>
-<div class="float-center">
+    </table>
+</div>
+
+<div class="float-right">
     <button (click)="onPreviousButtonClick()" [disabled]="!previousKeys?.length" class="btn btn-secondary"><i class="fa fa-chevron-circle-left fa-3" aria-hidden="true"></i></button>
     <button (click)="onNextButtonClick()" [disabled]="!nextKey" class="btn btn-secondary"><i class="fa fa-chevron-circle-right fa-3" aria-hidden="true"></i></button>
 </div>

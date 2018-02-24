@@ -15,6 +15,7 @@ import { PatientService } from '../services/patient.service';
 export class DashboardComponent implements OnInit {
   router:Router;
   editMode: boolean = false;
+  
   constructor( router:Router, 
       private authenticationService: AuthenticationService,
       private userService: UserService,
@@ -22,9 +23,14 @@ export class DashboardComponent implements OnInit {
       private patientService: PatientService ) {
     this.router = router;
   }
+  isEditingPatient: boolean = false;
 
   recieveEditModeEvent($event) {
     this.editMode = $event; 
+  }
+
+  theresEditingPatient():boolean {
+    return !!this.patientService.selectedPatient.data.$key;
   }
 
   ngOnInit() {

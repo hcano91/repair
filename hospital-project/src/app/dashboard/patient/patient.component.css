@@ -6,6 +6,19 @@
     margin-bottom: 20px;
 }
 
-.patient-information .patient-information_edit-mode {
-    height: 400px;
+.patient-information_edit-mode {
+    height: 300px;
+}
+
+.patient-information--buttons {
+    position: absolute;
+    right: 16px;
+    padding: 10px;
+    background-color: rgb(200, 200, 200);
+    z-index: 999;
+    margin-top: 1px;
+}
+
+.btn-cancel {
+    margin-top: 10px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { PatientService } from  '../../services/patient.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -12,6 +12,7 @@ export class PatientComponent implements OnInit {
 
 
   @Output() editModeEvent = new EventEmitter<boolean>();
+  @Input() isEditingPatient: boolean;
 
   constructor(public patientService: PatientService,
     private toastrService: ToastrService) {  }
