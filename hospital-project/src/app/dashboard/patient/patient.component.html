@@ -67,7 +67,7 @@
                         'has-success': register.valid && (register.dirty || register.touched)
                     }">
                     <label for="register">*Registro</label>
-                    <input class="form-control" name="register" #register="ngModel" [(ngModel)]="patientService.selectedPatient.data.register" placeholder="############" required pattern="[0-9]{10,10}">
+                    <input class="form-control" name="register" #register="ngModel" [(ngModel)]="patientService.selectedPatient.data.register" placeholder="############" required pattern="[0-9]{7,7}[-]{1,1}[0-9]{1,1}">
                     <small *ngIf="register.errors?.required && (register.touched || register.dirty)">*Campo Requerido</small>
                     <small *ngIf="register.errors?.pattern && (register.touched || register.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -124,6 +124,7 @@
                         <option [ngValue]="occupation" value="Oficinista">Oficinista</option>
                         <option [ngValue]="occupation" value="Profesionista">Profesionista</option>
                         <option [ngValue]="occupation" value="Jubilado">Jubilado</option>
+                        <option [ngValue]="occupation" value="Desempleado">Desempleado</option>
                         <option [ngValue]="occupation" value="Otro">Otro</option>
                     </select>
                     <small *ngIf="occupation.errors?.required && (occupation.touched || occupation.dirty)">*Campo Requerido</small>
@@ -277,7 +278,7 @@
                                 'has-danger': reasonForConsultation.invalid && (reasonForConsultation.dirty || reasonForConsultation.touched),
                                 'has-success': reasonForConsultation.valid && (reasonForConsultation.dirty || reasonForConsultation.touched)
                             }">
-                    <label for="reasonForConsultation">Motivo</label>
+                    <label for="reasonForConsultation">*Motivo</label>
                     <textarea class="form-control" name="reasonForConsultation" #reasonForConsultation="ngModel" [(ngModel)]="patientService.selectedPatient.data.reasonForConsultation" placeholder="Detalle de la raz&oacute;n de la visita del paciente." rows="15" required></textarea>
                     <small *ngIf="reasonForConsultation.errors?.required && (reasonForConsultation.touched || reasonForConsultation.dirty)">*Campo Requerido</small>
                     <small *ngIf="reasonForConsultation.errors?.pattern && (reasonForConsultation.touched || reasonForConsultation.dirty)">*Dato inv&aacute;lido</small>
@@ -348,6 +349,11 @@
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.ginecologyReference" #ginecologyReference="ngModel" name="ginecologyReference" value="Ginecología y Obstetricia">Ginecología y Obstetricia
                             </label>
                         </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.sportsMedicine" #sportsMedicine="ngModel" name="sportsMedicine" value="Medicina del Deporte">Medicina del Deporte
+                            </label>
+                        </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-check">
@@ -402,7 +408,17 @@
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.hematology" #hematology="ngModel" name="hematology" value="Hematolog&iacute;a">Hematolog&iacute;a
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.otherReference" #otherReference="ngModel" name="otherReference" value="Otro">Otro
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.noReference" #noReference="ngModel" name="noReference" value="Ninguno">Ninguno
                             </label>
                         </div>
                     </div>
@@ -585,6 +601,17 @@
                         </div>
                         <input class="form-control" [disabled]="!vph.value" type="date" name="vphDate" #vphDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.vphDate">
                     </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group" [ngClass]="{
+                        'has-danger': otherVaccines.invalid && (otherVaccines.dirty || otherVaccines.touched),
+                        'has-success': otherVaccines.valid && (otherVaccines.dirty || otherVaccines.touched)
+                    }">
+                    <label for="otherVaccines">Otras Vacunas</label>
+                    <textarea class="form-control" name="otherVaccines" #otherVaccines="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherVaccines" placeholder="Detalle de la informaci&oacute;n de otras vacunas." rows="2"></textarea>
+                    <small *ngIf="otherVaccines.errors?.required && (otherVaccines.touched || otherVaccines.dirty)">*Campo Requerido</small>
+                    <small *ngIf="otherVaccines.errors?.pattern && (otherVaccines.touched || otherVaccines.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -939,7 +966,9 @@
                         <option [ngValue]="mostLikelyDiagnosis" value="Miostisis">Miostisis</option>
                         <option [ngValue]="mostLikelyDiagnosis" value="Sjorgen">Sjorgen</option>
                         <option [ngValue]="mostLikelyDiagnosis" value="Espondiloartritis">Espondiloartritis</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Fibromialgia">Fibromialgia</option>
                         <option [ngValue]="mostLikelyDiagnosis" value="Vasculitis">Vasculitis</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Ninguno">Ninguno</option>
                         <option [ngValue]="mostLikelyDiagnosis" value="Otra">Otra</option>
                     </select>
                     <small *ngIf="mostLikelyDiagnosis.errors?.required && (mostLikelyDiagnosis.touched || mostLikelyDiagnosis.dirty)">*Campo Requerido</small>

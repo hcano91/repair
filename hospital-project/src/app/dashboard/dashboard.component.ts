@@ -5,12 +5,13 @@ import { UserService } from '../services/core/user.service';
 import { FormControl, Validators } from '@angular/forms';
 import { SystemState } from '../services/core/systemState.service';
 import { PatientService } from '../services/patient.service';
+import { ConsultationService } from '../services/consultation.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  providers: [ PatientService ]
+  providers: [ PatientService, ConsultationService ]
 })
 export class DashboardComponent implements OnInit {
   router:Router;
