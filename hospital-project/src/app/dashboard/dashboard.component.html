@@ -1,11 +1,11 @@
-<div [hidden]="editMode" class="row">
+<div [hidden]="visibleSection!=='patient-list'" class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <app-patient-list (editModeEvent)="recieveEditModeEvent($event)"></app-patient-list>
+        <app-patient-list (visibleSectionEvent)="recieveVisibleSectionEvent($event)"></app-patient-list>
     </div>
 </div>
-<div [hidden]="!editMode" class="row">
+<div [hidden]="visibleSection!=='patient'" class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <app-patient [isEditingPatient]="theresEditingPatient()" (editModeEvent)="recieveEditModeEvent($event)"></app-patient>
+        <app-patient [isEditingPatient]="theresEditingPatient()" (visibleSectionEvent)="recieveVisibleSectionEvent($event)"></app-patient>
     </div>
 </div>
 <div *ngIf="theresEditingPatient()" class="row">

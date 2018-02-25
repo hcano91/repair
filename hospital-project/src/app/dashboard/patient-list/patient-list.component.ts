@@ -17,7 +17,7 @@ export class PatientListComponent implements OnInit {
   subscription: any;
   options: any;
   
-  @Output() editModeEvent = new EventEmitter<any>();
+  @Output() visibleSectionEvent = new EventEmitter<string>();
 
   constructor(private patientService: PatientService) { 
     this.options = {
@@ -68,7 +68,7 @@ export class PatientListComponent implements OnInit {
   }
 
   enterEditMode() {
-    this.editModeEvent.emit(true);
+    this.visibleSectionEvent.emit('patient');
   }
 
   onSubmitSearchForm(searchForm: NgForm){

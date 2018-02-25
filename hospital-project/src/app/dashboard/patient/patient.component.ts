@@ -10,8 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PatientComponent implements OnInit {
 
+  @Output() visibleSectionEvent = new EventEmitter<string>();
 
-  @Output() editModeEvent = new EventEmitter<boolean>();
   @Input() isEditingPatient: boolean;
 
   constructor(public patientService: PatientService,
@@ -26,7 +26,7 @@ export class PatientComponent implements OnInit {
     else
       this.patientService.update(upsertObject);
     this.onResetButtonClick(patientForm);
-    this.editModeEvent.emit(false);
+    this.visibleSectionEvent.emit('patient-list');
     this.toastrService.success('Submitted Successfully', "Patient Register");
   }
 
@@ -42,7 +42,7 @@ export class PatientComponent implements OnInit {
 
   exitEditMode() {
     this.resetForm();
-    this.editModeEvent.emit(false);
+    this.visibleSectionEvent.emit('patient-list');
   }
 
   ngOnInit() {
