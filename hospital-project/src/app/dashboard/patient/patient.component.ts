@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 export class PatientComponent implements OnInit {
 
   @Output() visibleSectionEvent = new EventEmitter<string>();
-
   @Input() isEditingPatient: boolean;
 
   constructor(public patientService: PatientService,

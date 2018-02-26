@@ -16,6 +16,7 @@ import { ConsultationService } from '../services/consultation.service';
 export class DashboardComponent implements OnInit {
   router:Router;
   visibleSection: string = 'patient-list';
+  consultationType: string = '';
   
   constructor( router:Router, 
       private authenticationService: AuthenticationService,
@@ -28,6 +29,10 @@ export class DashboardComponent implements OnInit {
 
   recieveVisibleSectionEvent($event) {
     this.visibleSection = $event;
+  }
+
+  recieveConsultationTypeEvent($event){
+    this.consultationType = $event;
   }
 
   theresEditingPatient():boolean {

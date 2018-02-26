@@ -3,12 +3,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         </ul>
-        <form (ngSubmit)="onSubmitSearchForm(searchForm)" #addForm="ngForm" class="form-inline my-2 my-lg-0">
-            <select class="form-control mr-sm-2" name="searchType" #searchType="ngModel" [(ngModel)]="options.searchType" required>
+        <form (ngSubmit)="onSubmitAddConsultationForm(consultationForm)" #addForm="ngForm" class="form-inline my-2 my-lg-0">
+            <select class="form-control mr-sm-2" name="consultationType" #consultationType="ngModel" [(ngModel)]="options.consultationType" required>
                 <option default value>Formas...</option>
                 <option value="Forma General">Forma General</option>
             </select>
-            <button [disabled]="addForm.invalid" class="btn btn-success my-2 my-sm-0 mr-sm-2" type="submit">Agregar</button>
+            <button [disabled]="addForm.invalid" class="btn btn-success my-2 my-sm-0 mr-sm-2" (click)="enterEditMode()" type="submit">Agregar</button>
         </form>
     </div>
 </nav>

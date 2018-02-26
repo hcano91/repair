@@ -8,8 +8,13 @@
         <app-patient [isEditingPatient]="theresEditingPatient()" (visibleSectionEvent)="recieveVisibleSectionEvent($event)"></app-patient>
     </div>
 </div>
-<div *ngIf="theresEditingPatient()" class="row">
+<div *ngIf="theresEditingPatient() && (visibleSection==='patient')" class="row">
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-        <app-patient-consultation-list></app-patient-consultation-list>
+        <app-patient-consultation-list (consultationTypeEvent)="recieveConsultationTypeEvent($event)" (visibleSectionEvent)="recieveVisibleSectionEvent($event)"></app-patient-consultation-list>
+    </div>
+</div>
+<div [hidden]="visibleSection!=='consultation'" class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <app-consultation [consultationType]="consultationType"></app-consultation>
     </div>
 </div>

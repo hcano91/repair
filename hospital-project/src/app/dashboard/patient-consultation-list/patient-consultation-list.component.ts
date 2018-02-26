@@ -19,35 +19,24 @@ export class PatientConsultationListComponent implements OnInit {
   subscription: any;
   options: any;
   
-  @Output() editModeEvent = new EventEmitter<any>();
+  @Output() visibleSectionEvent = new EventEmitter<string>();
+  @Output() consultationTypeEvent = new EventEmitter<string>();
 
   constructor(private consultationService: ConsultationService,
     private patientService: PatientService) { 
     this.options = {
-      searchType: '',
-      searchValue: ''
+      consultationType: ''
     }
   }
 
-  onNextButtonClick() {
-    this.previousKeys.push(_.first(this.consultationList)["$key"])
-    this.getConsultations(this.nextKey);
+  onEditButtonClick(consultation: Consultation) {
+    this.consultationService.selectedConsultation.data = Object.assign({}, consultation);
+    this.enterEditMode();
   }
 
-  onPreviousButtonClick(){
-    const previousKey = _.last(this.previousKeys);
-    this.previousKeys = _.dropRight(this.previousKeys);
-    this.getConsultations(previousKey);
-  }
-
-  onEditButtonClick(patient: Consultation) {
-    this.consultationService.selectedConsultation.data = Object.assign({}, patient);
-  }
-
-  onCleanSearchClick(searchForm: NgForm) {
+  onCleanSearchClick(consultationForm: NgForm) {
     this.options = {
-      searchType: '',
-      searchValue: ''
+      consultationType: ''
     }
     this.getConsultations();
   }
@@ -69,8 +58,14 @@ export class PatientConsultationListComponent implements OnInit {
       });
   }
 
-  onSubmitSearchForm(searchForm: NgForm){
-    console.log(this.options.searchType, this.options.searchValue);
+  enterEditMode() {
+    console.log("consultation");
+    this.visibleSectionEvent.emit('consultation');
+    this.consultationTypeEvent.emit(this.options.consultationType);
+  }
+
+  onSubmitSearchForm(consultationForm: NgForm){
+    console.log(this.options.consultationType);
   }
 
   ngOnInit() {
