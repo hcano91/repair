@@ -251,7 +251,7 @@
                 'has-success': likelyChildDateOfBirth.valid && (likelyChildDateOfBirth.dirty || likelyChildDateOfBirth.touched)
             }">
             <label for="likelyChildDateOfBirth">Fecha Probable de Parto</label>
-            <input class="form-control" type="date" name="likelyChildDateOfBirth" #likelyChildDateOfBirth="ngModel" [(ngModel)]="patientService.selectedPatient.data.likelyChildDateOfBirth" required>
+            <input class="form-control" type="date" name="likelyChildDateOfBirth" #likelyChildDateOfBirth="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.likelyChildDateOfBirth" required>
             <small *ngIf="likelyChildDateOfBirth.errors?.required && (likelyChildDateOfBirth.touched || likelyChildDateOfBirth.dirty)">*Campo Requerido</small>
             <small *ngIf="likelyChildDateOfBirth.errors?.pattern && (likelyChildDateOfBirth.touched || likelyChildDateOfBirth.dirty)">*Dato inv&aacute;lido</small>
         </div>
@@ -262,7 +262,7 @@
                 'has-success': ultrasoundDestationalAge.valid && (ultrasoundDestationalAge.dirty || ultrasoundDestationalAge.touched)
             }">
             <label for="ultrasoundDestationalAge">Edad Gestacional por Ultrasonido</label>
-            <input class="form-control" name="ultrasoundDestationalAge" #ultrasoundDestationalAge="ngModel" [(ngModel)]="patientService.selectedPatient.data.ultrasoundDestationalAge" placeholder="4" pattern="[0-9]*">
+            <input class="form-control" name="ultrasoundDestationalAge" #ultrasoundDestationalAge="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.ultrasoundDestationalAge" placeholder="4" pattern="[0-9]*">
             <small *ngIf="ultrasoundDestationalAge.errors?.required && (ultrasoundDestationalAge.touched || ultrasoundDestationalAge.dirty)">*Campo Requerido</small>
             <small *ngIf="ultrasoundDestationalAge.errors?.pattern && (ultrasoundDestationalAge.touched || ultrasoundDestationalAge.dirty)">*Dato inv&aacute;lido</small>
         </div>
@@ -286,7 +286,7 @@
                 'has-success': consultNumber.valid && (consultNumber.dirty || consultNumber.touched)
             }">
             <label for="consultNumber">N&uacute;mero de consultas</label>
-            <input class="form-control" name="consultNumber" #consultNumber="ngModel" [(ngModel)]="patientService.selectedPatient.data.consultNumber" placeholder="5" pattern="[0-9]*">
+            <input class="form-control" name="consultNumber" #consultNumber="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.consultNumber" placeholder="5" pattern="[0-9]*">
             <small *ngIf="consultNumber.errors?.required && (consultNumber.touched || consultNumber.dirty)">*Campo Requerido</small>
             <small *ngIf="consultNumber.errors?.pattern && (consultNumber.touched || consultNumber.dirty)">*Dato inv&aacute;lido</small>
         </div>
@@ -297,7 +297,8 @@
                 'has-success': pregnancyObservations.valid && (pregnancyObservations.dirty || pregnancyObservations.touched)
             }">
             <label for="pregnancyObservations">*Observaciones</label>
-            <textarea class="form-control" name="pregnancyObservations" #pregnancyObservations="ngModel" [(ngModel)]="patientService.selectedPatient.data.pregnancyObservations" placeholder="Detalle de la raz&oacute;n de la visita del paciente." rows="2" required></textarea>
+            <textarea class="form-control" name="pregnancyObservations" #pregnancyObservations="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pregnancyObservations" placeholder="Detalle de la raz&oacute;n de la visita del paciente." rows="2"
+                required></textarea>
             <small *ngIf="pregnancyObservations.errors?.required && (pregnancyObservations.touched || pregnancyObservations.dirty)">*Campo Requerido</small>
             <small *ngIf="pregnancyObservations.errors?.pattern && (pregnancyObservations.touched || pregnancyObservations.dirty)">*Dato inv&aacute;lido</small>
         </div>
@@ -335,7 +336,7 @@
                 'has-success': usedMedications.valid && (usedMedications.dirty || usedMedications.touched)
             }">
             <label for="usedMedications">Medicamentos utilizados</label>
-            <textarea class="form-control" name="usedMedications" #usedMedications="ngModel" [(ngModel)]="patientService.selectedPatient.data.usedMedications" placeholder="Detalle de la raz&oacute;n de la visita del paciente." rows="2" required></textarea>
+            <textarea class="form-control" name="usedMedications" #usedMedications="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.usedMedications" placeholder="Detalle de la raz&oacute;n de la visita del paciente." rows="2" required></textarea>
             <small *ngIf="usedMedications.errors?.required && (usedMedications.touched || usedMedications.dirty)">*Campo Requerido</small>
             <small *ngIf="usedMedications.errors?.pattern && (usedMedications.touched || usedMedications.dirty)">*Dato inv&aacute;lido</small>
         </div>
