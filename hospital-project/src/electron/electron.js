@@ -10,7 +10,7 @@ function createWindow() {
         height: 822
     })
 
-    win.loadURL(`file://${__dirname}/dist/index.html`);
+    win.loadURL(`file://${__dirname}/index.html`);
 
     win.on('close', function() {
         win = null
