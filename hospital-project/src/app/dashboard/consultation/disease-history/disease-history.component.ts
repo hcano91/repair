@@ -4,11 +4,11 @@ import { NgForm } from '@angular/forms';
 import { ProvideConsultationFormDirective } from '../../../directives/provide-consultation-form.directive'
 
 @Component({
-  selector: 'app-pregnancy',
-  templateUrl: './pregnancy.component.html',
-  styleUrls: ['./pregnancy.component.css']
+  selector: 'app-disease-history',
+  templateUrl: './disease-history.component.html',
+  styleUrls: ['./disease-history.component.css']
 })
-export class PregnancyComponent implements OnInit {
+export class DiseaseHistoryComponent implements OnInit {
 
   constructor(public consultationService: ConsultationService) { }
 

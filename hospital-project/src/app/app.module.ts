@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 
-
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -31,6 +30,8 @@ import { PatientListComponent } from './dashboard/patient-list/patient-list.comp
 import { PatientConsultationListComponent } from './dashboard/patient-consultation-list/patient-consultation-list.component';
 import { ConsultationComponent } from './dashboard/consultation/consultation.component';
 import { PregnancyComponent } from './dashboard/consultation/pregnancy/pregnancy.component';
+import { ProvideConsultationFormDirective } from './directives/provide-consultation-form.directive';
+import { DiseaseHistoryComponent } from './dashboard/consultation/disease-history/disease-history.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { PregnancyComponent } from './dashboard/consultation/pregnancy/pregnancy
     PatientListComponent,
     PatientConsultationListComponent,
     ConsultationComponent,
-    PregnancyComponent
+    PregnancyComponent,
+    ProvideConsultationFormDirective,
+    DiseaseHistoryComponent
   ],
   imports: [
     BrowserModule,

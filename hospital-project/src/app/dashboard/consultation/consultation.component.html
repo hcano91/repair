@@ -23,6 +23,9 @@
                 </small>
             </div>
         </div>
+
         <app-pregnancy *ngIf="patientService.selectedPatient.data.gender==='Femenino'"></app-pregnancy>
+        <app-disease-history></app-disease-history>
     </div>
 </form>
+{{consultationForm.value | json}}
