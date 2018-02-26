@@ -1,12 +1,62 @@
 <div appProvideConsultationForm>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h3>Historia de la enfermedad</h3>
+            <h3>Antecedentes</h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h4>Historia de la enfermedad</h4>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': symptomsStart.invalid && (symptomsStart.dirty || symptomsStart.touched),
+                    'has-success': symptomsStart.valid && (symptomsStart.dirty || symptomsStart.touched)
+                }">
+                <label for="symptomsStart">*Inicio de S&iacute;ntomas</label>
+                <input class="form-control" name="symptomsStart" #symptomsStart="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.symptomsStart" placeholder="Garza" required pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="symptomsStart.errors?.required && (symptomsStart.touched || symptomsStart.dirty)">*Campo Requerido</small>
+                <small *ngIf="symptomsStart.errors?.pattern && (symptomsStart.touched || symptomsStart.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': dateOfDiagnosis.invalid && (dateOfDiagnosis.dirty || dateOfDiagnosis.touched),
+                    'has-success': dateOfDiagnosis.valid && (dateOfDiagnosis.dirty || dateOfDiagnosis.touched)
+                }">
+                <label for="dateOfDiagnosis">Fecha de Diagn&oacute;stico</label>
+                <input class="form-control" type="date" name="dateOfDiagnosis" #dateOfDiagnosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.dateOfDiagnosis">
+                <small *ngIf="dateOfDiagnosis.errors?.required && (dateOfDiagnosis.touched || dateOfDiagnosis.dirty)">*Campo Requerido</small>
+                <small *ngIf="dateOfDiagnosis.errors?.pattern && (dateOfDiagnosis.touched || dateOfDiagnosis.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group">
+                <label for="diagnosedByReumatologist">Diagn&oacute;stico por un Reumat&oacute;logo</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.diagnosedByReumatologist" #diagnosedByReumatologist="ngModel" name="diagnosedByReumatologist">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!diagnosedByReumatologist.value" name="diagnosedByReumatologistPlace" #diagnosedByReumatologistPlace="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.diagnosedByReumatologistPlace" placeholder="¿D&oacute;nde?"
+                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                'has-danger': diagnosisAntibodies.invalid && (diagnosisAntibodies.dirty || diagnosisAntibodies.touched),
+                'has-success': diagnosisAntibodies.valid && (diagnosisAntibodies.dirty || diagnosisAntibodies.touched)
+            }">
+                <label for="diagnosisAntibodies">Anticuerpos al diagn&oacute;stico</label>
+                <textarea class="form-control" name="diagnosisAntibodies" #diagnosisAntibodies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.diagnosisAntibodies" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="diagnosisAntibodies.errors?.required && (diagnosisAntibodies.touched || diagnosisAntibodies.dirty)">*Campo Requerido</small>
+                <small *ngIf="diagnosisAntibodies.errors?.pattern && (diagnosisAntibodies.touched || diagnosisAntibodies.dirty)">*Dato inv&aacute;lido</small>
+            </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4>Historia de la enfermedad</h4>
-            <p>Alguna vez ha utilizado los siguientes medicamentos, si los suspendió cual fue la razón:</p>
+            <h4>Historia del tratamiento</h4>
+            <p>Alguna vez ha utilizado los siguientes medicamentos. Si los suspendió, ¿cu&aacute;l fue la razón?:</p>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
@@ -137,16 +187,26 @@
                         <div class="input-group-text">
                             Inicio
                         </div>
-                        <input class="form-control" name="glucocorticoidesMedicationSuspended" #glucocorticoidesMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                            pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
+                    <input class="form-control" type="date" name="glucocorticoidesMedicationStartDate" #glucocorticoidesMedicationStartDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationStartDate">
+                </div>
+                <div *ngIf="glucocorticoidesMedication.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Suspensi&oacute;n
+                        </div>
+                    </div>
+                    <input class="form-control" name="glucocorticoidesMedicationSuspended" #glucocorticoidesMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+                <div *ngIf="glucocorticoidesMedication.value" class="input-group">
                     <div class="input-group-addon">
                         <div class="input-group-text">
                             Efectos Secundarios
                         </div>
-                        <input class="form-control" name="glucocorticoidesMedicationSecondaryEffects" #glucocorticoidesMedicationSecondaryEffects="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationSecondaryEffects" placeholder="Efectos Secundarios"
-                            pattern="^[A-zÀ-ÿ0-9 ]*$">
                     </div>
+                    <input class="form-control" name="glucocorticoidesMedicationSecondaryEffects" #glucocorticoidesMedicationSecondaryEffects="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationSecondaryEffects" placeholder="Efectos Secundarios"
+                        pattern="^[A-zÀ-ÿ0-9 ]*$">
                 </div>
             </div>
         </div>
@@ -162,8 +222,6 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4>Historia del tratamiento</h4>
-        </div>
+
     </div>
 </div>
