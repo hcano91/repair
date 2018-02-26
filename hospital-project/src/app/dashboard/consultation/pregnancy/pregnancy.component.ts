@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ConsultationService } from  '../../../services/consultation.service';
 import { NgForm } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class PregnancyComponent implements OnInit {
 
-  constructor(private consultationService: ConsultationService) { }
+  constructor(public consultationService: ConsultationService) { }
 
   ngOnInit() {
   }

@@ -66,7 +66,7 @@ export class PatientConsultationListComponent implements OnInit {
     this.consultationTypeEvent.emit(this.options.consultationType);
   }
 
-  onSubmitSearchForm(consultationForm: NgForm){
+  onSubmitAddConsultationForm(consultationForm: NgForm){
     console.log(this.options.consultationType);
   }
 

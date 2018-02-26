@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PatientService } from  '../../services/patient.service';
 import { ConsultationService } from  '../../services/consultation.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 
@@ -16,8 +16,8 @@ export class ConsultationComponent implements OnInit {
   @Input() consultationType: string;
   @Input() isEditingConsultation: boolean;
 
-  constructor( private patientService: PatientService,
-    private consultationService: ConsultationService,
+  constructor( public patientService: PatientService,
+    public consultationService: ConsultationService,
     private toastrService: ToastrService) { }
 
   onSubmitForm(consultationForm: NgForm) {
