@@ -6,6 +6,7 @@ import { ConsultationService } from  '../../services/consultation.service';
 import { Consultation } from '../../models/consultation.model';
 import * as _ from "lodash";
 import { NgForm } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-patient-consultation-list',
@@ -67,6 +68,10 @@ export class PatientConsultationListComponent implements OnInit {
 
   onSubmitSearchForm(consultationForm: NgForm){
     console.log(this.options.consultationType);
+  }
+
+  parseDate(date){
+    return date ? moment(date, "x").format("MM-DD-YYYY") : '-';
   }
 
   ngOnInit() {

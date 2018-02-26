@@ -16,16 +16,16 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>#Patient Key</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Formulario</th>
+                <th>Creación</th>
+                <th>&Uacute;ltima modificaci&oacute;n</th>
                 <th></th>
             </tr>
         </thead>
         <tr *ngFor="let consultation of consultationList">
-            <td>{{consultation.patientKey}}</td>
-            <td>{{consultation.nombre}}</td>
-            <td>{{consultation.apellido}}</td>
+            <td>{{consultation.consultationType}}</td>
+            <td>{{parseDate(consultation.creationDate)}}</td>
+            <td>{{parseDate(consultation.lastModifiedDate)}}</td>
             <td>
                 <a class="btn float-right" (click)="onDeleteButtonClick(consultation.$key)">
                     <i class="fa fa-trash"></i>
