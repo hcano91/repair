@@ -17,15 +17,18 @@ export class DashboardComponent implements OnInit {
   router:Router;
   visibleSection: string = 'patient-list';
   consultationType: string = '';
+  isEditingPatient: boolean = false;
+  isEditingConsultation: boolean = false;
   
   constructor( router:Router, 
       private authenticationService: AuthenticationService,
       private userService: UserService,
       private systemState: SystemState,
-      private patientService: PatientService ) {
+      private patientService: PatientService,
+      private consultationService: ConsultationService ) {
     this.router = router;
   }
-  isEditingPatient: boolean = false;
+  
 
   recieveVisibleSectionEvent($event) {
     this.visibleSection = $event;
@@ -37,6 +40,10 @@ export class DashboardComponent implements OnInit {
 
   theresEditingPatient():boolean {
     return !!this.patientService.selectedPatient.data.$key;
+  }
+
+  theresEditingConsultation():boolean {
+    return !!this.consultationService.selectedConsultation.data.$key;
   }
 
   ngOnInit() {

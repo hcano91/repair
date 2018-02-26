@@ -31,6 +31,7 @@ export class PatientConsultationListComponent implements OnInit {
 
   onEditButtonClick(consultation: Consultation) {
     this.consultationService.selectedConsultation.data = Object.assign({}, consultation);
+    this.options.consultationType = this.consultationService.selectedConsultation.data.consultationType;
     this.enterEditMode();
   }
 
@@ -70,6 +71,7 @@ export class PatientConsultationListComponent implements OnInit {
 
   ngOnInit() {
     this.getConsultations();
+    this.options.consultationType = '';
   }
 
 }
