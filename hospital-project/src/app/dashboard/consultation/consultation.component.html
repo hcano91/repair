@@ -11,45 +11,18 @@
         </button>
     </div>
     <div class="consultation-information">
-        <input type="text" name="$key" #$key="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.$key">
+        <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.$key">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Datos de Paciente</h1>
+                <h1>Consulta</h1>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h2>Ficha de identificaci&oacute;n</h2>
+                <h2>Formulario: {{consultationType}}</h2>
                 <small>
                     *: Campo requerido
                 </small>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3>Datos generales</h3>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="form-group" [ngClass]="{
-                        'has-danger': nombre.invalid && (nombre.dirty || nombre.touched),
-                        'has-success': nombre.valid && (nombre.dirty || nombre.touched)
-                    }">
-                    <label for="nombre">*Nombre</label>
-                    <input class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.nombre" placeholder="Juan Manuel" required pattern="^[A-zÀ-ÿ ]*$">
-                    <small *ngIf="nombre.errors?.required && (nombre.touched || nombre.dirty)">*Campo Requerido</small>
-                    <small *ngIf="nombre.errors?.pattern && (nombre.touched || nombre.dirty)">*Dato inv&aacute;lido</small>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="form-group" [ngClass]="{
-                        'has-danger': apellido.invalid && (apellido.dirty || apellido.touched),
-                        'has-success': apellido.valid && (apellido.dirty || apellido.touched)
-                    }">
-                    <label for="apellido">*Apellido</label>
-                    <input class="form-control" name="apellido" #apellido="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.apellido" placeholder="Juan Manuel" required pattern="^[A-zÀ-ÿ ]*$">
-                    <small *ngIf="apellido.errors?.required && (apellido.touched || apellido.dirty)">*Campo Requerido</small>
-                    <small *ngIf="apellido.errors?.pattern && (apellido.touched || apellido.dirty)">*Dato inv&aacute;lido</small>
-                </div>
-            </div>
-
-        </div>
+        <app-pregnancy *ngIf="patientService.selectedPatient.data.gender==='Femenino'"></app-pregnancy>
     </div>
 </form>

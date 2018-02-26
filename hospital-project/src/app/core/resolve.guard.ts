@@ -18,10 +18,6 @@ export class ResolveGuard implements Resolve<any> {
       if(data === null){
         this.router.navigate(['login']);
       } else {
-        /*this.dataService.getUserDataQuery(data.uid)
-          .then((data)=>{console.log(data);this.systemState.setUserData(data);})
-          .catch((error)=>{this.router.navigate(['login']);})*/
-        console.log('OnGuard', data.uid);
         this.systemState.uid = data.uid;
       }
     });

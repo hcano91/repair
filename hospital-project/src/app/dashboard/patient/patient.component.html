@@ -807,28 +807,8 @@
                     <small *ngIf="menarche.errors?.pattern && (menarche.touched || menarche.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="form-group" [ngClass]="{
-                        'has-danger': lastPeriodDate.invalid && (lastPeriodDate.dirty || lastPeriodDate.touched),
-                        'has-success': lastPeriodDate.valid && (lastPeriodDate.dirty || lastPeriodDate.touched)
-                    }">
-                    <label for="lastPeriodDate">*Fecha de &uacute;ltima Menstruaci&oacute;n</label>
-                    <input class="form-control" type="date" name="lastPeriodDate" #lastPeriodDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.lastPeriodDate" required>
-                    <small *ngIf="lastPeriodDate.errors?.required && (lastPeriodDate.touched || lastPeriodDate.dirty)">*Campo Requerido</small>
-                    <small *ngIf="lastPeriodDate.errors?.pattern && (lastPeriodDate.touched || lastPeriodDate.dirty)">*Dato inv&aacute;lido</small>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="form-group" [ngClass]="{
-                        'has-danger': rythm.invalid && (rythm.dirty || rythm.touched),
-                        'has-success': rythm.valid && (rythm.dirty || rythm.touched)
-                    }">
-                    <label for="rythm">*Ritmo</label>
-                    <input class="form-control" name="rythm" #rythm="ngModel" [(ngModel)]="patientService.selectedPatient.data.rythm" placeholder="1x2" required>
-                    <small *ngIf="rythm.errors?.required && (rythm.touched || rythm.dirty)">*Campo Requerido</small>
-                    <small *ngIf="rythm.errors?.pattern && (rythm.touched || rythm.dirty)">*Dato inv&aacute;lido</small>
-                </div>
-            </div>
+
+
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
                         'has-danger': pregnancies.invalid && (pregnancies.dirty || pregnancies.touched),

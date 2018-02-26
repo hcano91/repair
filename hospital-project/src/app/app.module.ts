@@ -30,6 +30,7 @@ import { PatientComponent } from './dashboard/patient/patient.component';
 import { PatientListComponent } from './dashboard/patient-list/patient-list.component';
 import { PatientConsultationListComponent } from './dashboard/patient-consultation-list/patient-consultation-list.component';
 import { ConsultationComponent } from './dashboard/consultation/consultation.component';
+import { PregnancyComponent } from './dashboard/consultation/pregnancy/pregnancy.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ConsultationComponent } from './dashboard/consultation/consultation.com
     PatientComponent,
     PatientListComponent,
     PatientConsultationListComponent,
-    ConsultationComponent
+    ConsultationComponent,
+    PregnancyComponent
   ],
   imports: [
     BrowserModule,
