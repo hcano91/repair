@@ -1,0 +1,154 @@
+<div appProvideConsultationForm>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>An&aacute;lisis Subjetivo</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': levelOfPain.invalid && (levelOfPain.dirty || levelOfPain.touched),
+                    'has-success': levelOfPain.valid && (levelOfPain.dirty || levelOfPain.touched)
+                }">
+                <label for="levelOfPain">*Dolor</label>
+                <select class="form-control" name="levelOfPain" #levelOfPain="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.levelOfPain" required>
+                    <option selected [ngValue]="levelOfPain" value="">Seleccione...</option>
+                    <option [ngValue]="levelOfPain" value="Ausente">Ausente</option>
+                    <option [ngValue]="levelOfPain" value="Leve">Leve</option>
+                    <option [ngValue]="levelOfPain" value="Moderado">Moderado</option>
+                    <option [ngValue]="levelOfPain" value="Grave">Grave</option>
+                </select>
+                <small *ngIf="levelOfPain.errors?.required && (levelOfPain.touched || levelOfPain.dirty)">*Campo Requerido</small>
+                <small *ngIf="levelOfPain.errors?.pattern && (levelOfPain.touched || levelOfPain.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': levelOfPain.invalid && (levelOfPain.dirty || levelOfPain.touched),
+                    'has-success': levelOfPain.valid && (levelOfPain.dirty || levelOfPain.touched)
+                }">
+                <label for="levelOfPain">*Dolor nocturno</label>
+                <select class="form-control" name="levelOfPain" #levelOfPain="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.levelOfPain" required>
+                    <option selected [ngValue]="levelOfPain" value="">Seleccione...</option>
+                    <option [ngValue]="levelOfPain" value="Másculino">Ausente</option>
+                    <option [ngValue]="levelOfPain" value="Leve">Leve</option>
+                    <option [ngValue]="levelOfPain" value="Moderado">Moderado</option>
+                    <option [ngValue]="levelOfPain" value="Grave">Grave</option>
+                </select>
+                <small *ngIf="levelOfPain.errors?.required && (levelOfPain.touched || levelOfPain.dirty)">*Campo Requerido</small>
+                <small *ngIf="levelOfPain.errors?.pattern && (levelOfPain.touched || levelOfPain.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group">
+                <label for="earlyRigidity">Rigidez Matutina</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.earlyRigidity" #earlyRigidity="ngModel" name="earlyRigidity">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!earlyRigidity.value" name="earlyRigidityDuration" #earlyRigidityDuration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.earlyRigidityDuration" placeholder="Duraci&oacute;n en minutos" pattern="^[0-9]*">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': doctorEvaluation.invalid && (doctorEvaluation.dirty || doctorEvaluation.touched),
+                    'has-success': doctorEvaluation.valid && (doctorEvaluation.dirty || doctorEvaluation.touched)
+                }">
+                <label for="doctorEvaluation">*EVA m&eacute;dico</label>
+                <input type="number" class="form-control" name="doctorEvaluation" #doctorEvaluation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.doctorEvaluation" placeholder="1-100" pattern="(?:\b|-)([1-9]{1,2}[0]?|100)\b" required>
+                <small *ngIf="doctorEvaluation.errors?.required && (doctorEvaluation.touched || doctorEvaluation.dirty)">*Campo Requerido</small>
+                <small *ngIf="doctorEvaluation.errors?.pattern && (doctorEvaluation.touched || doctorEvaluation.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': patientEvaluation.invalid && (patientEvaluation.dirty || patientEvaluation.touched),
+                    'has-success': patientEvaluation.valid && (patientEvaluation.dirty || patientEvaluation.touched)
+                }">
+                <label for="patientEvaluation">*EVA paciente</label>
+                <input type="number" class="form-control" name="patientEvaluation" #patientEvaluation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.patientEvaluation" placeholder="1-100" pattern="(?:\b|-)([1-9]{1,2}[0]?|100)\b" required>
+                <small *ngIf="patientEvaluation.errors?.required && (patientEvaluation.touched || patientEvaluation.dirty)">*Campo Requerido</small>
+                <small *ngIf="patientEvaluation.errors?.pattern && (patientEvaluation.touched || patientEvaluation.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                  'has-danger': currentState.invalid && (currentState.dirty || currentState.touched),
+                  'has-success': currentState.valid && (currentState.dirty || currentState.touched)
+              }">
+                <label for="currentState">Estado Actual</label>
+                <textarea class="form-control" name="currentState" #currentState="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.currentState" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="currentState.errors?.required && (currentState.touched || currentState.dirty)">*Campo Requerido</small>
+                <small *ngIf="currentState.errors?.pattern && (currentState.touched || currentState.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <label for="latestStudies">Datos negativos relevantes</label>
+            <div class="form-group row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataFiber" #negativeDataFiber="ngModel" name="negativeDataFiber" value="Fiebre">Fiebre
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataSicca" #negativeDataSicca="ngModel" name="negativeDataSicca" value="Sicca">Sicca
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataDisnea" #negativeDataDisnea="ngModel" name="negativeDataDisnea" value="Disnea">Disnea
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataWeightLoss" #negativeDataWeightLoss="ngModel" name="negativeDataWeightLoss" value="Pérdida de peso">P&eacute;rdida de peso
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataSoftTissueReumatism" #negativeDataSoftTissueReumatism="ngModel" name="negativeDataSoftTissueReumatism" value="Reumatismo de tejidos blandos">Reumatismo de tejidos blandos
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataFatigue" #negativeDataFatigue="ngModel" name="negativeDataFatigue" value="Fatiga">Fatiga
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataCough" #negativeDataCough="ngModel" name="negativeDataCough" value="Tos">Tos
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataDisfagia" #negativeDataDisfagia="ngModel" name="negativeDataDisfagia" value="Disfagia">Disfagia
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataNeuropathy" #negativeDataNeuropathy="ngModel" name="negativeDataNeuropathy" value="Neuropatía">Neuropatía
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                      'has-danger': negativeDataOther.invalid && (negativeDataOther.dirty || negativeDataOther.touched),
+                      'has-success': negativeDataOther.valid && (negativeDataOther.dirty || negativeDataOther.touched)
+                  }">
+                <label for="negativeDataOther">Otros</label>
+                <textarea class="form-control" name="negativeDataOther" #negativeDataOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.negativeDataOther" placeholder="Detalle de la raz&oacute;n de la visita del paciente." rows="10"></textarea>
+                <small *ngIf="negativeDataOther.errors?.required && (negativeDataOther.touched || negativeDataOther.dirty)">*Campo Requerido</small>
+                <small *ngIf="negativeDataOther.errors?.pattern && (negativeDataOther.touched || negativeDataOther.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+    </div>
+</div>

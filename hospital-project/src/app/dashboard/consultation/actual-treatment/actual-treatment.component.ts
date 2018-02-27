@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConsultationService } from  '../../../services/consultation.service';
 import { NgForm } from '@angular/forms';
-import { ProvideConsultationFormDirective } from '../../../directives/provide-consultation-form.directive'
+import { ProvideConsultationFormDirective } from '../../../directives/provide-consultation-form.directive';
 
 @Component({
   selector: 'app-actual-treatment',

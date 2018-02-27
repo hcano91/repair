@@ -33,6 +33,7 @@ import { PregnancyComponent } from './dashboard/consultation/pregnancy/pregnancy
 import { ProvideConsultationFormDirective } from './directives/provide-consultation-form.directive';
 import { DiseaseHistoryComponent } from './dashboard/consultation/disease-history/disease-history.component';
 import { ActualTreatmentComponent } from './dashboard/consultation/actual-treatment/actual-treatment.component';
+import { SubjectiveAnalysisComponent } from './dashboard/consultation/subjective-analysis/subjective-analysis.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ActualTreatmentComponent } from './dashboard/consultation/actual-treatm
     PregnancyComponent,
     ProvideConsultationFormDirective,
     DiseaseHistoryComponent,
-    ActualTreatmentComponent
+    ActualTreatmentComponent,
+    SubjectiveAnalysisComponent
   ],
   imports: [
     BrowserModule,
