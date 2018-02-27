@@ -41,3 +41,9 @@ small {
 .float-center {
     text-align: center;
 }
+
+form.validating .ng-invalid {
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+}

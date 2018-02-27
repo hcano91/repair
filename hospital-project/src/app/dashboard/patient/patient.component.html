@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmitForm(patientForm)" #patientForm="ngForm">
+<form class="validating" (ngSubmit)="onSubmitForm(patientForm)" #patientForm="ngForm">
     <div class="patient-information--buttons">
         <button class="btn btn-secondary" type="submit" [disabled]="!patientForm.valid">
             <i class="fa fa-floppy-o"></i>Guardar

@@ -12,7 +12,7 @@
                     'has-success': symptomsStart.valid && (symptomsStart.dirty || symptomsStart.touched)
                 }">
                 <label for="symptomsStart">*Inicio de S&iacute;ntomas</label>
-                <input class="form-control" name="symptomsStart" #symptomsStart="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.symptomsStart" placeholder="Garza" required pattern="^[A-zÀ-ÿ ]*$">
+                <input class="form-control" name="symptomsStart" #symptomsStart="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.symptomsStart" placeholder="ej. hace 2 días" required pattern="^[A-zÀ-ÿ0-9 ]*$">
                 <small *ngIf="symptomsStart.errors?.required && (symptomsStart.touched || symptomsStart.dirty)">*Campo Requerido</small>
                 <small *ngIf="symptomsStart.errors?.pattern && (symptomsStart.touched || symptomsStart.dirty)">*Dato inv&aacute;lido</small>
             </div>
