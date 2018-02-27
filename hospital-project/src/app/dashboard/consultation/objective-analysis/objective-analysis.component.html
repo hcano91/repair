@@ -9,7 +9,7 @@
                     'has-success': objectiveWeight.valid && (objectiveWeight.dirty || objectiveWeight.touched)
                 }">
                 <label for="objectiveWeight">Peso</label>
-                <input class="form-control" name="objectiveWeight" #objectiveWeight="ngModel" [(ngModel)]="consultationtService.selectedConsultation.data.objectiveWeight" placeholder="100" required pattern="[0-9]*">
+                <input class="form-control" name="objectiveWeight" #objectiveWeight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveWeight" placeholder="100" required pattern="[0-9]*">
                 <small *ngIf="objectiveWeight.errors?.required && (objectiveWeight.touched || objectiveWeight.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveWeight.errors?.pattern && (objectiveWeight.touched || objectiveWeight.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -20,7 +20,7 @@
                     'has-success': objectiveSize.valid && (objectiveSize.dirty || objectiveSize.touched)
                 }">
                 <label for="objectiveSize">Talla</label>
-                <input class="form-control" name="objectiveSize" #objectiveSize="ngModel" [(ngModel)]="consultationtService.selectedConsultation.data.objectiveSize" placeholder="100" required pattern="[0-9]*">
+                <input class="form-control" name="objectiveSize" #objectiveSize="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSize" placeholder="100" required pattern="[0-9]*">
                 <small *ngIf="objectiveSize.errors?.required && (objectiveSize.touched || objectiveSize.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveSize.errors?.pattern && (objectiveSize.touched || objectiveSize.dirty)">*Dato inv&aacute;lido</small>
             </div>

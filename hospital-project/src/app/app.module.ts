@@ -35,6 +35,7 @@ import { DiseaseHistoryComponent } from './dashboard/consultation/disease-histor
 import { ActualTreatmentComponent } from './dashboard/consultation/actual-treatment/actual-treatment.component';
 import { SubjectiveAnalysisComponent } from './dashboard/consultation/subjective-analysis/subjective-analysis.component';
 import { ObjectiveAnalysisComponent } from './dashboard/consultation/objective-analysis/objective-analysis.component';
+import { AuxiliaryStudiesComponent } from './dashboard/consultation/auxiliary-studies/auxiliary-studies.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ObjectiveAnalysisComponent } from './dashboard/consultation/objective-a
     DiseaseHistoryComponent,
     ActualTreatmentComponent,
     SubjectiveAnalysisComponent,
-    ObjectiveAnalysisComponent
+    ObjectiveAnalysisComponent,
+    AuxiliaryStudiesComponent
   ],
   imports: [
     BrowserModule,
