@@ -34,6 +34,7 @@ import { ProvideConsultationFormDirective } from './directives/provide-consultat
 import { DiseaseHistoryComponent } from './dashboard/consultation/disease-history/disease-history.component';
 import { ActualTreatmentComponent } from './dashboard/consultation/actual-treatment/actual-treatment.component';
 import { SubjectiveAnalysisComponent } from './dashboard/consultation/subjective-analysis/subjective-analysis.component';
+import { ObjectiveAnalysisComponent } from './dashboard/consultation/objective-analysis/objective-analysis.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SubjectiveAnalysisComponent } from './dashboard/consultation/subjective
     ProvideConsultationFormDirective,
     DiseaseHistoryComponent,
     ActualTreatmentComponent,
-    SubjectiveAnalysisComponent
+    SubjectiveAnalysisComponent,
+    ObjectiveAnalysisComponent
   ],
   imports: [
     BrowserModule,

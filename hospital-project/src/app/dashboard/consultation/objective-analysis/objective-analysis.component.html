@@ -1,0 +1,244 @@
+<div appProvideConsultationForm>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>An&aacute;lisis Objetivo</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveWeight.invalid && (objectiveWeight.dirty || objectiveWeight.touched),
+                    'has-success': objectiveWeight.valid && (objectiveWeight.dirty || objectiveWeight.touched)
+                }">
+                <label for="objectiveWeight">Peso</label>
+                <input class="form-control" name="objectiveWeight" #objectiveWeight="ngModel" [(ngModel)]="consultationtService.selectedConsultation.data.objectiveWeight" placeholder="100" required pattern="[0-9]*">
+                <small *ngIf="objectiveWeight.errors?.required && (objectiveWeight.touched || objectiveWeight.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveWeight.errors?.pattern && (objectiveWeight.touched || objectiveWeight.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveSize.invalid && (objectiveSize.dirty || objectiveSize.touched),
+                    'has-success': objectiveSize.valid && (objectiveSize.dirty || objectiveSize.touched)
+                }">
+                <label for="objectiveSize">Talla</label>
+                <input class="form-control" name="objectiveSize" #objectiveSize="ngModel" [(ngModel)]="consultationtService.selectedConsultation.data.objectiveSize" placeholder="100" required pattern="[0-9]*">
+                <small *ngIf="objectiveSize.errors?.required && (objectiveSize.touched || objectiveSize.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveSize.errors?.pattern && (objectiveSize.touched || objectiveSize.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveTA.invalid && (objectiveTA.dirty || objectiveTA.touched),
+                    'has-success': objectiveTA.valid && (objectiveTA.dirty || objectiveTA.touched)
+                }">
+                <label for="objectiveTA">*TA</label>
+                <input class="form-control" name="objectiveTA" #objectiveTA="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveTA" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="objectiveTA.errors?.required && (objectiveTA.touched || objectiveTA.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveTA.errors?.pattern && (objectiveTA.touched || objectiveTA.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveFC.invalid && (objectiveFC.dirty || objectiveFC.touched),
+                    'has-success': objectiveFC.valid && (objectiveFC.dirty || objectiveFC.touched)
+                }">
+                <label for="objectiveFC">*FC</label>
+                <input class="form-control" name="objectiveFC" #objectiveFC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveFC" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="objectiveFC.errors?.required && (objectiveFC.touched || objectiveFC.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveFC.errors?.pattern && (objectiveFC.touched || objectiveFC.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveFR.invalid && (objectiveFR.dirty || objectiveFR.touched),
+                    'has-success': objectiveFR.valid && (objectiveFR.dirty || objectiveFR.touched)
+                }">
+                <label for="objectiveFR">*FR</label>
+                <input class="form-control" name="objectiveFR" #objectiveFR="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveFR" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="objectiveFR.errors?.required && (objectiveFR.touched || objectiveFR.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveFR.errors?.pattern && (objectiveFR.touched || objectiveFR.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveTemperature.invalid && (objectiveTemperature.dirty || objectiveTemperature.touched),
+                    'has-success': objectiveTemperature.valid && (objectiveTemperature.dirty || objectiveTemperature.touched)
+                }">
+                <label for="objectiveTemperature">*Temperatura</label>
+                <input class="form-control" name="objectiveTemperature" #objectiveTemperature="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveTemperature" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="objectiveTemperature.errors?.required && (objectiveTemperature.touched || objectiveTemperature.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveTemperature.errors?.pattern && (objectiveTemperature.touched || objectiveTemperature.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveIMC.invalid && (objectiveIMC.dirty || objectiveIMC.touched),
+                    'has-success': objectiveIMC.valid && (objectiveIMC.dirty || objectiveIMC.touched)
+                }">
+                <label for="objectiveIMC">*IMC</label>
+                <input class="form-control" name="objectiveIMC" #objectiveIMC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveIMC" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="objectiveIMC.errors?.required && (objectiveIMC.touched || objectiveIMC.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveIMC.errors?.pattern && (objectiveIMC.touched || objectiveIMC.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveBodySurface.invalid && (objectiveBodySurface.dirty || objectiveBodySurface.touched),
+                    'has-success': objectiveBodySurface.valid && (objectiveBodySurface.dirty || objectiveBodySurface.touched)
+                }">
+                <label for="objectiveBodySurface">*Superficie corporal</label>
+                <input class="form-control" name="objectiveBodySurface" #objectiveBodySurface="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveBodySurface" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="objectiveBodySurface.errors?.required && (objectiveBodySurface.touched || objectiveBodySurface.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveBodySurface.errors?.pattern && (objectiveBodySurface.touched || objectiveBodySurface.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveHeadAndNeck.invalid && (objectiveHeadAndNeck.dirty || objectiveHeadAndNeck.touched),
+                    'has-success': objectiveHeadAndNeck.valid && (objectiveHeadAndNeck.dirty || objectiveHeadAndNeck.touched)
+                }">
+                <label for="objectiveHeadAndNeck">Cabeza y cuello</label>
+                <textarea class="form-control" name="objectiveHeadAndNeck" #objectiveHeadAndNeck="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveHeadAndNeck" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="objectiveHeadAndNeck.errors?.required && (objectiveHeadAndNeck.touched || objectiveHeadAndNeck.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveHeadAndNeck.errors?.pattern && (objectiveHeadAndNeck.touched || objectiveHeadAndNeck.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveTorax.invalid && (objectiveTorax.dirty || objectiveTorax.touched),
+                    'has-success': objectiveTorax.valid && (objectiveTorax.dirty || objectiveTorax.touched)
+                }">
+                <label for="objectiveTorax">Torax</label>
+                <textarea class="form-control" name="objectiveTorax" #objectiveTorax="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveTorax" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="objectiveTorax.errors?.required && (objectiveTorax.touched || objectiveTorax.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveTorax.errors?.pattern && (objectiveTorax.touched || objectiveTorax.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveAbdomen.invalid && (objectiveAbdomen.dirty || objectiveAbdomen.touched),
+                    'has-success': objectiveAbdomen.valid && (objectiveAbdomen.dirty || objectiveAbdomen.touched)
+                }">
+                <label for="objectiveAbdomen">Abdomen</label>
+                <textarea class="form-control" name="objectiveAbdomen" #objectiveAbdomen="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveAbdomen" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="objectiveAbdomen.errors?.required && (objectiveAbdomen.touched || objectiveAbdomen.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveAbdomen.errors?.pattern && (objectiveAbdomen.touched || objectiveAbdomen.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveBack.invalid && (objectiveBack.dirty || objectiveBack.touched),
+                    'has-success': objectiveBack.valid && (objectiveBack.dirty || objectiveBack.touched)
+                }">
+                <label for="objectiveBack">Espalda</label>
+                <textarea class="form-control" name="objectiveBack" #objectiveBack="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveBack" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="objectiveBack.errors?.required && (objectiveBack.touched || objectiveBack.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveBack.errors?.pattern && (objectiveBack.touched || objectiveBack.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveSwollenA.invalid && (objectiveSwollenA.dirty || objectiveSwollenA.touched),
+                    'has-success': objectiveSwollenA.valid && (objectiveSwollenA.dirty || objectiveSwollenA.touched)
+                }">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label for="objectiveSwollenA">*Articulaciones inflamadas</label>
+                    </div>
+                    <input class="form-control" name="objectiveSwollenA" #objectiveSwollenA="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSwollenA" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                    <div class="input-group-addon">
+                        <span>/28</span>
+                    </div>
+                </div>
+                <small *ngIf="objectiveSwollenA.errors?.required && (objectiveSwollenA.touched || objectiveSwollenA.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveSwollenA.errors?.pattern && (objectiveSwollenA.touched || objectiveSwollenA.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveSwollenB.invalid && (objectiveSwollenB.dirty || objectiveSwollenB.touched),
+                    'has-success': objectiveSwollenB.valid && (objectiveSwollenB.dirty || objectiveSwollenB.touched)
+                }">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label for="objectiveSwollenB">*Articulaciones inflamadas</label>
+                    </div>
+                    <input class="form-control" name="objectiveSwollenB" #objectiveSwollenB="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSwollenB" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                    <div class="input-group-addon">
+                        <span>/66</span>
+                    </div>
+                </div>
+                <small *ngIf="objectiveSwollenB.errors?.required && (objectiveSwollenB.touched || objectiveSwollenB.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveSwollenB.errors?.pattern && (objectiveSwollenB.touched || objectiveSwollenB.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveSquezzeTestLeft.invalid && (objectiveSquezzeTestLeft.dirty || objectiveSquezzeTestLeft.touched),
+                    'has-success': objectiveSquezzeTestLeft.valid && (objectiveSquezzeTestLeft.dirty || objectiveSquezzeTestLeft.touched)
+                }">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label for="objectiveSquezzeTestLeft">*Squezze Test Izquierdo</label>
+                    </div>
+                    <input class="form-control" name="objectiveSquezzeTestLeft" #objectiveSquezzeTestLeft="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSquezzeTestLeft" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                </div>
+                <small *ngIf="objectiveSquezzeTestLeft.errors?.required && (objectiveSquezzeTestLeft.touched || objectiveSquezzeTestLeft.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveSquezzeTestLeft.errors?.pattern && (objectiveSquezzeTestLeft.touched || objectiveSquezzeTestLeft.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectivePainfulPoints.invalid && (objectivePainfulPoints.dirty || objectivePainfulPoints.touched),
+                    'has-success': objectivePainfulPoints.valid && (objectivePainfulPoints.dirty || objectivePainfulPoints.touched)
+                }">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label for="objectivePainfulPoints">*Puntos dolorosos</label>
+                    </div>
+                    <input class="form-control" name="objectivePainfulPoints" #objectivePainfulPoints="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectivePainfulPoints" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                    <div class="input-group-addon">
+                        <span>/18</span>
+                    </div>
+                </div>
+                <small *ngIf="objectivePainfulPoints.errors?.required && (objectivePainfulPoints.touched || objectivePainfulPoints.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectivePainfulPoints.errors?.pattern && (objectivePainfulPoints.touched || objectivePainfulPoints.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveEntesitis.invalid && (objectiveEntesitis.dirty || objectiveEntesitis.touched),
+                    'has-success': objectiveEntesitis.valid && (objectiveEntesitis.dirty || objectiveEntesitis.touched)
+                }">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label for="objectiveEntesitis">*Entesitis</label>
+                    </div>
+                    <input class="form-control" name="objectiveEntesitis" #objectiveEntesitis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveEntesitis" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                    <div class="input-group-addon">
+                        <span>/13</span>
+                    </div>
+                </div>
+                <small *ngIf="objectiveEntesitis.errors?.required && (objectiveEntesitis.touched || objectiveEntesitis.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveEntesitis.errors?.pattern && (objectiveEntesitis.touched || objectiveEntesitis.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveSquezzeTestRight.invalid && (objectiveSquezzeTestRight.dirty || objectiveSquezzeTestRight.touched),
+                    'has-success': objectiveSquezzeTestRight.valid && (objectiveSquezzeTestRight.dirty || objectiveSquezzeTestRight.touched)
+                }">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <label for="objectiveSquezzeTestRight">*Squezze Test Derecho</label>
+                    </div>
+                    <input class="form-control" name="objectiveSquezzeTestRight" #objectiveSquezzeTestRight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSquezzeTestRight" placeholder="ej. Monterrey" required pattern="^[A-zÀ-ÿ ]*$">
+                </div>
+                <small *ngIf="objectiveSquezzeTestRight.errors?.required && (objectiveSquezzeTestRight.touched || objectiveSquezzeTestRight.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveSquezzeTestRight.errors?.pattern && (objectiveSquezzeTestRight.touched || objectiveSquezzeTestRight.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': objectiveObservations.invalid && (objectiveObservations.dirty || objectiveObservations.touched),
+                    'has-success': objectiveObservations.valid && (objectiveObservations.dirty || objectiveObservations.touched)
+                }">
+                <label for="objectiveObservations">*Observaciones</label>
+                <textarea class="form-control" name="objectiveObservations" #objectiveObservations="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveObservations" placeholder="Describa" rows="2" required></textarea>
+                <small *ngIf="objectiveObservations.errors?.required && (objectiveObservations.touched || objectiveObservations.dirty)">*Campo Requerido</small>
+                <small *ngIf="objectiveObservations.errors?.pattern && (objectiveObservations.touched || objectiveObservations.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+    </div>
+</div>
