@@ -38,6 +38,7 @@ import { ObjectiveAnalysisComponent } from './dashboard/consultation/objective-a
 import { AuxiliaryStudiesComponent } from './dashboard/consultation/auxiliary-studies/auxiliary-studies.component';
 import { RadiographyComponent } from './dashboard/consultation/radiography/radiography.component';
 import { DiagnosisComponent } from './dashboard/consultation/diagnosis/diagnosis.component';
+import { IllnessActivityComponent } from './dashboard/consultation/illness-activity/illness-activity.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { DiagnosisComponent } from './dashboard/consultation/diagnosis/diagnosis
     ObjectiveAnalysisComponent,
     AuxiliaryStudiesComponent,
     RadiographyComponent,
-    DiagnosisComponent
+    DiagnosisComponent,
+    IllnessActivityComponent
   ],
   imports: [
     BrowserModule,

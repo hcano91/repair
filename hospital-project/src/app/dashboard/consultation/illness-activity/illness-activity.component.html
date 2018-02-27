@@ -1,0 +1,29 @@
+<div appProvideConsultationForm>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>Actividad de la Enfermedad</h3>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': illnessActivityScale.invalid && (illnessActivityScale.dirty || illnessActivityScale.touched),
+                    'has-success': illnessActivityScale.valid && (illnessActivityScale.dirty || illnessActivityScale.touched)
+                }">
+                <label for="illnessActivityScale">Escala de Actividad de la enfermedad</label>
+                <textarea class="form-control" name="illnessActivityScale" #illnessActivityScale="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.illnessActivityScale" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="illnessActivityScale.errors?.required && (illnessActivityScale.touched || illnessActivityScale.dirty)">*Campo Requerido</small>
+                <small *ngIf="illnessActivityScale.errors?.pattern && (illnessActivityScale.touched || illnessActivityScale.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': activityScaleResult.invalid && (activityScaleResult.dirty || activityScaleResult.touched),
+                    'has-success': activityScaleResult.valid && (activityScaleResult.dirty || activityScaleResult.touched)
+                }">
+                <label for="activityScaleResult">Resultado de escala de actividad</label>
+                <textarea class="form-control" name="activityScaleResult" #activityScaleResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.activityScaleResult" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="activityScaleResult.errors?.required && (activityScaleResult.touched || activityScaleResult.dirty)">*Campo Requerido</small>
+                <small *ngIf="activityScaleResult.errors?.pattern && (activityScaleResult.touched || activityScaleResult.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+    </div>
+</div>
