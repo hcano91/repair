@@ -1,0 +1,95 @@
+<div appProvideConsultationForm>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>Para la pr&oacute;xima cita</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': dateNextAppointment.invalid && (dateNextAppointment.dirty || dateNextAppointment.touched),
+                    'has-success': dateNextAppointment.valid && (dateNextAppointment.dirty || dateNextAppointment.touched)
+                }">
+                <label for="dateNextAppointment">Fecha de Pr&oacute;xima cita</label>
+                <input class="form-control" type="date" name="dateNextAppointment" #dateNextAppointment="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.dateNextAppointment">
+                <small *ngIf="dateNextAppointment.errors?.required && (dateNextAppointment.touched || dateNextAppointment.dirty)">*Campo Requerido</small>
+                <small *ngIf="dateNextAppointment.errors?.pattern && (dateNextAppointment.touched || dateNextAppointment.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': treatingDoctor.invalid && (treatingDoctor.dirty || treatingDoctor.touched),
+                    'has-success': treatingDoctor.valid && (treatingDoctor.dirty || treatingDoctor.touched)
+                }">
+                <label for="treatingDoctor">M&eacute;dico tratante</label>
+                <input class="form-control" name="treatingDoctor" #treatingDoctor="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatingDoctor" placeholder="Juan Manuel" pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="treatingDoctor.errors?.required && (treatingDoctor.touched || treatingDoctor.dirty)">*Campo Requerido</small>
+                <small *ngIf="treatingDoctor.errors?.pattern && (treatingDoctor.touched || treatingDoctor.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': supervisingDoctor.invalid && (supervisingDoctor.dirty || supervisingDoctor.touched),
+                    'has-success': supervisingDoctor.valid && (supervisingDoctor.dirty || supervisingDoctor.touched)
+                }">
+                <label for="supervisingDoctor">Profesor</label>
+                <input class="form-control" name="supervisingDoctor" #supervisingDoctor="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.supervisingDoctor" placeholder="Juan Manuel" pattern="^[A-zÀ-ÿ ]*$">
+                <small *ngIf="supervisingDoctor.errors?.required && (supervisingDoctor.touched || supervisingDoctor.dirty)">*Campo Requerido</small>
+                <small *ngIf="supervisingDoctor.errors?.pattern && (supervisingDoctor.touched || supervisingDoctor.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': labStudies.invalid && (labStudies.dirty || labStudies.touched),
+                    'has-success': labStudies.valid && (labStudies.dirty || labStudies.touched)
+                }">
+                <label for="labStudies">Escala de Actividad de la enfermedad</label>
+                <textarea class="form-control" name="labStudies" #labStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.labStudies" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="labStudies.errors?.required && (labStudies.touched || labStudies.dirty)">*Campo Requerido</small>
+                <small *ngIf="labStudies.errors?.pattern && (labStudies.touched || labStudies.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': inmunologicStudies.invalid && (inmunologicStudies.dirty || inmunologicStudies.touched),
+                    'has-success': inmunologicStudies.valid && (inmunologicStudies.dirty || inmunologicStudies.touched)
+                }">
+                <label for="inmunologicStudies">Escala de Actividad de la enfermedad</label>
+                <textarea class="form-control" name="inmunologicStudies" #inmunologicStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.inmunologicStudies" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="inmunologicStudies.errors?.required && (inmunologicStudies.touched || inmunologicStudies.dirty)">*Campo Requerido</small>
+                <small *ngIf="inmunologicStudies.errors?.pattern && (inmunologicStudies.touched || inmunologicStudies.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': gabinetStudies.invalid && (gabinetStudies.dirty || gabinetStudies.touched),
+                    'has-success': gabinetStudies.valid && (gabinetStudies.dirty || gabinetStudies.touched)
+                }">
+                <label for="gabinetStudies">Resultado de escala de actividad</label>
+                <textarea class="form-control" name="gabinetStudies" #gabinetStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.gabinetStudies" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="gabinetStudies.errors?.required && (gabinetStudies.touched || gabinetStudies.dirty)">*Campo Requerido</small>
+                <small *ngIf="gabinetStudies.errors?.pattern && (gabinetStudies.touched || gabinetStudies.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': interconsultingStudies.invalid && (interconsultingStudies.dirty || interconsultingStudies.touched),
+                    'has-success': interconsultingStudies.valid && (interconsultingStudies.dirty || interconsultingStudies.touched)
+                }">
+                <label for="interconsultingStudies">Interconsultas</label>
+                <textarea class="form-control" name="interconsultingStudies" #interconsultingStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.interconsultingStudies" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="interconsultingStudies.errors?.required && (interconsultingStudies.touched || interconsultingStudies.dirty)">*Campo Requerido</small>
+                <small *ngIf="interconsultingStudies.errors?.pattern && (interconsultingStudies.touched || interconsultingStudies.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': observationStudies.invalid && (observationStudies.dirty || observationStudies.touched),
+                    'has-success': observationStudies.valid && (observationStudies.dirty || observationStudies.touched)
+                }">
+                <label for="observationStudies">Observaciones</label>
+                <textarea class="form-control" name="observationStudies" #observationStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.observationStudies" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="observationStudies.errors?.required && (observationStudies.touched || observationStudies.dirty)">*Campo Requerido</small>
+                <small *ngIf="observationStudies.errors?.pattern && (observationStudies.touched || observationStudies.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+    </div>
+</div>

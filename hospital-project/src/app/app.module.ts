@@ -40,6 +40,7 @@ import { RadiographyComponent } from './dashboard/consultation/radiography/radio
 import { DiagnosisComponent } from './dashboard/consultation/diagnosis/diagnosis.component';
 import { IllnessActivityComponent } from './dashboard/consultation/illness-activity/illness-activity.component';
 import { PrescribingTreatmentComponent } from './dashboard/consultation/prescribing-treatment/prescribing-treatment.component';
+import { ForNextConsultationComponent } from './dashboard/consultation/for-next-consultation/for-next-consultation.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { PrescribingTreatmentComponent } from './dashboard/consultation/prescrib
     RadiographyComponent,
     DiagnosisComponent,
     IllnessActivityComponent,
-    PrescribingTreatmentComponent
+    PrescribingTreatmentComponent,
+    ForNextConsultationComponent
   ],
   imports: [
     BrowserModule,
