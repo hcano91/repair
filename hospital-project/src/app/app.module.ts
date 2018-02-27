@@ -37,6 +37,7 @@ import { SubjectiveAnalysisComponent } from './dashboard/consultation/subjective
 import { ObjectiveAnalysisComponent } from './dashboard/consultation/objective-analysis/objective-analysis.component';
 import { AuxiliaryStudiesComponent } from './dashboard/consultation/auxiliary-studies/auxiliary-studies.component';
 import { RadiographyComponent } from './dashboard/consultation/radiography/radiography.component';
+import { DiagnosisComponent } from './dashboard/consultation/diagnosis/diagnosis.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { RadiographyComponent } from './dashboard/consultation/radiography/radio
     SubjectiveAnalysisComponent,
     ObjectiveAnalysisComponent,
     AuxiliaryStudiesComponent,
-    RadiographyComponent
+    RadiographyComponent,
+    DiagnosisComponent
   ],
   imports: [
     BrowserModule,

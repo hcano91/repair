@@ -7,114 +7,109 @@
             <div class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedicationName">Medicamentos</label>
-                    <input class="form-control" name="actualTreatmentMedicationName" #actualTreatmentMedicationName="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationName" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedicationName" #actualTreatmentMedicationName="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationName" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedicationDosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedicationDosis" #actualTreatmentMedicationDosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDosis" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedicationDosis" #actualTreatmentMedicationDosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedicationStart">Inicio</label>
-                    <input class="form-control" name="actualTreatmentMedicationStart" #actualTreatmentMedicationStart="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationStart" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedicationStart" #actualTreatmentMedicationStart="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationStart" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedicationDependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedicationDependency" #actualTreatmentMedicationDependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDependency" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedicationDependency" #actualTreatmentMedicationDependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDependency" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedicationName)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication1Name">Medicamentos</label>
-                    <input class="form-control" name="actualTreatmentMedication1Name" #actualTreatmentMedication1Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Name" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication1Name" #actualTreatmentMedication1Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication1Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication1Dosis" #actualTreatmentMedication1Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dosis" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication1Dosis" #actualTreatmentMedication1Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication1Start">Inicio</label>
-                    <input class="form-control" name="actualTreatmentMedication1Start" #actualTreatmentMedication1Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Start" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication1Start" #actualTreatmentMedication1Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Start" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication1Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication1Dependency" #actualTreatmentMedication1Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dependency" placeholder="Especifique" required
-                        pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication1Dependency" #actualTreatmentMedication1Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dependency" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication1Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication2Name">Medicamentos</label>
-                    <input class="form-control" name="actualTreatmentMedication2Name" #actualTreatmentMedication2Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Name" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication2Name" #actualTreatmentMedication2Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication2Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication2Dosis" #actualTreatmentMedication2Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dosis" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication2Dosis" #actualTreatmentMedication2Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication2Start">Inicio</label>
-                    <input class="form-control" name="actualTreatmentMedication2Start" #actualTreatmentMedication2Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Start" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication2Start" #actualTreatmentMedication2Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Start" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication2Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication2Dependency" #actualTreatmentMedication2Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dependency" placeholder="Especifique" required
-                        pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication2Dependency" #actualTreatmentMedication2Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dependency" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication2Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication3Name">Medicamentos</label>
-                    <input class="form-control" name="actualTreatmentMedication3Name" #actualTreatmentMedication3Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Name" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication3Name" #actualTreatmentMedication3Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication3Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication3Dosis" #actualTreatmentMedication3Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dosis" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication3Dosis" #actualTreatmentMedication3Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication3Start">Inicio</label>
-                    <input class="form-control" name="actualTreatmentMedication3Start" #actualTreatmentMedication3Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Start" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication3Start" #actualTreatmentMedication3Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Start" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication3Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication3Dependency" #actualTreatmentMedication3Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dependency" placeholder="Especifique" required
-                        pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication3Dependency" #actualTreatmentMedication3Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dependency" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication3Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication4Name">Medicamentos</label>
-                    <input class="form-control" name="actualTreatmentMedication4Name" #actualTreatmentMedication4Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Name" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication4Name" #actualTreatmentMedication4Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication4Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication4Dosis" #actualTreatmentMedication4Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dosis" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication4Dosis" #actualTreatmentMedication4Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication4Start">Inicio</label>
-                    <input class="form-control" name="actualTreatmentMedication4Start" #actualTreatmentMedication4Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Start" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication4Start" #actualTreatmentMedication4Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Start" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication4Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication4Dependency" #actualTreatmentMedication4Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dependency" placeholder="Especifique" required
-                        pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication4Dependency" #actualTreatmentMedication4Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dependency" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication4Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication5Name">Medicamentos</label>
-                    <input class="form-control" name="actualTreatmentMedication5Name" #actualTreatmentMedication5Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Name" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication5Name" #actualTreatmentMedication5Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication5Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication5Dosis" #actualTreatmentMedication5Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dosis" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication5Dosis" #actualTreatmentMedication5Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication5Start">Inicio</label>
-                    <input class="form-control" name="actualTreatmentMedication5Start" #actualTreatmentMedication5Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Start" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication5Start" #actualTreatmentMedication5Start="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Start" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication5Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication5Dependency" #actualTreatmentMedication5Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dependency" placeholder="Especifique" required
-                        pattern="^[A-zÀ-ÿ ]*$">
+                    <input class="form-control" name="actualTreatmentMedication5Dependency" #actualTreatmentMedication5Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dependency" placeholder="Especifique" pattern="^[A-zÀ-ÿ ]*$">
                 </div>
             </div>
         </div>

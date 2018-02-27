@@ -33,10 +33,6 @@ export class ActualTreatmentComponent implements OnInit {
       return true;
     }
 
-
-
-    console.log(previousInput.value)
-
     return false;
   }
 
