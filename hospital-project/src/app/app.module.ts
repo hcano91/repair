@@ -32,6 +32,7 @@ import { ConsultationComponent } from './dashboard/consultation/consultation.com
 import { PregnancyComponent } from './dashboard/consultation/pregnancy/pregnancy.component';
 import { ProvideConsultationFormDirective } from './directives/provide-consultation-form.directive';
 import { DiseaseHistoryComponent } from './dashboard/consultation/disease-history/disease-history.component';
+import { ActualTreatmentComponent } from './dashboard/consultation/actual-treatment/actual-treatment.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DiseaseHistoryComponent } from './dashboard/consultation/disease-histor
     ConsultationComponent,
     PregnancyComponent,
     ProvideConsultationFormDirective,
-    DiseaseHistoryComponent
+    DiseaseHistoryComponent,
+    ActualTreatmentComponent
   ],
   imports: [
     BrowserModule,
