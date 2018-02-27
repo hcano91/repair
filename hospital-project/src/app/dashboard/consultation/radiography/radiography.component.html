@@ -1,0 +1,145 @@
+<div appProvideConsultationForm>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>Radiograf&iacute;a</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="handRadiography">Mano</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.handRadiography" #handRadiography="ngModel" name="handRadiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="handRadiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            &Uacute;ltimas radiograf&iacute;a
+                        </div>
+                    </div>
+                    <input class="form-control" name="handRadiographyLast" #handLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyLast" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+                <div *ngIf="handRadiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="handRadiographyFindings" #handFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="footRadiography">Pie</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.footRadiography" #footRadiography="ngModel" name="footRadiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="footRadiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            &Uacute;ltimas radiograf&iacute;a
+                        </div>
+                    </div>
+                    <input class="form-control" name="footRadiographyLast" #footLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.footRadiographyLast" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+                <div *ngIf="footRadiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="footRadiographyFindings" #footFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.footRadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="other1Radiography">Other</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.other1Radiography" #other1Radiography="ngModel" name="other1Radiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="other1Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Tipo
+                        </div>
+                    </div>
+                    <input class="form-control" name="other1RadiographyType" #other1Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyType" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+                <div *ngIf="other1Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Fecha
+                        </div>
+                    </div>
+                    <input class="form-control" type="date" name="other1RadiographyDate" #other1RadiographyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyDate">
+                </div>
+                <div *ngIf="other1Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="other1RadiographyFindings" #other1Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': radiographyUS.invalid && (radiographyUS.dirty || radiographyUS.touched),
+                    'has-success': radiographyUS.valid && (radiographyUS.dirty || radiographyUS.touched)
+                }">
+                <label for="radiographyUS">US</label>
+                <textarea class="form-control" name="radiographyUS" #radiographyUS="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.radiographyUS" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="radiographyUS.errors?.required && (radiographyUS.touched || radiographyUS.dirty)">*Campo Requerido</small>
+                <small *ngIf="radiographyUS.errors?.pattern && (radiographyUS.touched || radiographyUS.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': radiographyOther.invalid && (radiographyOther.dirty || radiographyOther.touched),
+                    'has-success': radiographyOther.valid && (radiographyOther.dirty || radiographyOther.touched)
+                }">
+                <label for="radiographyOther">Other</label>
+                <textarea class="form-control" name="radiographyOther" #radiographyOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.radiographyOther" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="radiographyOther.errors?.required && (radiographyOther.touched || radiographyOther.dirty)">*Campo Requerido</small>
+                <small *ngIf="radiographyOther.errors?.pattern && (radiographyOther.touched || radiographyOther.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="boneDensinometry">Densinometr&iacute;a Osea</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.boneDensinometry" #boneDensinometry="ngModel" name="boneDensinometry">
+                        </div>
+                    </div>
+                    <input [disabled]="!boneDensinometry.value" class="form-control" type="date" name="boneDensinometryDate" #boneDensinometryDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.boneDensinometryDate">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': radiographyFindings.invalid && (radiographyFindings.dirty || radiographyFindings.touched),
+                    'has-success': radiographyFindings.valid && (radiographyFindings.dirty || radiographyFindings.touched)
+                }">
+                <label for="radiographyFindings">Hallazgos</label>
+                <textarea class="form-control" name="radiographyFindings" #radiographyFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.radiographyFindings" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="radiographyFindings.errors?.required && (radiographyFindings.touched || radiographyFindings.dirty)">*Campo Requerido</small>
+                <small *ngIf="radiographyFindings.errors?.pattern && (radiographyFindings.touched || radiographyFindings.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -36,6 +36,7 @@ import { ActualTreatmentComponent } from './dashboard/consultation/actual-treatm
 import { SubjectiveAnalysisComponent } from './dashboard/consultation/subjective-analysis/subjective-analysis.component';
 import { ObjectiveAnalysisComponent } from './dashboard/consultation/objective-analysis/objective-analysis.component';
 import { AuxiliaryStudiesComponent } from './dashboard/consultation/auxiliary-studies/auxiliary-studies.component';
+import { RadiographyComponent } from './dashboard/consultation/radiography/radiography.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AuxiliaryStudiesComponent } from './dashboard/consultation/auxiliary-st
     ActualTreatmentComponent,
     SubjectiveAnalysisComponent,
     ObjectiveAnalysisComponent,
-    AuxiliaryStudiesComponent
+    AuxiliaryStudiesComponent,
+    RadiographyComponent
   ],
   imports: [
     BrowserModule,

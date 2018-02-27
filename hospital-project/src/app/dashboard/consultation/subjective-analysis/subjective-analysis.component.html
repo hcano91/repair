@@ -22,19 +22,19 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group" [ngClass]="{
-                    'has-danger': levelOfPain.invalid && (levelOfPain.dirty || levelOfPain.touched),
-                    'has-success': levelOfPain.valid && (levelOfPain.dirty || levelOfPain.touched)
+                    'has-danger': levelOfPainNight.invalid && (levelOfPainNight.dirty || levelOfPainNight.touched),
+                    'has-success': levelOfPainNight.valid && (levelOfPainNight.dirty || levelOfPainNight.touched)
                 }">
-                <label for="levelOfPain">*Dolor nocturno</label>
-                <select class="form-control" name="levelOfPain" #levelOfPain="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.levelOfPain" required>
-                    <option selected [ngValue]="levelOfPain" value="">Seleccione...</option>
-                    <option [ngValue]="levelOfPain" value="Másculino">Ausente</option>
-                    <option [ngValue]="levelOfPain" value="Leve">Leve</option>
-                    <option [ngValue]="levelOfPain" value="Moderado">Moderado</option>
-                    <option [ngValue]="levelOfPain" value="Grave">Grave</option>
+                <label for="levelOfPainNight">*Dolor nocturno</label>
+                <select class="form-control" name="levelOfPainNight" #levelOfPainNight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.levelOfPainNight" required>
+                    <option selected [ngValue]="levelOfPainNight" value="">Seleccione...</option>
+                    <option [ngValue]="levelOfPainNight" value="Másculino">Ausente</option>
+                    <option [ngValue]="levelOfPainNight" value="Leve">Leve</option>
+                    <option [ngValue]="levelOfPainNight" value="Moderado">Moderado</option>
+                    <option [ngValue]="levelOfPainNight" value="Grave">Grave</option>
                 </select>
-                <small *ngIf="levelOfPain.errors?.required && (levelOfPain.touched || levelOfPain.dirty)">*Campo Requerido</small>
-                <small *ngIf="levelOfPain.errors?.pattern && (levelOfPain.touched || levelOfPain.dirty)">*Dato inv&aacute;lido</small>
+                <small *ngIf="levelOfPainNight.errors?.required && (levelOfPainNight.touched || levelOfPainNight.dirty)">*Campo Requerido</small>
+                <small *ngIf="levelOfPainNight.errors?.pattern && (levelOfPainNight.touched || levelOfPainNight.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
