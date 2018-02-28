@@ -347,4 +347,259 @@
             </div>
         </div>
     </div>
+    <div class="row" style="margin-top:40px">
+        <div class="col-md-6">
+            <img style="width: 100%" src="./assets/MEDICINA.png" alt="">
+        </div>
+        <div class="col-md-6">
+            <div class="print-side-information">
+                <p><b>NOMBRE:</b> {{patientService.selectedPatient.data.names + ' ' + patientService.selectedPatient.data.fatherLastName + ' ' + patientService.selectedPatient.data.motherLastName}}</p>
+                <p><b>REGISTRO:</b> {{this.patientService.selectedPatient.data.register}}&nbsp;&nbsp;&nbsp;&nbsp;<b>EDAD:</b> {{getAge(patientService.selectedPatient.data.dateOfBirth)}}&nbsp;&nbsp;&nbsp;&nbsp;<b>SEXO:</b> {{patientService.selectedPatient.data.gender}}</p>
+                <p><b>DEPTO/SERV:</b> Servicio de Reumatolog&iacute;a</p>
+                <p><b>FECHA:</b> {{patientService.selectedPatient.data.creationDate}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="information information-title">
+                <span>RECETA M&Eacute;DICA</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="information information-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <b>Diagnosis</b>
+                        <p>Diagnosis 1: {{consultationService.selectedConsultation.data.diagnosis1}}</p>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <b>Medicamentos Recetados</b>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationName}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationDosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationPresentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationDuration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 1</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 2</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 3</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 4</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 5</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 6</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 7</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 8</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 9</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Duration}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Medicamento 10</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Name}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Presentaci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Duraci&oacute;n</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Duration}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Pr&oacute;xima cita: {{consultationService.selectedConsultation.data.dateNextAppointment}}</p>
+                        <p>Estudios de Laboratorio: {{consultationService.selectedConsultation.data.labStudies}}</p>
+                        <p>Estudios inmunol&oacute;gicos: {{consultationService.selectedConsultation.data.inmunologicStudies}}</p>
+                        <p>Estudios de Gabinete: {{consultationService.selectedConsultation.data.gabinetStudies}}</p>
+                        <p>Interconsultas: {{consultationService.selectedConsultation.data.interconsultingStudies}}</p>
+                        <p>M&eacute;dico Tratante: {{consultationService.selectedConsultation.data.treatingDoctor}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="information information-title end">
+                <span>Receta m&eacute;dica</span>
+            </div>
+        </div>
+    </div>
 </div>

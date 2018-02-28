@@ -41,7 +41,7 @@
                     'has-danger': labStudies.invalid && (labStudies.dirty || labStudies.touched),
                     'has-success': labStudies.valid && (labStudies.dirty || labStudies.touched)
                 }">
-                <label for="labStudies">Escala de Actividad de la enfermedad</label>
+                <label for="labStudies">Estudios de laboratorio</label>
                 <textarea class="form-control" name="labStudies" #labStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.labStudies" placeholder="Describa" rows="2"></textarea>
                 <small *ngIf="labStudies.errors?.required && (labStudies.touched || labStudies.dirty)">*Campo Requerido</small>
                 <small *ngIf="labStudies.errors?.pattern && (labStudies.touched || labStudies.dirty)">*Dato inv&aacute;lido</small>
@@ -52,7 +52,7 @@
                     'has-danger': inmunologicStudies.invalid && (inmunologicStudies.dirty || inmunologicStudies.touched),
                     'has-success': inmunologicStudies.valid && (inmunologicStudies.dirty || inmunologicStudies.touched)
                 }">
-                <label for="inmunologicStudies">Escala de Actividad de la enfermedad</label>
+                <label for="inmunologicStudies">Estudios inmunol&oacute;gicos</label>
                 <textarea class="form-control" name="inmunologicStudies" #inmunologicStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.inmunologicStudies" placeholder="Describa" rows="2"></textarea>
                 <small *ngIf="inmunologicStudies.errors?.required && (inmunologicStudies.touched || inmunologicStudies.dirty)">*Campo Requerido</small>
                 <small *ngIf="inmunologicStudies.errors?.pattern && (inmunologicStudies.touched || inmunologicStudies.dirty)">*Dato inv&aacute;lido</small>
@@ -63,7 +63,7 @@
                     'has-danger': gabinetStudies.invalid && (gabinetStudies.dirty || gabinetStudies.touched),
                     'has-success': gabinetStudies.valid && (gabinetStudies.dirty || gabinetStudies.touched)
                 }">
-                <label for="gabinetStudies">Resultado de escala de actividad</label>
+                <label for="gabinetStudies">Estudios de Gabinete</label>
                 <textarea class="form-control" name="gabinetStudies" #gabinetStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.gabinetStudies" placeholder="Describa" rows="2"></textarea>
                 <small *ngIf="gabinetStudies.errors?.required && (gabinetStudies.touched || gabinetStudies.dirty)">*Campo Requerido</small>
                 <small *ngIf="gabinetStudies.errors?.pattern && (gabinetStudies.touched || gabinetStudies.dirty)">*Dato inv&aacute;lido</small>
