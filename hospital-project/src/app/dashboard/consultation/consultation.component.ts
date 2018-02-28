@@ -3,6 +3,7 @@ import { PatientService } from  '../../services/patient.service';
 import { ConsultationService } from  '../../services/consultation.service';
 import { NgForm, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ElectronService } from 'ngx-electron';
 import * as moment from 'moment';
 
 @Component({
@@ -16,9 +17,15 @@ export class ConsultationComponent implements OnInit {
   @Input() consultationType: string;
   @Input() isEditingConsultation: boolean;
 
+  
+
+
   constructor( public patientService: PatientService,
     public consultationService: ConsultationService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private electronService: ElectronService) { 
+      
+    }
 
   onSubmitForm(consultationForm: NgForm) {
     var upsertObject = {
@@ -41,6 +48,11 @@ export class ConsultationComponent implements OnInit {
     this.toastrService.success('Submitted Successfully', "Patient Register");
   }
 
+  getAge(date){
+    return Math.floor(moment(new Date()).diff(moment(date,"YYYY-MM-DD"),'years',true));
+  }
+  
+
   onResetButtonClick(consultationForm?: NgForm){
     this.resetForm(consultationForm);
   }
@@ -54,6 +66,11 @@ export class ConsultationComponent implements OnInit {
   exitEditMode() {
     this.resetForm();
     this.visibleSectionEvent.emit('patient');
+  }
+
+  printToPDF() {
+    var ipc = this.electronService.ipcRenderer;
+    ipc.send('print-to-pdf');
   }
 
   ngOnInit() {

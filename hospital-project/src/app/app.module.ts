@@ -18,6 +18,7 @@ import { AuthenticationService } from "./services/core/authentication.service";
 import { UserService } from "./services/core/user.service";
 import { SystemState } from "./services/core/systemState.service";
 import { ErrorTranslationService } from "./services/core/errorTranslation.service";
+import { NgxElectronModule } from 'ngx-electron';
 
 // Routes
 import { appRoutes } from './app.routing';
@@ -67,6 +68,7 @@ import { ForNextConsultationComponent } from './dashboard/consultation/for-next-
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NgxElectronModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,

@@ -1,5 +1,11 @@
-const { app, BrowserWindow } = require('electron')
-
+const electron = require('electron');
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+const url = require('url');
+const fs = require('fs');
+const os = require('os');
+const ipc = electron.ipcMain;
+const shell = electron.shell;
 let win;
 
 function createWindow() {
@@ -31,4 +37,22 @@ app.on('activate', function() {
     if (win === null) {
         createWindow()
     }
+})
+
+ipc.on('print-to-pdf', function(event) {
+    const pdfPath = path.join(os.tmpdir(), 'print.pdf');
+    const win = BrowserWindow.fromWebContents(event.sender);
+    win.webContents.printToPDF({
+        marginsType: 0,
+        pageSize: "A3"
+    }, function(error, data) {
+        if (error) return console.log(error.message);
+
+        fs.writeFile(pdfPath, data, function(err) {
+            if (err) return console.log(err.message);
+
+            shell.openExternal('file://' + pdfPath);
+            event.sender.send('wrote-pdf', pdfPath);
+        })
+    })
 })

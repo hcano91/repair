@@ -47,3 +47,16 @@ form.validating .ng-invalid {
     border-width: 1px;
     border-style: solid;
 }
+
+.print-only {
+    display: none;
+}
+
+@media print {
+    .no-print {
+        display: none;
+    }
+    .print-only {
+        display: initial;
+    }
+}

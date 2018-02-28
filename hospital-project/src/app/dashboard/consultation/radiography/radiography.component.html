@@ -19,7 +19,7 @@
                             &Uacute;ltimas radiograf&iacute;a
                         </div>
                     </div>
-                    <input class="form-control" name="handRadiographyLast" #handLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyLast" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="handRadiographyLast" #handRadiographyLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyLast" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
                 </div>
                 <div *ngIf="handRadiography.value" class="input-group">
                     <div class="input-group-addon">
@@ -27,7 +27,7 @@
                             Hallazgos
                         </div>
                     </div>
-                    <input class="form-control" name="handRadiographyFindings" #handFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="handRadiographyFindings" #handRadiographyFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
                 </div>
             </div>
         </div>

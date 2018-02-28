@@ -18,3 +18,52 @@
 .btn-cancel {
     margin-top: 10px;
 }
+
+.print-side-information {
+    background-color: lightgray;
+    height: 150px;
+    border-color: black;
+    border-width: medium;
+    border-style: solid;
+    -webkit-print-color-adjust: exact;
+    border-radius: 8px;
+    line-height: 1;
+    padding: 15px;
+}
+
+.information-title {
+    background-color: lightgray;
+    border-color: black;
+    border-width: medium;
+    border-style: solid;
+    -webkit-print-color-adjust: exact;
+    border-radius: 8px;
+    line-height: 1;
+    padding: 15px;
+    text-align: center;
+}
+
+.information-title span {
+    font-size: 20px;
+}
+
+.information-title.end {
+    color: lightgray;
+}
+
+.information-body {
+    background-color: #F8F8F8;
+    border-color: black;
+    border-width: medium;
+    border-style: solid;
+    -webkit-print-color-adjust: exact;
+    border-radius: 8px;
+    line-height: 1;
+    padding: 15px;
+    height: 1220px;
+}
+
+strong,
+b {
+    font-weight: bold;
+}
