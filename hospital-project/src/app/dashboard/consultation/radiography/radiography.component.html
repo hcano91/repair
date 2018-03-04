@@ -1,7 +1,10 @@
 <div appProvideConsultationForm>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h3>Radiograf&iacute;a</h3>
+            <h4>Estudios de imagen</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h5>Radiograf&iacute;a</h5>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
@@ -19,7 +22,7 @@
                             &Uacute;ltimas radiograf&iacute;a
                         </div>
                     </div>
-                    <input class="form-control" name="handRadiographyLast" #handRadiographyLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyLast" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="handRadiographyLast" #handRadiographyLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyLast" placeholder="">
                 </div>
                 <div *ngIf="handRadiography.value" class="input-group">
                     <div class="input-group-addon">
@@ -27,7 +30,7 @@
                             Hallazgos
                         </div>
                     </div>
-                    <input class="form-control" name="handRadiographyFindings" #handRadiographyFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="handRadiographyFindings" #handRadiographyFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.handRadiographyFindings" placeholder="">
                 </div>
             </div>
         </div>
@@ -47,7 +50,7 @@
                             &Uacute;ltimas radiograf&iacute;a
                         </div>
                     </div>
-                    <input class="form-control" name="footRadiographyLast" #footLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.footRadiographyLast" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="footRadiographyLast" #footLast="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.footRadiographyLast" placeholder="">
                 </div>
                 <div *ngIf="footRadiography.value" class="input-group">
                     <div class="input-group-addon">
@@ -55,7 +58,7 @@
                             Hallazgos
                         </div>
                     </div>
-                    <input class="form-control" name="footRadiographyFindings" #footFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.footRadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="footRadiographyFindings" #footFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.footRadiographyFindings" placeholder="">
                 </div>
             </div>
         </div>
@@ -75,7 +78,7 @@
                             Tipo
                         </div>
                     </div>
-                    <input class="form-control" name="other1RadiographyType" #other1Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyType" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="other1RadiographyType" #other1Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyType" placeholder="">
                 </div>
                 <div *ngIf="other1Radiography.value" class="input-group">
                     <div class="input-group-addon">
@@ -91,7 +94,7 @@
                             Hallazgos
                         </div>
                     </div>
-                    <input class="form-control" name="other1RadiographyFindings" #other1Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyFindings" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="other1RadiographyFindings" #other1Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyFindings" placeholder="">
                 </div>
             </div>
         </div>
@@ -100,7 +103,7 @@
                     'has-danger': radiographyUS.invalid && (radiographyUS.dirty || radiographyUS.touched),
                     'has-success': radiographyUS.valid && (radiographyUS.dirty || radiographyUS.touched)
                 }">
-                <label for="radiographyUS">US</label>
+                <label for="radiographyUS">Ultrasonido</label>
                 <textarea class="form-control" name="radiographyUS" #radiographyUS="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.radiographyUS" placeholder="Describa" rows="2"></textarea>
                 <small *ngIf="radiographyUS.errors?.required && (radiographyUS.touched || radiographyUS.dirty)">*Campo Requerido</small>
                 <small *ngIf="radiographyUS.errors?.pattern && (radiographyUS.touched || radiographyUS.dirty)">*Dato inv&aacute;lido</small>
@@ -111,10 +114,40 @@
                     'has-danger': radiographyOther.invalid && (radiographyOther.dirty || radiographyOther.touched),
                     'has-success': radiographyOther.valid && (radiographyOther.dirty || radiographyOther.touched)
                 }">
-                <label for="radiographyOther">Other</label>
+                <label for="radiographyOther">Otros</label>
                 <textarea class="form-control" name="radiographyOther" #radiographyOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.radiographyOther" placeholder="Describa" rows="2"></textarea>
                 <small *ngIf="radiographyOther.errors?.required && (radiographyOther.touched || radiographyOther.dirty)">*Campo Requerido</small>
                 <small *ngIf="radiographyOther.errors?.pattern && (radiographyOther.touched || radiographyOther.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis' || consultationType==='Atritis Reumatoide'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="ecocardiogram">Ecocardiograma</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.ecocardiogram" #ecocardiogram="ngModel" name="ecocardiogram">
+                        </div>
+                    </div>
+                    <input [disabled]="!ecocardiogram.value" class="form-control" type="date" name="ecocardiogramDate" #ecocardiogramDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.ecocardiogramDate">
+                    <br>
+                    <input class="form-control" name="ecocardiogramFindings" #ecocardiogramFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.ecocardiogramFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis' || consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="hDToraxTAC">TAC de Torax de Alta Resuluci&oacute;n</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.hDToraxTAC" #hDToraxTAC="ngModel" name="hDToraxTAC">
+                        </div>
+                    </div>
+                    <input [disabled]="!hDToraxTAC.value" class="form-control" type="date" name="hDToraxTACDate" #hDToraxTACDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.hDToraxTACDate">
+                    <br>
+                    <input class="form-control" name="hDToraxTACFindings" #hDToraxTACFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.hDToraxTACFindings" placeholder="">
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -139,6 +172,132 @@
                 <textarea class="form-control" name="radiographyFindings" #radiographyFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.radiographyFindings" placeholder="Describa" rows="2"></textarea>
                 <small *ngIf="radiographyFindings.errors?.required && (radiographyFindings.touched || radiographyFindings.dirty)">*Campo Requerido</small>
                 <small *ngIf="radiographyFindings.errors?.pattern && (radiographyFindings.touched || radiographyFindings.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h5>Otros Estudios Auxiliares</h5>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': otherAuxiliaryStudies.invalid && (otherAuxiliaryStudies.dirty || otherAuxiliaryStudies.touched),
+                    'has-success': otherAuxiliaryStudies.valid && (otherAuxiliaryStudies.dirty || otherAuxiliaryStudies.touched)
+                }">
+                <label for="otherAuxiliaryStudies">Detallar</label>
+                <textarea class="form-control" name="otherAuxiliaryStudies" #otherAuxiliaryStudies="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.otherAuxiliaryStudies" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="otherAuxiliaryStudies.errors?.required && (otherAuxiliaryStudies.touched || otherAuxiliaryStudies.dirty)">*Campo Requerido</small>
+                <small *ngIf="otherAuxiliaryStudies.errors?.pattern && (otherAuxiliaryStudies.touched || otherAuxiliaryStudies.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Cristales'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="artocentesisDisease">Artocentesis</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.artocentesisDisease" #artocentesisDisease="ngModel" name="artocentesisDisease">
+                        </div>
+                    </div>
+                    <input [disabled]="!artocentesisDisease.value" class="form-control" type="date" name="artocentesisDiseaseDate" #artocentesisDiseaseDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.artocentesisDiseaseDate">
+                    <br>
+                    <input class="form-control" name="artocentesisDiseaseFindings" #artocentesisDiseaseFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.artocentesisDiseaseFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="lungFunctionTest">Prueba de funci&oacute;n pulmonar</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.lungFunctionTest" #lungFunctionTest="ngModel" name="lungFunctionTest">
+                        </div>
+                    </div>
+                    <input [disabled]="!lungFunctionTest.value" class="form-control" type="date" name="lungFunctionTestDate" #lungFunctionTestDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lungFunctionTestDate">
+                    <br>
+                    <input class="form-control" name="lungFunctionTestFindings" #lungFunctionTestFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lungFunctionTestFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="rightCatheterism">Cateterismo Derecho</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.rightCatheterism" #rightCatheterism="ngModel" name="rightCatheterism">
+                        </div>
+                    </div>
+                    <input [disabled]="!rightCatheterism.value" class="form-control" type="date" name="rightCatheterismDate" #rightCatheterismDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.rightCatheterismDate">
+                    <br>
+                    <input class="form-control" name="rightCatheterismFindings" #rightCatheterismFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.rightCatheterismFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Lupus'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="renalBiopsy">Biopsia Renal</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.renalBiopsy" #renalBiopsy="ngModel" name="renalBiopsy">
+                        </div>
+                    </div>
+                    <input [disabled]="!renalBiopsy.value" class="form-control" type="date" name="renalBiopsyDate" #renalBiopsyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.renalBiopsyDate">
+                    <br>
+                    <input class="form-control" name="renalBiopsyFindings" #renalBiopsyFindings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.renalBiopsyFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="schirmerTestPrescribed">Prueba de Schirmer</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTestPrescribed" #schirmerTestPrescribed="ngModel" name="schirmerTestPrescribed">
+                        </div>
+                    </div>
+                    <input [disabled]="!schirmerTestPrescribed.value" class="form-control" type="date" name="schirmerTestPrescribedDate" #schirmerTestPrescribedDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTestPrescribedDate">
+                    <br>
+                    <input class="form-control" [disabled]="!schirmerTestPrescribed.value" name="schirmerTestPrescribedResultLeftEye" #schirmerTestPrescribedResultLeftEye="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTestPrescribedResultLeftEye"
+                        placeholder="Ojo Izquierdo" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <input class="form-control" [disabled]="!schirmerTestPrescribed.value" name="schirmerTestPrescribedResultRightEye" #schirmerTestPrescribedResultRightEye="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTestPrescribedResultRightEye"
+                        placeholder="Ojo Derecho" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="salivationPrescribed">Secreci&oacute;n de saliva</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.salivationPrescribed" #salivationPrescribed="ngModel" name="salivationPrescribed">
+                        </div>
+                    </div>
+                    <input [disabled]="!salivationPrescribed.value" class="form-control" type="date" name="salivationPrescribedDate" #salivationPrescribedDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivationPrescribedDate">
+                    <br>
+                    <input class="form-control" [disabled]="!salivationPrescribed.value" name="salivationPrescribedTestType" #salivationPrescribedTestType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivationPrescribedTestType" placeholder="Tipo de prueba"
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <input class="form-control" [disabled]="!salivationPrescribed.value" name="salivationPrescribedResult" #salivationPrescribedResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivationPrescribedResult" placeholder="Resultado"
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="salivalGlandBiopsyPrescribed">Biopsia de gl&aacute;ndulas salivales</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.salivalGlandBiopsyPrescribed" #salivalGlandBiopsyPrescribed="ngModel" name="salivalGlandBiopsyPrescribed">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!salivalGlandBiopsyPrescribed.value" name="salivalGlandBiopsyPrescribedResult" #salivalGlandBiopsyPrescribedResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivalGlandBiopsyPrescribedResult"
+                        placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!salivalGlandBiopsyPrescribed.value" class="form-control" type="date" name="salivalGlandBiopsyPrescribedDate" #salivalGlandBiopsyPrescribedDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivalGlandBiopsyPrescribedDate">
+                </div>
             </div>
         </div>
     </div>

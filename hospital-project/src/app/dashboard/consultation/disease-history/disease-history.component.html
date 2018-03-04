@@ -1,8 +1,24 @@
 <div appProvideConsultationForm>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3>Motivo de consulta</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                                    'has-danger': reasonForConsultation.invalid && (reasonForConsultation.dirty || reasonForConsultation.touched),
+                                    'has-success': reasonForConsultation.valid && (reasonForConsultation.dirty || reasonForConsultation.touched)
+                                }">
+                <label for="reasonForConsultation">*Motivo</label>
+                <textarea class="form-control" name="reasonForConsultation" #reasonForConsultation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.reasonForConsultation" placeholder="Detalle de la raz&oacute;n de la visita del paciente." rows="2"
+                    required></textarea>
+                <small *ngIf="reasonForConsultation.errors?.required && (reasonForConsultation.touched || reasonForConsultation.dirty)">*Campo Requerido</small>
+                <small *ngIf="reasonForConsultation.errors?.pattern && (reasonForConsultation.touched || reasonForConsultation.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h3>Antecedentes</h3>
         </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h4>Historia de la enfermedad</h4>
         </div>
@@ -38,7 +54,1009 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!diagnosedByReumatologist.value" name="diagnosedByReumatologistPlace" #diagnosedByReumatologistPlace="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.diagnosedByReumatologistPlace" placeholder="¿D&oacute;nde?"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Atritis Reumatoide'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="toDiagnosisReumatoideFactor">Factor Reumatoide al diagn&oacute;stico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisReumatoideFactor" #toDiagnosisReumatoideFactor="ngModel" name="toDiagnosisReumatoideFactor">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!toDiagnosisReumatoideFactor.value" name="toDiagnosisReumatoideFactorResult" #toDiagnosisReumatoideFactorResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisReumatoideFactorResult"
+                        placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!toDiagnosisReumatoideFactor.value" class="form-control" type="date" name="toDiagnosisReumatoideFactorDate" #toDiagnosisReumatoideFactorDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisReumatoideFactorDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Atritis Reumatoide'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="toDiagnosisCCP">CCP al diagn&oacute;stico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisCCP" #toDiagnosisCCP="ngModel" name="toDiagnosisCCP">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!toDiagnosisCCP.value" name="toDiagnosisCCPResult" #toDiagnosisCCPResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisCCPResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!toDiagnosisCCP.value" class="form-control" type="date" name="toDiagnosisCCPDate" #toDiagnosisCCPDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisCCPDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Espondiloartritis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                        'has-danger': spaType.invalid && (spaType.dirty || spaType.touched),
+                        'has-success': spaType.valid && (spaType.dirty || spaType.touched)
+                    }">
+                <label for="spaType">*Tipo de Espondiloartritis</label>
+                <select class="form-control" name="spaType" #spaType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.spaType" required>
+                        <option selected [ngValue]="spaType" value="">Seleccione...</option>
+                        <option [ngValue]="spaType" value="Axial">Axial</option>
+                        <option [ngValue]="spaType" value="Periferica">Perif&eacute;rica</option>
+                        <option [ngValue]="spaType" value="Mixta">Mixta</option>
+                        <option [ngValue]="spaType" value="Asociada a enfermedad intestinal">Asociada a enfermedad intestinal</option>
+                        <option [ngValue]="spaType" value="Indiferenciada">Indiferenciada</option>
+                        <option [ngValue]="spaType" value="Artritis Psoriasica">Artritis Psori&aacute;sica</option>
+                        <option [ngValue]="spaType" value="No radiografica">No radiogr&aacute;fica</option>
+                    </select>
+                <small *ngIf="spaType.errors?.required && (spaType.touched || spaType.dirty)">*Campo Requerido</small>
+                <small *ngIf="spaType.errors?.pattern && (spaType.touched || spaType.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Espondiloartritis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="diagnosisHLA">HLA-B27</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.diagnosisHLA" #diagnosisHLA="ngModel" name="diagnosisHLA">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!diagnosisHLA.value" name="diagnosisHLAResult" #diagnosisHLAResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.diagnosisHLAResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!diagnosisHLA.value" class="form-control" type="date" name="diagnosisHLADate" #diagnosisHLADate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.diagnosisHLADate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Espondiloartritis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <label for="latestStudies">Manifestaciones iniciales</label>
+            <div class="form-group row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.atritisManifestation" #atritisManifestation="ngModel" name="atritisManifestation" value="Artritis">Artritis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.entesisManifestation" #entesisManifestation="ngModel" name="entesisManifestation" value="Entesitis">Entesitis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.dactilitisManifestation" #dactilitisManifestation="ngModel" name="dactilitisManifestation" value="Dactilitis">Dactilitis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.sacrolitisManifestation" #sacrolitisManifestation="ngModel" name="sacrolitisManifestation" value="Sacroilitis">Sacroilitis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.columnManifestation" #columnManifestation="ngModel" name="columnManifestation" value="Columna">Columna
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.ocularManifestation" #ocularManifestation="ngModel" name="ocularManifestation" value="Ocular">Ocular
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.otherManifestation" #otherManifestation="ngModel" name="otherManifestation" value="Otro">Otro
+                                </label>
+                    </div>
+                    <input *ngIf="otherManifestation.value" class="form-control" name="otherManifestacionDescription" #otherManifestacionDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.otherManifestacionDescription" placeholder="Especifique"
+                        required pattern="^[A-zÀ-ÿ ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Lupus'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <label for="latestStudies">Manifestaciones iniciales</label>
+            <div class="form-group row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.proteinuriaManifestation" #proteinuriaManifestation="ngModel" name="proteinuriaManifestation" value="Proteinuria">Proteinuria
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.piuriaManifestation" #piuriaManifestation="ngModel" name="piuriaManifestation" value="Piuria">Piuria
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.rashManifestation" #rashManifestation="ngModel" name="rashManifestation" value="Rash de nuevo Inicio">Rash de nuevo Inicio
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.alopesiaManifestation" #alopesiaManifestation="ngModel" name="alopesiaManifestation" value="Alopesia">Alopesia
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.ulcerasManifestation" #ulcerasManifestation="ngModel" name="ulcerasManifestation" value="Ulceras orales o nasales">Ulceras orales o nasales
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pleuritisManifestation" #pleuritisManifestation="ngModel" name="pleuritisManifestation" value="Pleuritis">Pleuritis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pericaditisManifestation" #pericaditisManifestation="ngModel" name="pericaditisManifestation" value="Pericarditis">Pericarditis
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.lowComplementManifestation" #lowComplementManifestation="ngModel" name="lowComplementManifestation" value="Complemento bajo">Complemento bajo
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiDNAManifestation" #antiDNAManifestation="ngModel" name="antiDNAManifestation" value="Anti DNA alto">Anti DNA alto
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.feverManifestation" #feverManifestation="ngModel" name="feverManifestation" value="Fiebre">Fiebre
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.trombocitopeniaManifestation" #trombocitopeniaManifestation="ngModel" name="trombocitopeniaManifestation" value="Trombocitopenia">Trombocitopenia
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.leucopeniaManifestation" #leucopeniaManifestation="ngModel" name="leucopeniaManifestation" value="Leucopenia">Leucopenia
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.otherManifestation" #otherManifestation="ngModel" name="otherManifestation" value="Otro">Otro
+                        </label>
+                    </div>
+                    <input *ngIf="otherManifestation.value" class="form-control" name="otherManifestationDescription" #otherManifestationDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.otherManifestationDescription" placeholder="Especifique"
+                        required pattern="^[A-zÀ-ÿ ]*$">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.convulsiveCrisisManifestation" #convulsiveCrisisManifestation="ngModel" name="convulsiveCrisisManifestationManifestation" value="Crisis Convulsivas">Crisis Convulsivas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.psicosisManifestation" #psicosisManifestation="ngModel" name="psicosisManifestation" value="Psicosis">Psicosis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.organicCerebralSyndromeManifestation" #organicCerebralSyndromeManifestation="ngModel" name="organicCerebralSyndromeManifestation" value="Sindrome Cerebral Organico">Sindrome Cerebral Org&aacute;nico
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.visualAffectationManifestation" #visualAffectationManifestation="ngModel" name="visualAffectationManifestation" value="Afectacion visual">Afectaci&oacute;n visual
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.cranealNerveAffectationManifestation" #cranealNerveAffectationManifestation="ngModel" name="cranealNerveAffectationManifestation" value="Afectacion de nervios craneales">Afectaci&oacute;n de nervios craneales
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.cefaleaManifestation" #cefaleaManifestation="ngModel" name="cefaleaManifestation" value="Cefalea">Cefalea
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.evcManifestation" #evcManifestation="ngModel" name="evcManifestation" value="EVC de nuevo inicio">EVC de nuevo inicio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisManifestation" #vasculitisManifestation="ngModel" name="vasculitisManifestation" value="Vasculitis">Vasculitis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.artritisManifestation" #dactilitisManifestation="ngModel" name="dactilitisManifestation" value="Artritis">Artritis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.miositisManifestation" #miositisManifestation="ngModel" name="miositisManifestation" value="Miositis">Miositis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.urinaryCilinderManifestation" #urinaryCilinderManifestation="ngModel" name="urinaryCilinderManifestation" value="Cilindros Urinarios">Cilindros Urinarios
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.hematuriaManifestation" #hematuriaManifestation="ngModel" name="hematuriaManifestation" value="Hematuria">Hematuria
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Lupus'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="toDiagnosisANA">ANA al diagn&oacute;stico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisANA" #toDiagnosisANA="ngModel" name="toDiagnosisANA">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!toDiagnosisANA.value" name="toDiagnosisANAResult" #toDiagnosisANAResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisANAResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!toDiagnosisANA.value" class="form-control" type="date" name="toDiagnosisANADate" #toDiagnosisANADate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.toDiagnosisANADate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Fibromialgia'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="fibromialgiaPain">Dolor</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaPain" #fibromialgiaPain="ngModel" name="fibromialgiaPain">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!fibromialgiaPain.value" name="fibromialgiaPainDescription" #fibromialgiaPainDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaPainDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Fibromialgia'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="fibromialgiaFatigue">Fatiga</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaFatigue" #fibromialgiaFatigue="ngModel" name="fibromialgiaFatigue">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!fibromialgiaFatigue.value" name="fibromialgiaFatigueDescription" #fibromialgiaFatigueDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaFatigueDescription" placeholder="Describa"
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Fibromialgia'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="fibromialgiaDepression">Depresi&oacute;n</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaDepression" #fibromialgiaDepression="ngModel" name="fibromialgiaDepression">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!fibromialgiaDepression.value" name="fibromialgiaDepressionDescription" #fibromialgiaDepressionDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaDepressionDescription"
+                        placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Fibromialgia'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="fibromialgiaAnxiety">Ansiedad</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaAnxiety" #fibromialgiaAnxiety="ngModel" name="fibromialgiaAnxiety">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!fibromialgiaAnxiety.value" name="fibromialgiaAnxietyDescription" #fibromialgiaAnxietyDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.fibromialgiaAnxietyDescription" placeholder="Describa"
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Fibromialgia'" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': fibromalgiaTrigger.invalid && (fibromalgiaTrigger.dirty || fibromalgiaTrigger.touched),
+                    'has-success': fibromalgiaTrigger.valid && (fibromalgiaTrigger.dirty || fibromalgiaTrigger.touched)
+                }">
+                <label for="fibromalgiaTrigger">Desencadenante</label>
+                <input class="form-control" name="fibromalgiaTrigger" #fibromalgiaTrigger="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.fibromalgiaTrigger" placeholder="ej. hace 2 días" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                <small *ngIf="fibromalgiaTrigger.errors?.required && (fibromalgiaTrigger.touched || fibromalgiaTrigger.dirty)">*Campo Requerido</small>
+                <small *ngIf="fibromalgiaTrigger.errors?.pattern && (fibromalgiaTrigger.touched || fibromalgiaTrigger.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': vasculitisType.invalid && (vasculitisType.dirty || vasculitisType.touched),
+                    'has-success': vasculitisType.valid && (vasculitisType.dirty || vasculitisType.touched)
+                }">
+                <label for="vasculitisType">Tipo de Vasculitis</label>
+                <input class="form-control" name="vasculitisType" #vasculitisType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisType" placeholder="ej. hace 2 días" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                <small *ngIf="vasculitisType.errors?.required && (vasculitisType.touched || vasculitisType.dirty)">*Campo Requerido</small>
+                <small *ngIf="vasculitisType.errors?.pattern && (vasculitisType.touched || vasculitisType.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisOcular">Ocular</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisOcular" #vasculitisOcular="ngModel" name="vasculitisOcular">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisOcular.value" name="vasculitisOcularDescription" #vasculitisOcularDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisOcularDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisNasal">Nasal</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisNasal" #vasculitisNasal="ngModel" name="vasculitisNasal">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisNasal.value" name="vasculitisNasalDescription" #vasculitisNasalDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisNasalDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisSuperiorRespiratory">Respiratorio Superior</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisSuperiorRespiratory" #vasculitisSuperiorRespiratory="ngModel" name="vasculitisSuperiorRespiratory">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisSuperiorRespiratory.value" name="vasculitisSuperiorRespiratoryDescription" #vasculitisSuperiorRespiratoryDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisSuperiorRespiratoryDescription"
+                        placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisLung">Pulmonar</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisLung" #vasculitisLung="ngModel" name="vasculitisLung">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisLung.value" name="vasculitisLungDescription" #vasculitisLungDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisLungDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisRenal">Renal</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisRenal" #vasculitisRenal="ngModel" name="vasculitisRenal">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisRenal.value" name="vasculitisRenalDescription" #vasculitisRenalDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisRenalDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisSkin">Dermatol&oacute;gico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisSkin" #vasculitisSkin="ngModel" name="vasculitisSkin">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisSkin.value" name="vasculitisSkinDescription" #vasculitisSkinDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisSkinDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisGastrointestinal">Gastrointestinal</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisGastrointestinal" #vasculitisGastrointestinal="ngModel" name="vasculitisGastrointestinal">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisGastrointestinal.value" name="vasculitisGastrointestinalDescription" #vasculitisGastrointestinalDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisGastrointestinalDescription"
+                        placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisNeurologic">Neurol&oacute;gico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisNeurologic" #vasculitisNeurologic="ngModel" name="vasculitisNeurologic">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisNeurologic.value" name="vasculitisNeurologicDescription" #vasculitisNeurologicDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisNeurologicDescription" placeholder="Describa"
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="vasculitisOcular">Other</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisOther" #vasculitisOther="ngModel" name="vasculitisOther">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!vasculitisOther.value" name="vasculitisOtherDescription" #vasculitisOtherDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisOtherDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="cANCA">cANCA</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.cANCA" #cANCA="ngModel" name="cANCA">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!cANCA.value" name="cANCAResult" #cANCAResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.cANCAResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!cANCA.value" class="form-control" type="date" name="cANCADate" #cANCADate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.cANCADate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="pANCA">pANCA</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pANCA" #pANCA="ngModel" name="pANCA">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!pANCA.value" name="pANCAResult" #pANCAResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pANCAResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!pANCA.value" class="form-control" type="date" name="pANCADate" #pANCADate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pANCADate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="pR3">PR3</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pR3" #pR3="ngModel" name="pR3">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!pR3.value" name="pR3Result" #pR3Result="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pR3Result" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!pR3.value" class="form-control" type="date" name="pR3Date" #pR3Date="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pR3Date">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Vasculitis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="mPO">MPO</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.mPO" #mPO="ngModel" name="mPO">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!mPO.value" name="mPOResult" #mPOResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.mPOResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!mPO.value" class="form-control" type="date" name="mPODate" #mPODate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.mPODate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                        'has-danger': sjogrenType.invalid && (sjogrenType.dirty || sjogrenType.touched),
+                        'has-success': sjogrenType.valid && (sjogrenType.dirty || sjogrenType.touched)
+                    }">
+                <label for="sjogrenType">*Tipo de Sjogren</label>
+                <select class="form-control" name="sjogrenType" #sjogrenType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.sjogrenType" required>
+                    <option selected [ngValue]="sjogrenType" value="">Seleccione...</option>
+                    <option [ngValue]="sjogrenType" value="Primario">Primario</option>
+                    <option [ngValue]="sjogrenType" value="Secundario">Secundario</option>
+                </select>
+                <small *ngIf="sjogrenType.errors?.required && (sjogrenType.touched || sjogrenType.dirty)">*Campo Requerido</small>
+                <small *ngIf="sjogrenType.errors?.pattern && (sjogrenType.touched || sjogrenType.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <label for="latestStudies">Manifestaciones iniciales</label>
+            <div class="form-group row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.atritisManifestation" #atritisManifestation="ngModel" name="atritisManifestation" value="Xeroftalmia">Xeroftalmia
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.entesisManifestation" #entesisManifestation="ngModel" name="entesisManifestation" value="Xerostomia">Xerostom&iacute;a
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.dactilitisManifestation" #dactilitisManifestation="ngModel" name="dactilitisManifestation" value="Craurosis">Craurosis
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.otherManifestation" #otherManifestation="ngModel" name="otherManifestation" value="Otro">Otro
+                        </label>
+                    </div>
+                    <input *ngIf="otherManifestation.value" class="form-control" name="otherManifestationDescription" #otherManifestationDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.otherManifestationDescription" placeholder="Especifique"
+                        required pattern="^[A-zÀ-ÿ ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="schirmerTest">Prueba de Schirmer</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTest" #schirmerTest="ngModel" name="schirmerTest">
+                        </div>
+                    </div>
+                    <input [disabled]="!schirmerTest.value" class="form-control" type="date" name="schirmerTestDate" #schirmerTestDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTestDate">
+                    <br>
+                    <input class="form-control" [disabled]="!schirmerTest.value" name="schirmerTestResultLeftEye" #schirmerTestResultLeftEye="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTestResultLeftEye" placeholder="Ojo Izquierdo" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <input class="form-control" [disabled]="!schirmerTest.value" name="schirmerTestResultRightEye" #schirmerTestResultRightEye="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.schirmerTestResultRightEye" placeholder="Ojo Derecho" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="salivation">Secreci&oacute;n de saliva</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.salivation" #salivation="ngModel" name="salivation">
+                        </div>
+                    </div>
+                    <input [disabled]="!salivation.value" class="form-control" type="date" name="salivationDate" #salivationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivationDate">
+                    <br>
+                    <input class="form-control" [disabled]="!salivation.value" name="salivationTestType" #salivationTestType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivationTestType" placeholder="Tipo de prueba" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <input class="form-control" [disabled]="!salivation.value" name="salivationResult" #salivationResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivationResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="salivalGlandBiopsy">Biopsia de gl&aacute;ndulas salivales</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.salivalGlandBiopsy" #salivalGlandBiopsy="ngModel" name="salivalGlandBiopsy">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!salivalGlandBiopsy.value" name="salivalGlandBiopsyResult" #salivalGlandBiopsyResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivalGlandBiopsyResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!salivalGlandBiopsy.value" class="form-control" type="date" name="salivalGlandBiopsyDate" #salivalGlandBiopsyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.salivalGlandBiopsyDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="antiRo">Anti Ro</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiRo" #antiRo="ngModel" name="antiRo">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!antiRo.value" name="antiRoResult" #antiRoResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiRoResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!antiRo.value" class="form-control" type="date" name="antiRoDate" #antiRoDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiRoDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Sjogren'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="antiLa">Anti La</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiLa" #antiLa="ngModel" name="antiLa">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!antiLa.value" name="antiLaResult" #antiLaResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiLaResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!antiLa.value" class="form-control" type="date" name="antiLaDate" #antiLaDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiLaDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Cristales'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': crystalopathy.invalid && (crystalopathy.dirty || crystalopathy.touched),
+                    'has-success': crystalopathy.valid && (crystalopathy.dirty || crystalopathy.touched)
+                }">
+                <label for="crystalopathy">*Cristalopat&iacute;a</label>
+                <select class="form-control" name="crystalopathy" #crystalopathy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.crystalopathy" required>
+                    <option selected [ngValue]="crystalopathy" value="">Seleccione...</option>
+                    <option [ngValue]="crystalopathy" value="Gota">Gota</option>
+                    <option [ngValue]="crystalopathy" value="CPPD">CPPD</option>
+                    <option [ngValue]="crystalopathy" value="Fosfato Calcico Basico">Fosfato C&aacute;lcico B&aacute;sico</option>
+                    <option [ngValue]="crystalopathy" value="Hidroxiapatita">Hidroxiapatita</option>
+                    <option [ngValue]="crystalopathy" value="Otro">Otro</option>
+                </select>
+                <small *ngIf="crystalopathy.errors?.required && (crystalopathy.touched || crystalopathy.dirty)">*Campo Requerido</small>
+                <small *ngIf="crystalopathy.errors?.pattern && (crystalopathy.touched || crystalopathy.dirty)">*Dato inv&aacute;lido</small>
+                <input *ngIf="crystalopathy.value === 'Otro'" class="form-control" name="crystalopathyOther" #crystalopathyOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.crystalopathyOther" placeholder="Resultado" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Cristales'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="podagra">Podagra</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.podagra" #podagra="ngModel" name="podagra">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!podagra.value" name="podagraDescription" #podagraDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.podagraDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Cristales'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="poliartritis">Poliartritis</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.poliartritis" #poliartritis="ngModel" name="poliartritis">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!poliartritis.value" name="poliartritisDescription" #poliartritisDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.poliartritisDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Cristales'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="tofos">Tofos</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.tofos" #tofos="ngModel" name="tofos">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!tofos.value" name="tofosDescription" #tofosDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.tofosDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Cristales'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="artrocentesis">Artrocentesis</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.artrocentesis" #artrocentesis="ngModel" name="artrocentesis">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!artrocentesis.value" name="artrocentesisDescription" #artrocentesisDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.artrocentesisDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Cristales'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                'has-danger': crystalTypes.invalid && (crystalTypes.dirty || crystalTypes.touched),
+                'has-success': crystalTypes.valid && (crystalTypes.dirty || crystalTypes.touched)
+            }">
+                <label for="crystalTypes">Tipos de Cristales</label>
+                <textarea class="form-control" name="crystalTypes" #crystalTypes="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.crystalTypes" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="crystalTypes.errors?.required && (crystalTypes.touched || crystalTypes.dirty)">*Campo Requerido</small>
+                <small *ngIf="crystalTypes.errors?.pattern && (crystalTypes.touched || crystalTypes.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': esclerosisType.invalid && (esclerosisType.dirty || esclerosisType.touched),
+                    'has-success': esclerosisType.valid && (esclerosisType.dirty || esclerosisType.touched)
+                }">
+                <label for="esclerosisType">*Typo de Esclerosis</label>
+                <select class="form-control" name="esclerosisType" #esclerosisType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.esclerosisType" required>
+                    <option selected [ngValue]="esclerosisType" value="">Seleccione...</option>
+                    <option [ngValue]="esclerosisType" value="Sistemica difusa">Sist&eacute;mica difusa</option>
+                    <option [ngValue]="esclerosisType" value="Sistemica Localizada">Sist&eacute;mica Localizada</option>
+                    <option [ngValue]="esclerosisType" value="Otro">Otro</option>
+                </select>
+                <small *ngIf="esclerosisType.errors?.required && (esclerosisType.touched || esclerosisType.dirty)">*Campo Requerido</small>
+                <small *ngIf="esclerosisType.errors?.pattern && (esclerosisType.touched || esclerosisType.dirty)">*Dato inv&aacute;lido</small>
+                <input *ngIf="esclerosisType.value === 'Otro'" class="form-control" name="esclerosisTypeOther" #esclerosisTypeOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.esclerosisTypeOther" placeholder="Resultado" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="disnea">Disnea</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.disnea" #disnea="ngModel" name="disnea">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!disnea.value" name="disneaDescription" #disneaDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.disneaDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="disfagia">Disfagia</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.disfagia" #disfagia="ngModel" name="disfagia">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!disfagia.value" name="disfagiaDescription" #disfagiaDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.disfagiaDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="intersticialLungDisease">Enfermedad Pulmonar Intersticial</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.intersticialLungDisease" #intersticialLungDisease="ngModel" name="intersticialLungDisease">
+                        </div>
+                    </div>
+                    <input [disabled]="!intersticialLungDisease.value" class="form-control" type="date" name="intersticialLungDiseaseDate" #intersticialLungDiseaseDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.intersticialLungDiseaseDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="arterialLungHypertension">Hipertensi&oacute;n arterial pulmonar</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.arterialLungHypertension" #arterialLungHypertension="ngModel" name="arterialLungHypertension">
+                        </div>
+                    </div>
+                    <input [disabled]="!arterialLungHypertension.value" class="form-control" type="date" name="arterialLungHypertensionDate" #arterialLungHypertensionDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.arterialLungHypertensionDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="scl70">Scl-70</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.scl70" #scl70="ngModel" name="scl70">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!scl70.value" name="scl70Result" #scl70Result="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.scl70Result" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!scl70.value" class="form-control" type="date" name="scl70Date" #scl70Date="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.scl70Date">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="anticentromere">Anticentr&oacute;mero</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.anticentromere" #anticentromere="ngModel" name="anticentromere">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!anticentromere.value" name="anticentromereResult" #anticentromereResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticentromereResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!anticentromere.value" class="form-control" type="date" name="anticentromereDate" #anticentromereDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticentromereDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="antiRNA">Anti RNA Polimerasa III</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiRNA" #antiRNA="ngModel" name="antiRNA">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!antiRNA.value" name="antiRNAResult" #antiRNAResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiRNAResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <br>
+                    <input [disabled]="!antiRNA.value" class="form-control" type="date" name="antiRNADate" #antiRNADate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiRNADate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': miositisType.invalid && (miositisType.dirty || miositisType.touched),
+                    'has-success': miositisType.valid && (miositisType.dirty || miositisType.touched)
+                }">
+                <label for="miositisType">*Typo de Miositis</label>
+                <select class="form-control" name="miositisType" #miositisType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.miositisType" required>
+                    <option selected [ngValue]="miositisType" value="">Seleccione...</option>
+                    <option [ngValue]="miositisType" value="Dermatomiositis">Dermatomiositis</option>
+                    <option [ngValue]="miositisType" value="Polimiositis">Polimiositis</option>
+                    <option [ngValue]="miositisType" value="Miositis de cuerpos de inclusion">Miositis de cuerpos de inclusi&oacute;n</option>
+                    <option [ngValue]="miositisType" value="Sindrome antisintetasa">S&iacute;ndrome antisintetasa</option>
+                    <option [ngValue]="miositisType" value="Otro">Otro</option>
+                </select>
+                <small *ngIf="miositisType.errors?.required && (miositisType.touched || miositisType.dirty)">*Campo Requerido</small>
+                <small *ngIf="miositisType.errors?.pattern && (miositisType.touched || miositisType.dirty)">*Dato inv&aacute;lido</small>
+                <input *ngIf="miositisType.value === 'Otro'" class="form-control" name="miositisTypeOther" #miositisTypeOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.miositisTypeOther" placeholder="Resultado" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="proximalWeakness">Debilidad Proximal</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.proximalWeakness" #proximalWeakness="ngModel" name="proximalWeakness">
+                        </div>
+                    </div>
+                    <input [disabled]="!proximalWeakness.value" class="form-control" type="date" name="proximalWeaknessDate" #proximalWeaknessDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.proximalWeaknessDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="lungDisease">Pulmonar</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.lungDisease" #lungDisease="ngModel" name="lungDisease">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!lungDisease.value" name="lungDiseaseDescription" #lungDiseaseDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lungDiseaseDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="proximalDebility">Debilidad Proximal</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.proximalDebility" #proximalDebility="ngModel" name="proximalDebility">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!proximalDebility.value" name="proximalDebilityDescription" #proximalDebilityDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.proximalDebilityDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <input [disabled]="!proximalDebility.value" class="form-control" type="date" name="proximalDebilityDate" #proximalDebilityDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.proximalDebilityDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="otherSymptoms">Otro</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.otherSymptoms" #otherSymptoms="ngModel" name="otherSymptoms">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!otherSymptoms.value" name="otherSymptomsDescription" #otherSymptomsDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.otherSymptomsDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    <input [disabled]="!otherSymptoms.value" class="form-control" type="date" name="otherSymptomsDate" #otherSymptomsDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.otherSymptomsDate">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <label for="latestStudies">Anticuerpos</label>
+            <div class="form-group row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.proteinuriaManifestation" #proteinuriaManifestation="ngModel" name="proteinuriaManifestation" value="Oj">Oj
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.piuriaManifestation" #piuriaManifestation="ngModel" name="piuriaManifestation" value="Ro52">Ro52
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.rashManifestation" #rashManifestation="ngModel" name="rashManifestation" value="Mi2Alfa">Mi2Alfa
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.alopesiaManifestation" #alopesiaManifestation="ngModel" name="alopesiaManifestation" value="MDA5">MDA5
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.ulcerasManifestation" #ulcerasManifestation="ngModel" name="ulcerasManifestation" value="TIF1GAMA">TIF1GAMA
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pleuritisManifestation" #pleuritisManifestation="ngModel" name="pleuritisManifestation" value="Pm-scl75">Pm-scl75
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pericaditisManifestation" #pericaditisManifestation="ngModel" name="pericaditisManifestation" value="Mi2Beta">Mi2Beta
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.lowComplementManifestation" #lowComplementManifestation="ngModel" name="lowComplementManifestation" value="SRP">SRP
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiDNAManifestation" #antiDNAManifestation="ngModel" name="antiDNAManifestation" value="PL12">PL12
+                            </label>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.convulsiveCrisisManifestation" #convulsiveCrisisManifestation="ngModel" name="convulsiveCrisisManifestationManifestation" value="PL7">PL7
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.psicosisManifestation" #psicosisManifestation="ngModel" name="psicosisManifestation" value="Pm-scl100">Pm-scl100
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.organicCerebralSyndromeManifestation" #organicCerebralSyndromeManifestation="ngModel" name="organicCerebralSyndromeManifestation" value="Qu">Qu
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.visualAffectationManifestation" #visualAffectationManifestation="ngModel" name="visualAffectationManifestation" value="Jo1">Jo1
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.cranealNerveAffectationManifestation" #cranealNerveAffectationManifestation="ngModel" name="cranealNerveAffectationManifestation" value="Ej">Ej
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.cefaleaManifestation" #cefaleaManifestation="ngModel" name="cefaleaManifestation" value="CNIA">CNIA
+                            </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.evcManifestation" #evcManifestation="ngModel" name="evcManifestation" value="NXP2">NXP2
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.vasculitisManifestation" #vasculitisManifestation="ngModel" name="vasculitisManifestation" value="SAE1">SAE1
+                            </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,7 +1086,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!mtxMedication.value" name="mtxMedicationSuspended" #mtxMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.mtxMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -82,7 +1100,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!lfmMedication.value" name="lfmMedicationSuspended" #lfmMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lfmMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -96,7 +1114,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!sszMedication.value" name="sszMedicationSuspended" #sszMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.sszMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -110,7 +1128,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!hcqMedication.value" name="hcqMedicationSuspended" #hcqMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.hcqMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -124,7 +1142,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!clqMedication.value" name="clqMedicationSuspended" #clqMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.clqMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -138,7 +1156,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!azaMedication.value" name="azaMedicationSuspended" #azaMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.azaMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -152,7 +1170,21 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!cfmMedication.value" name="cfmMedicationSuspended" #cfmMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.cfmMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="mmfMedication">MMF</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.mmfMedication" #mmfMedication="ngModel" name="mmfMedication">
+                        </div>
+                    </div>
+                    <input class="form-control" [disabled]="!mmfMedication.value" name="mmfMedicationSuspended" #mmfMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.mmfMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -166,7 +1198,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!bioMedication.value" name="bioMedicationSuspended" #bioMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.bioMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -180,7 +1212,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!glucocorticoidesMedication.value" name="glucocorticoidesMedicationSpecify" #glucocorticoidesMedicationSpecify="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationSpecify"
-                        placeholder="Especifique cu&aacute;les" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        placeholder="Especifique cu&aacute;les" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="glucocorticoidesMedication.value" class="input-group">
                     <div class="input-group-addon">
@@ -197,7 +1229,7 @@
                         </div>
                     </div>
                     <input class="form-control" name="glucocorticoidesMedicationSuspended" #glucocorticoidesMedicationSuspended="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="glucocorticoidesMedication.value" class="input-group">
                     <div class="input-group-addon">
@@ -206,7 +1238,7 @@
                         </div>
                     </div>
                     <input class="form-control" name="glucocorticoidesMedicationSecondaryEffects" #glucocorticoidesMedicationSecondaryEffects="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.glucocorticoidesMedicationSecondaryEffects" placeholder="Efectos Secundarios"
-                        pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   styleUrls: ['./objective-analysis.component.css']
 })
 export class ObjectiveAnalysisComponent implements OnInit {
-
+  @Input() consultationType: string;
   constructor(public consultationService: ConsultationService) { }
 
   ngOnInit() {

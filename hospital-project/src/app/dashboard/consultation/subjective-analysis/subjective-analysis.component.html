@@ -56,7 +56,7 @@
                     'has-success': doctorEvaluation.valid && (doctorEvaluation.dirty || doctorEvaluation.touched)
                 }">
                 <label for="doctorEvaluation">*EVA m&eacute;dico</label>
-                <input type="number" class="form-control" name="doctorEvaluation" #doctorEvaluation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.doctorEvaluation" placeholder="1-100" pattern="(?:\b|-)([1-9]{1,2}[0]?|100)\b" required>
+                <input type="number" class="form-control" name="doctorEvaluation" #doctorEvaluation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.doctorEvaluation" placeholder="0-100" pattern="(?:\b|-)([0-9]{1,2}[0]?|100)\b" required>
                 <small *ngIf="doctorEvaluation.errors?.required && (doctorEvaluation.touched || doctorEvaluation.dirty)">*Campo Requerido</small>
                 <small *ngIf="doctorEvaluation.errors?.pattern && (doctorEvaluation.touched || doctorEvaluation.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -67,7 +67,7 @@
                     'has-success': patientEvaluation.valid && (patientEvaluation.dirty || patientEvaluation.touched)
                 }">
                 <label for="patientEvaluation">*EVA paciente</label>
-                <input type="number" class="form-control" name="patientEvaluation" #patientEvaluation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.patientEvaluation" placeholder="1-100" pattern="(?:\b|-)([1-9]{1,2}[0]?|100)\b" required>
+                <input type="number" class="form-control" name="patientEvaluation" #patientEvaluation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.patientEvaluation" placeholder="0-100" pattern="(?:\b|-)([0-9]{1,2}[0]?|100)\b" required>
                 <small *ngIf="patientEvaluation.errors?.required && (patientEvaluation.touched || patientEvaluation.dirty)">*Campo Requerido</small>
                 <small *ngIf="patientEvaluation.errors?.pattern && (patientEvaluation.touched || patientEvaluation.dirty)">*Dato inv&aacute;lido</small>
             </div>

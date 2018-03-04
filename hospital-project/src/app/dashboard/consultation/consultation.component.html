@@ -28,16 +28,16 @@
         </div>
 
         <app-pregnancy *ngIf="patientService.selectedPatient.data.gender==='Femenino'"></app-pregnancy>
-        <app-disease-history></app-disease-history>
-        <app-actual-treatment></app-actual-treatment>
-        <app-subjective-analysis></app-subjective-analysis>
-        <app-objective-analysis></app-objective-analysis>
-        <app-auxiliary-studies></app-auxiliary-studies>
-        <app-radiography></app-radiography>
-        <app-diagnosis></app-diagnosis>
-        <app-illness-activity></app-illness-activity>
-        <app-prescribing-treatment></app-prescribing-treatment>
-        <app-for-next-consultation></app-for-next-consultation>
+        <app-disease-history [consultationType]="consultationType"></app-disease-history>
+        <app-actual-treatment [consultationType]="consultationType"></app-actual-treatment>
+        <app-subjective-analysis [consultationType]="consultationType"></app-subjective-analysis>
+        <app-objective-analysis [consultationType]="consultationType"></app-objective-analysis>
+        <app-auxiliary-studies [consultationType]="consultationType"></app-auxiliary-studies>
+        <app-radiography [consultationType]="consultationType"></app-radiography>
+        <app-diagnosis [consultationType]="consultationType"></app-diagnosis>
+        <app-illness-activity [consultationType]="consultationType"></app-illness-activity>
+        <app-prescribing-treatment [consultationType]="consultationType"></app-prescribing-treatment>
+        <app-for-next-consultation [consultationType]="consultationType"></app-for-next-consultation>
     </div>
 </form>
 {{consultationService.selectedConsultation.data.urineResultPh | json}}

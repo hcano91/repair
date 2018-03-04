@@ -4,7 +4,8 @@
             <h3>Embarazo</h3>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group" [ngClass]="{
+            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.notRememberPeriodDate" #notRememberPeriodDate="ngModel" name="notRememberPeriodDate"> Recuerda Fecha de &uacute;ltima menstruaci&oacute;n
+            <div *ngIf="!notRememberPeriodDate.value" class="form-group" [ngClass]="{
                 'has-danger': lastPeriodDate.invalid && (lastPeriodDate.dirty || lastPeriodDate.touched),
                 'has-success': lastPeriodDate.valid && (lastPeriodDate.dirty || lastPeriodDate.touched)
             }">
@@ -12,6 +13,15 @@
                 <input class="form-control" type="date" name="lastPeriodDate" #lastPeriodDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lastPeriodDate" required>
                 <small *ngIf="lastPeriodDate.errors?.required && (lastPeriodDate.touched || lastPeriodDate.dirty)">*Campo Requerido</small>
                 <small *ngIf="lastPeriodDate.errors?.pattern && (lastPeriodDate.touched || lastPeriodDate.dirty)">*Dato inv&aacute;lido</small>
+            </div>
+            <div *ngIf="notRememberPeriodDate.value" class="form-group" [ngClass]="{
+                'has-danger': lastPeriodDescription.invalid && (lastPeriodDescription.dirty || lastPeriodDescription.touched),
+                'has-success': lastPeriodDescription.valid && (lastPeriodDescription.dirty || lastPeriodDescription.touched)
+            }">
+                <label for="lastPeriodDescription">*Fecha de &uacute;ltima Menstruaci&oacute;n</label>
+                <input class="form-control" name="lastPeriodDescription" #lastPeriodDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lastPeriodDescription" placeholder="ej. Dos meses" required>
+                <small *ngIf="lastPeriodDescription.errors?.required && (lastPeriodDescription.touched || lastPeriodDescription.dirty)">*Campo Requerido</small>
+                <small *ngIf="lastPeriodDescription.errors?.pattern && (lastPeriodDescription.touched || lastPeriodDescription.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -25,116 +35,121 @@
                 <small *ngIf="rythm.errors?.pattern && (rythm.touched || rythm.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
+        <div *ngIf="getAge()">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h4>Consulta Preconcepcional</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="preconceptionalValuation">Ha acudido a valoraci&oacute;n Preconcepcional</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.preconceptionalValuation" #preconceptionalValuation="ngModel" name="preconceptionalValuation">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!preconceptionalValuation.value" type="date" name="preconceptionalValuationDate" #preconceptionalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.preconceptionalValuationDate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="ginecologicalValuation">Ha acudido a valoraci&oacute;n por Ginecolog&iacute;a y Obstetracia</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.ginecologicalValuation" #ginecologicalValuation="ngModel" name="ginecologicalValuation">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!ginecologicalValuation.value" type="date" name="ginecologicalValuationDate" #ginecologicalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.ginecologicalValuationDate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="nutritionalValuation">Ha acudido a valoraci&oacute;n Nutrici&oacute;nal cl&iacute;nica</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.nutritionalValuation" #nutritionalValuation="ngModel" name="nutritionalValuation">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!nutritionalValuation.value" type="date" name="nutritionalValuationDate" #nutritionalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.nutritionalValuationDate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="geneticValuation">Requiere Consejo gen&eacute;tico</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.geneticValuation" #geneticValuation="ngModel" name="geneticValuation">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!geneticValuation.value" type="date" name="geneticValuationDate" #geneticValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.geneticValuationDate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="psicologicalValuation">Requiere consejo Psicol&oacute;gico</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.psicologicalValuation" #psicologicalValuation="ngModel" name="psicologicalValuation">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!psicologicalValuation.value" type="date" name="psicologicalValuationDate" #psicologicalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.psicologicalValuationDate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="wantsPregnancy">Paciente desea Embarazo</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancy" #wantsPregnancy="ngModel" name="wantsPregnancy">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!wantsPregnancy.value" type="date" name="wantsPregnancyDate" #wantsPregnancyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancyDate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="pregnancyContraindication">Hay contraindicaci&oacute;n m&eacute;dica para el embarazo</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pregnancyContraindication" #pregnancyContraindication="ngModel" name="pregnancyContraindication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!pregnancyContraindication.value" name="pregnancyContraindicationDescription" #pregnancyContraindicationDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pregnancyContraindicationDescription"
+                            placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h5>Ex&aacute;menes necesarios para pacientes embarazadas o con deseo de embarazo</h5>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="antiCPPExam">AntiCCP</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExam" #antiCPPExam="ngModel" name="antiCPPExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!antiCPPExam.value" name="antiCPPExamResult" #antiCPPExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4>Consulta Preconcepcional</h4>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="preconceptionalValuation">Ha acudido a valoraci&oacute;n Preconcepcional</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.preconceptionalValuation" #preconceptionalValuation="ngModel" name="preconceptionalValuation">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!preconceptionalValuation.value" type="date" name="preconceptionalValuationDate" #preconceptionalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.preconceptionalValuationDate">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="ginecologicalValuation">Ha acudido a valoraci&oacute;n por Ginecolog&iacute;a y Obstetracia</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.ginecologicalValuation" #ginecologicalValuation="ngModel" name="ginecologicalValuation">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!ginecologicalValuation.value" type="date" name="ginecologicalValuationDate" #ginecologicalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.ginecologicalValuationDate">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="nutritionalValuation">Ha acudido a valoraci&oacute;n Nutrici&oacute;nal cl&iacute;nica</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.nutritionalValuation" #nutritionalValuation="ngModel" name="nutritionalValuation">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!nutritionalValuation.value" type="date" name="nutritionalValuationDate" #nutritionalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.nutritionalValuationDate">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="geneticValuation">Requiere Consejo gen&eacute;tico</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.geneticValuation" #geneticValuation="ngModel" name="geneticValuation">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!geneticValuation.value" type="date" name="geneticValuationDate" #geneticValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.geneticValuationDate">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="psicologicalValuation">Requiere consejo Psicol&oacute;gico</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.psicologicalValuation" #psicologicalValuation="ngModel" name="psicologicalValuation">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!psicologicalValuation.value" type="date" name="psicologicalValuationDate" #psicologicalValuationDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.psicologicalValuationDate">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="wantsPregnancy">Paciente desea Embarazo</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancy" #wantsPregnancy="ngModel" name="wantsPregnancy">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!wantsPregnancy.value" type="date" name="wantsPregnancyDate" #wantsPregnancyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancyDate">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="pregnancyContraindication">Hay contraindicaci&oacute;n m&eacute;dica para el embarazo</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.pregnancyContraindication" #pregnancyContraindication="ngModel" name="pregnancyContraindication">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!pregnancyContraindication.value" name="pregnancyContraindicationDescription" #pregnancyContraindicationDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pregnancyContraindicationDescription"
-                        placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h5>Ex&aacute;menes necesarios para pacientes embarazadas o con deseo de embarazo</h5>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="antiCPPExam">AntiCCP</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExam" #antiCPPExam="ngModel" name="antiCPPExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!antiCPPExam.value" name="antiCPPExamResult" #antiCPPExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-            </div>
+            <h4>Ex&aacute;menes de pacientes embarazadas</h4>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">

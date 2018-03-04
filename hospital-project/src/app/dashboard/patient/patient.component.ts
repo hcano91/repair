@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { PatientService } from  '../../services/patient.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-patient',
@@ -27,6 +28,10 @@ export class PatientComponent implements OnInit {
     this.onResetButtonClick(patientForm);
     this.visibleSectionEvent.emit('patient-list');
     this.toastrService.success('Submitted Successfully', "Patient Register");
+  }
+
+  getAge(date){
+    return Math.floor(moment(new Date()).diff(moment(date,"YYYY-MM-DD"),'years',true));
   }
 
   onResetButtonClick(patientForm?: NgForm){

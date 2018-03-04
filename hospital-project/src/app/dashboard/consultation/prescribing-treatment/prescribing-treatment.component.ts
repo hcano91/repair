@@ -9,7 +9,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   styleUrls: ['./prescribing-treatment.component.css']
 })
 export class PrescribingTreatmentComponent implements OnInit {
-
+  @Input() consultationType: string;
   constructor(public consultationService: ConsultationService) { }
 
   canShow(previousInput) {

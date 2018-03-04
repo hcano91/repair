@@ -9,7 +9,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   styleUrls: ['./illness-activity.component.css']
 })
 export class IllnessActivityComponent implements OnInit {
-
+  @Input() consultationType: string;
   constructor(public consultationService: ConsultationService) { }
 
   ngOnInit() {

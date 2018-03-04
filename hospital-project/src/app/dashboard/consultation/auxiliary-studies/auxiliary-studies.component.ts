@@ -9,6 +9,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   styleUrls: ['./auxiliary-studies.component.css']
 })
 export class AuxiliaryStudiesComponent implements OnInit {
+  @Input() consultationType: string;
 
   constructor(public consultationService: ConsultationService) { }
 

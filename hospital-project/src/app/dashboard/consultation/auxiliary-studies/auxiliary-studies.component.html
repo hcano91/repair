@@ -8,8 +8,8 @@
                     'has-danger': vsgAuxiliaryStudy.invalid && (vsgAuxiliaryStudy.dirty || vsgAuxiliaryStudy.touched),
                     'has-success': vsgAuxiliaryStudy.valid && (vsgAuxiliaryStudy.dirty || vsgAuxiliaryStudy.touched)
                 }">
-                <label for="vsgAuxiliaryStudy">VCG</label>
-                <input class="form-control" name="vsgAuxiliaryStudy" #vsgAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vsgAuxiliaryStudy" placeholder="" pattern="^[A-zÀ-ÿ ]*$">
+                <label for="vsgAuxiliaryStudy">VSG</label>
+                <input class="form-control" name="vsgAuxiliaryStudy" #vsgAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.vsgAuxiliaryStudy" placeholder="">
                 <small *ngIf="vsgAuxiliaryStudy.errors?.required && (vsgAuxiliaryStudy.touched || vsgAuxiliaryStudy.dirty)">*Campo Requerido</small>
                 <small *ngIf="vsgAuxiliaryStudy.errors?.pattern && (vsgAuxiliaryStudy.touched || vsgAuxiliaryStudy.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -20,7 +20,7 @@
                     'has-success': pcrAuxiliaryStudy.valid && (pcrAuxiliaryStudy.dirty || pcrAuxiliaryStudy.touched)
                 }">
                 <label for="pcrAuxiliaryStudy">PCR</label>
-                <input class="form-control" name="pcrAuxiliaryStudy" #pcrAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pcrAuxiliaryStudy" placeholder="" pattern="^[A-zÀ-ÿ ]*$">
+                <input class="form-control" name="pcrAuxiliaryStudy" #pcrAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pcrAuxiliaryStudy" placeholder="">
                 <small *ngIf="pcrAuxiliaryStudy.errors?.required && (pcrAuxiliaryStudy.touched || pcrAuxiliaryStudy.dirty)">*Campo Requerido</small>
                 <small *ngIf="pcrAuxiliaryStudy.errors?.pattern && (pcrAuxiliaryStudy.touched || pcrAuxiliaryStudy.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -31,7 +31,7 @@
                     'has-success': frAuxiliaryStudy.valid && (frAuxiliaryStudy.dirty || frAuxiliaryStudy.touched)
                 }">
                 <label for="frAuxiliaryStudy">FR</label>
-                <input class="form-control" name="frAuxiliaryStudy" #frAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.frAuxiliaryStudy" placeholder="" pattern="^[A-zÀ-ÿ ]*$">
+                <input class="form-control" name="frAuxiliaryStudy" #frAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.frAuxiliaryStudy" placeholder="">
                 <small *ngIf="frAuxiliaryStudy.errors?.required && (frAuxiliaryStudy.touched || frAuxiliaryStudy.dirty)">*Campo Requerido</small>
                 <small *ngIf="frAuxiliaryStudy.errors?.pattern && (frAuxiliaryStudy.touched || frAuxiliaryStudy.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -42,7 +42,7 @@
                     'has-success': CCPAuxiliaryStudy.valid && (CCPAuxiliaryStudy.dirty || CCPAuxiliaryStudy.touched)
                 }">
                 <label for="CCPAuxiliaryStudy">CCP</label>
-                <input class="form-control" name="CCPAuxiliaryStudy" #CCPAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.CCPAuxiliaryStudy" placeholder="" pattern="^[A-zÀ-ÿ ]*$">
+                <input class="form-control" name="CCPAuxiliaryStudy" #CCPAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.CCPAuxiliaryStudy" placeholder="">
                 <small *ngIf="CCPAuxiliaryStudy.errors?.required && (CCPAuxiliaryStudy.touched || CCPAuxiliaryStudy.dirty)">*Campo Requerido</small>
                 <small *ngIf="CCPAuxiliaryStudy.errors?.pattern && (CCPAuxiliaryStudy.touched || CCPAuxiliaryStudy.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -53,7 +53,7 @@
                     'has-success': anaAuxiliaryStudy.valid && (anaAuxiliaryStudy.dirty || anaAuxiliaryStudy.touched)
                 }">
                 <label for="anaAuxiliaryStudy">ANA</label>
-                <input class="form-control" name="anaAuxiliaryStudy" #anaAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anaAuxiliaryStudy" placeholder="" pattern="^[A-zÀ-ÿ ]*$">
+                <input class="form-control" name="anaAuxiliaryStudy" #anaAuxiliaryStudy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anaAuxiliaryStudy" placeholder="">
                 <small *ngIf="anaAuxiliaryStudy.errors?.required && (anaAuxiliaryStudy.touched || anaAuxiliaryStudy.dirty)">*Campo Requerido</small>
                 <small *ngIf="anaAuxiliaryStudy.errors?.pattern && (anaAuxiliaryStudy.touched || anaAuxiliaryStudy.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -85,7 +85,7 @@
                             Hb
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryHb" #studyHematicBiometryHb="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryHb" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryHb" #studyHematicBiometryHb="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryHb" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHematicBiometry.value" class="input-group">
                     <div class="input-group-addon">
@@ -93,7 +93,7 @@
                             HCM
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryHCM" #studyHematicBiometryHCM="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryHCM" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryHCM" #studyHematicBiometryHCM="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryHCM" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHematicBiometry.value" class="input-group">
                     <div class="input-group-addon">
@@ -101,7 +101,7 @@
                             VCM
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryVCM" #studyHematicBiometryVCM="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryVCM" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryVCM" #studyHematicBiometryVCM="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryVCM" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHematicBiometry.value" class="input-group">
                     <div class="input-group-addon">
@@ -109,7 +109,7 @@
                             WBC
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryWBC" #studyHematicBiometryWBC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryWBC" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryWBC" #studyHematicBiometryWBC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryWBC" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHematicBiometry.value" class="input-group">
                     <div class="input-group-addon">
@@ -117,7 +117,7 @@
                             Neut
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryNeut" #studyHematicBiometryNeut="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryNeut" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryNeut" #studyHematicBiometryNeut="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryNeut" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHematicBiometry.value" class="input-group">
                     <div class="input-group-addon">
@@ -125,7 +125,7 @@
                             Linf
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryLinf" #studyHematicBiometryLinf="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryLinf" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryLinf" #studyHematicBiometryLinf="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryLinf" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHematicBiometry.value" class="input-group">
                     <div class="input-group-addon">
@@ -133,7 +133,7 @@
                             PLT
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryPLT" #studyHematicBiometryPLT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryPLT" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryPLT" #studyHematicBiometryPLT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryPLT" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHematicBiometry.value" class="input-group">
                     <div class="input-group-addon">
@@ -141,7 +141,7 @@
                             Otro
                         </div>
                     </div>
-                    <input class="form-control" name="studyHematicBiometryOtro" #studyHematicBiometryOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHematicBiometryOtro" #studyHematicBiometryOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHematicBiometryOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
                             Gluc
                         </div>
                     </div>
-                    <input class="form-control" name="studyBloodChemistryGluc" #studyBloodChemistryGluc="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryGluc" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyBloodChemistryGluc" #studyBloodChemistryGluc="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryGluc" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyBloodChemistry.value" class="input-group">
                     <div class="input-group-addon">
@@ -169,7 +169,7 @@
                             BUN
                         </div>
                     </div>
-                    <input class="form-control" name="studyBloodChemistryBUN" #studyBloodChemistryBUN="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryBUN" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyBloodChemistryBUN" #studyBloodChemistryBUN="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryBUN" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyBloodChemistry.value" class="input-group">
                     <div class="input-group-addon">
@@ -177,7 +177,7 @@
                             Cretenina
                         </div>
                     </div>
-                    <input class="form-control" name="studyBloodChemistryCretenina" #studyBloodChemistryCretenina="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryCretenina" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyBloodChemistryCretenina" #studyBloodChemistryCretenina="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryCretenina" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyBloodChemistry.value" class="input-group">
                     <div class="input-group-addon">
@@ -185,7 +185,7 @@
                             &Aacute;cido &uacute;rico
                         </div>
                     </div>
-                    <input class="form-control" name="studyBloodChemistryUricAcid" #studyBloodChemistryUricAcid="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryUricAcid" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyBloodChemistryUricAcid" #studyBloodChemistryUricAcid="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryUricAcid" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyBloodChemistry.value" class="input-group">
                     <div class="input-group-addon">
@@ -193,7 +193,7 @@
                             Otro
                         </div>
                     </div>
-                    <input class="form-control" name="studyBloodChemistryOtro" #studyBloodChemistryOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyBloodChemistryOtro" #studyBloodChemistryOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyBloodChemistryOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -213,7 +213,7 @@
                             Alb&uacute;mina
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionAlbumina" #studyHepaticFunctionAlbumina="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionAlbumina" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionAlbumina" #studyHepaticFunctionAlbumina="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionAlbumina" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -221,7 +221,7 @@
                             Globulina
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionGlobulina" #studyHepaticFunctionGlobulina="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionGlobulina" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionGlobulina" #studyHepaticFunctionGlobulina="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionGlobulina" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -229,7 +229,7 @@
                             AST
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionAST" #studyHepaticFunctionAST="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionAST" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionAST" #studyHepaticFunctionAST="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionAST" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -237,7 +237,7 @@
                             ALT
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionALT" #studyHepaticFunctionALT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionALT" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionALT" #studyHepaticFunctionALT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionALT" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -245,7 +245,7 @@
                             FA
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionFA" #studyHepaticFunctionFA="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionFA" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionFA" #studyHepaticFunctionFA="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionFA" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -253,7 +253,7 @@
                             GGT
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionGGT" #studyHepaticFunctionGGT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionGGT" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionGGT" #studyHepaticFunctionGGT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionGGT" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -261,7 +261,7 @@
                             Bil Dir
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionBilDir" #studyHepaticFunctionBilDir="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionBilDir" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionBilDir" #studyHepaticFunctionBilDir="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionBilDir" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -269,7 +269,7 @@
                             Bil Ind
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionBilInd" #studyHepaticFunctionBilInd="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionBilInd" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionBilInd" #studyHepaticFunctionBilInd="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionBilInd" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -277,7 +277,7 @@
                             Bil Total
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionBilTotal" #studyHepaticFunctionBilTotal="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionBilTotal" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionBilTotal" #studyHepaticFunctionBilTotal="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionBilTotal" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyHepaticFunction.value" class="input-group">
                     <div class="input-group-addon">
@@ -285,7 +285,7 @@
                             Otro
                         </div>
                     </div>
-                    <input class="form-control" name="studyHepaticFunctionOtro" #studyHepaticFunctionOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyHepaticFunctionOtro" #studyHepaticFunctionOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyHepaticFunctionOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>
@@ -305,7 +305,7 @@
                             Ph
                         </div>
                     </div>
-                    <input class="form-control" name="studyGeneralUrinePh" #studyGeneralUrinePh="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrinePh" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyGeneralUrinePh" #studyGeneralUrinePh="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrinePh" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyGeneralUrine.value" class="input-group">
                     <div class="input-group-addon">
@@ -313,7 +313,7 @@
                             Nitritos
                         </div>
                     </div>
-                    <input class="form-control" name="studyGeneralUrineNitritos" #studyGeneralUrineNitritos="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineNitritos" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyGeneralUrineNitritos" #studyGeneralUrineNitritos="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineNitritos" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyGeneralUrine.value" class="input-group">
                     <div class="input-group-addon">
@@ -321,7 +321,7 @@
                             Wbc/Campo
                         </div>
                     </div>
-                    <input class="form-control" name="studyGeneralUrineWbcCampo" #studyGeneralUrineWbcCampo="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineWbcCampo" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyGeneralUrineWbcCampo" #studyGeneralUrineWbcCampo="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineWbcCampo" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyGeneralUrine.value" class="input-group">
                     <div class="input-group-addon">
@@ -329,7 +329,7 @@
                             Rbc/Campo
                         </div>
                     </div>
-                    <input class="form-control" name="studyGeneralUrineRbcCampo" #studyGeneralUrineRbcCampo="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineRbcCampo" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyGeneralUrineRbcCampo" #studyGeneralUrineRbcCampo="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineRbcCampo" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyGeneralUrine.value" class="input-group">
                     <div class="input-group-addon">
@@ -337,7 +337,7 @@
                             Cilindros
                         </div>
                     </div>
-                    <input class="form-control" name="studyGeneralUrineCilindros" #studyGeneralUrineCilindros="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineCilindros" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyGeneralUrineCilindros" #studyGeneralUrineCilindros="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineCilindros" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyGeneralUrine.value" class="input-group">
                     <div class="input-group-addon">
@@ -345,7 +345,7 @@
                             GGT
                         </div>
                     </div>
-                    <input class="form-control" name="studyGeneralUrineGGT" #studyGeneralUrineGGT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineGGT" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyGeneralUrineGGT" #studyGeneralUrineGGT="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineGGT" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
                 <div *ngIf="studyGeneralUrine.value" class="input-group">
                     <div class="input-group-addon">
@@ -353,7 +353,7 @@
                             Otro
                         </div>
                     </div>
-                    <input class="form-control" name="studyGeneralUrineOtro" #studyGeneralUrineOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="studyGeneralUrineOtro" #studyGeneralUrineOtro="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.studyGeneralUrineOtro" placeholder="" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
         </div>

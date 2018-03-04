@@ -9,7 +9,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   styleUrls: ['./subjective-analysis.component.css']
 })
 export class SubjectiveAnalysisComponent  {
-
+  @Input() consultationType: string;
   constructor(public consultationService: ConsultationService) {  }
 
   

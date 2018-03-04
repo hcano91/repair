@@ -8,7 +8,9 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   templateUrl: './actual-treatment.component.html',
   styleUrls: ['./actual-treatment.component.css']
 })
+
 export class ActualTreatmentComponent implements OnInit {
+  @Input() consultationType: string;
 
   constructor(public consultationService: ConsultationService) { }
 

@@ -9,7 +9,7 @@
                     'has-success': illnessActivityScale.valid && (illnessActivityScale.dirty || illnessActivityScale.touched)
                 }">
                 <label for="illnessActivityScale">Escala de Actividad de la enfermedad</label>
-                <textarea class="form-control" name="illnessActivityScale" #illnessActivityScale="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.illnessActivityScale" placeholder="Describa" rows="2"></textarea>
+                <textarea class="form-control" name="illnessActivityScale" #illnessActivityScale="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.illnessActivityScale" placeholder="Describa" required rows="2"></textarea>
                 <small *ngIf="illnessActivityScale.errors?.required && (illnessActivityScale.touched || illnessActivityScale.dirty)">*Campo Requerido</small>
                 <small *ngIf="illnessActivityScale.errors?.pattern && (illnessActivityScale.touched || illnessActivityScale.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -20,7 +20,7 @@
                     'has-success': activityScaleResult.valid && (activityScaleResult.dirty || activityScaleResult.touched)
                 }">
                 <label for="activityScaleResult">Resultado de escala de actividad</label>
-                <textarea class="form-control" name="activityScaleResult" #activityScaleResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.activityScaleResult" placeholder="Describa" rows="2"></textarea>
+                <textarea class="form-control" name="activityScaleResult" #activityScaleResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.activityScaleResult" placeholder="Describa" required rows="2"></textarea>
                 <small *ngIf="activityScaleResult.errors?.required && (activityScaleResult.touched || activityScaleResult.dirty)">*Campo Requerido</small>
                 <small *ngIf="activityScaleResult.errors?.pattern && (activityScaleResult.touched || activityScaleResult.dirty)">*Dato inv&aacute;lido</small>
             </div>

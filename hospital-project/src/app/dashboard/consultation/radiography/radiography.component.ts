@@ -9,7 +9,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   styleUrls: ['./radiography.component.css']
 })
 export class RadiographyComponent implements OnInit {
-
+  @Input() consultationType: string;
   constructor(public consultationService: ConsultationService) { }
 
   ngOnInit() {

@@ -7,6 +7,16 @@
             <select class="form-control mr-sm-2" name="consultationType" #consultationType="ngModel" [(ngModel)]="options.consultationType" required>
                 <option default value>Formas...</option>
                 <option value="Forma General">Forma General</option>
+                <option value="Atritis Reumatoide">Atritis Reumatoide</option>
+                <option value="Lupus">Lupus Eritematoso Sist&eacute;mico</option>
+                <option value="Osteoartritis">Osteoartritis</option>
+                <option value="Fibromialgia">Fibromialgia</option>
+                <option value="Vasculitis">Vasculitis</option>
+                <option value="Esclerosis">Esclerosis Sist&eacute;mica</option>
+                <option value="Cristales">Cristales</option>
+                <option value="Miositis">Miositis</option>
+                <option value="Sjogren">Sjogren</option>
+                <option value="Espondiloartritis">Esp&oacute;ndiloartritis</option>
             </select>
             <button [disabled]="addForm.invalid" class="btn btn-success my-2 my-sm-0 mr-sm-2" (click)="enterEditMode()" type="submit">Agregar</button>
         </form>

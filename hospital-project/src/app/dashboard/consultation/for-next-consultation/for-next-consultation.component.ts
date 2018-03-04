@@ -10,6 +10,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
 })
 export class ForNextConsultationComponent implements OnInit {
 
+  @Input() consultationType: string;
   constructor(public consultationService: ConsultationService) { }
 
   ngOnInit() {

@@ -9,6 +9,7 @@ import { ProvideConsultationFormDirective } from '../../../directives/provide-co
   styleUrls: ['./diagnosis.component.css']
 })
 export class DiagnosisComponent implements OnInit {
+  @Input() consultationType: string;
 
   constructor(public consultationService: ConsultationService) { }
 
