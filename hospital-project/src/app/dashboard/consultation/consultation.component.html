@@ -67,21 +67,58 @@
             <div class="information information-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <b>Paciente acude por:</b>
-                        <span>{{consultationService.selectedConsultation.data.currentState}}</span>
+                        Fecha: {{consultationService.selectedConsultation.data.consultationDate}}&nbsp;&nbsp;&nbsp;&nbsp;Hora: {{consultationService.selectedConsultation.data.consultationTime}} Resumen de Interrogatorio, exploraci&oacute;n f&iacute;sica y estado mental:
+                    </div>
+                    <div class="col-md-12">
+                        <h2>Paciente acude por: {{consultationService.selectedConsultation.data.reasonForConsultation}}</h2>
+                        <p>{{consultationService.selectedConsultation.data.currentState}}</p>
                     </div>
                     <br>
-                    <div class="col-md-8">
-                        <b>Evoluci&oacute;n y actualizaci&oacute;n del cuadro cl&iacute;nico (tabaquismo, alcoholismo, adicciones)</b>
+                    <div class="col-md-12">
+                        <h2>Evoluci&oacute;n y actualizaci&oacute;n del cuadro cl&iacute;nico (tabaquismo, alcoholismo, adicciones)</h2>
                         <p>Cabeza: {{consultationService.selectedConsultation.data.objectiveHeadAndNeck}}</p>
                         <p>Torax: {{consultationService.selectedConsultation.data.objectiveTorax}}</p>
                         <p>Abdomen: {{consultationService.selectedConsultation.data.objectiveAbdomen}}</p>
                         <p>Espalda: {{consultationService.selectedConsultation.data.objectiveBack}}</p>
                         <p>SME: {{consultationService.selectedConsultation.data.objectiveObservations}}</p>
+                        <br>
                         <p>Otros Anticuerpos: {{consultationService.selectedConsultation.data.otherAntibodiesStudies}}</p>
                     </div>
                     <div class="col-md-4">
-                        <b>Signos Vitales</b>
+                        <h2>Estudios Auxiliares</h2>
+                        <div class="row">
+                            <div class="col-md-3"><b>Hb:</b> {{consultationService.selectedConsultation.data.studyHematicBiometryHb}}</div>
+                            <div class="col-md-3"><b>BUN:</b> {{consultationService.selectedConsultation.data.studyBloodChemistryBUN}}</div>
+                            <div class="col-md-3"><b>ALT:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionALT}}</div>
+                            <div class="col-md-3"><b>VSG:</b> {{consultationService.selectedConsultation.data.vsgAuxiliaryStudy}}</div>
+                            <div class="col-md-3"><b>Wbc:</b> {{consultationService.selectedConsultation.data.studyHematicBiometryWBC}}</div>
+                            <div class="col-md-3"><b>Cr:</b> {{consultationService.selectedConsultation.data.studyBloodChemistryCretenina}}</div>
+                            <div class="col-md-3"><b>FA:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionFA}}</div>
+                            <div class="col-md-3"><b>PCR:</b> {{consultationService.selectedConsultation.data.pcrAuxiliaryStudy}}</div>
+                            <div class="col-md-3"><b>PLT:</b> {{consultationService.selectedConsultation.data.studyHematicBiometryPLT}}</div>
+                            <div class="col-md-3"><b>Alb:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionAlbumina}}</div>
+                            <div class="col-md-3"><b>FR:</b> {{consultationService.selectedConsultation.data.frAuxiliaryStudy}}</div>
+                            <div class="col-md-3"><b>ANA:</b> {{consultationService.selectedConsultation.data.anaAuxiliaryStudy}}</div>
+                            <div class="col-md-3"><b>Gluc:</b> {{consultationService.selectedConsultation.data.studyBloodChemistryGluc}}</div>
+                            <div class="col-md-3"><b>Ast:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionAST}}</div>
+                            <div class="col-md-3"><b>CCP:</b> {{consultationService.selectedConsultation.data.CCPAuxiliaryStudy}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Diagnosis</h2>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis1">Diagnosis 1: {{consultationService.selectedConsultation.data.diagnosis1}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis2">Diagnosis 2: {{consultationService.selectedConsultation.data.diagnosis2}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis3">Diagnosis 3: {{consultationService.selectedConsultation.data.diagnosis3}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis4">Diagnosis 4: {{consultationService.selectedConsultation.data.diagnosis4}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis5">Diagnosis 5: {{consultationService.selectedConsultation.data.diagnosis5}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis6">Diagnosis 6: {{consultationService.selectedConsultation.data.diagnosis6}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis7">Diagnosis 7: {{consultationService.selectedConsultation.data.diagnosis7}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis8">Diagnosis 8: {{consultationService.selectedConsultation.data.diagnosis8}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis9">Diagnosis 9: {{consultationService.selectedConsultation.data.diagnosis9}}</p>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis10">Diagnosis 10: {{consultationService.selectedConsultation.data.diagnosis10}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Signos Vitales</h2>
                         <p>TA: {{consultationService.selectedConsultation.data.objectiveTA}}</p>
                         <p>FR: {{consultationService.selectedConsultation.data.objectiveFR}}</p>
                         <p>FC: {{consultationService.selectedConsultation.data.objectiveFC}}</p>
@@ -92,221 +129,201 @@
                         <p>M&eacute;dico: {{consultationService.selectedConsultation.data.doctorEvaluation}}</p>
                     </div>
                     <div class="col-md-12">
-                        <b>Estudios Auxiliares</b>
+                        <h2>Medicamentos Recetados</h2>
                         <div class="row">
-                            <div class="col-md-2"><b>Hb:</b> {{consultationService.selectedConsultation.data.studyHematicBiometryHb}}</div>
-                            <div class="col-md-2"><b>BUN:</b> {{consultationService.selectedConsultation.data.studyBloodChemistryBUN}}</div>
-                            <div class="col-md-2"><b>ALT:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionALT}}</div>
-                            <div class="col-md-2"><b>VCG:</b> {{consultationService.selectedConsultation.data.vsgAuxiliaryStudy}}</div>
-                            <div class="col-md-2"><b>Wbc:</b> {{consultationService.selectedConsultation.data.studyHematicBiometryWBC}}</div>
-                            <div class="col-md-2"><b>Cr:</b> {{consultationService.selectedConsultation.data.studyBloodChemistryCretenina}}</div>
-                            <div class="col-md-2"><b>FA:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionFA}}</div>
-                            <div class="col-md-2"><b>PCR:</b> {{consultationService.selectedConsultation.data.pcrAuxiliaryStudy}}</div>
-                            <div class="col-md-2"><b>PLT:</b> {{consultationService.selectedConsultation.data.studyHematicBiometryPLT}}</div>
-                            <div class="col-md-2"><b>Alb:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionAlbumina}}</div>
-                            <div class="col-md-2"><b>FR:</b> {{consultationService.selectedConsultation.data.frAuxiliaryStudy}}</div>
-                            <div class="col-md-2"><b>Gluc:</b> {{consultationService.selectedConsultation.data.studyBloodChemistryGluc}}</div>
-                            <div class="col-md-2"><b>Ast:</b> {{consultationService.selectedConsultation.data.studyHepaticFunctionAST}}</div>
-                            <div class="col-md-2"><b>CCP:</b> {{consultationService.selectedConsultation.data.CCPAuxiliaryStudy}}</div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <b>Medicamentos Recetados</b>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="row">
+                            <div class="col-md-12">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedicationName" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationName}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationDosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationPresentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationDosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationDuration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication1Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 1</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication2Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 2</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication3Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 3</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication4Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 4</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication5Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 5</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication6Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 6</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication7Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 7</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication8Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 8</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication9Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 9</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication10Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 10</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Name}}</p>
                                     </div>
                                     <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Dosis}}</p>
-                                    </div>
-                                    <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
@@ -314,19 +331,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <b>Diagnosis</b>
-                                <p>Diagnosis 1: {{consultationService.selectedConsultation.data.diagnosis1}}</p>
-                                <p>Diagnosis 2: {{consultationService.selectedConsultation.data.diagnosis2}}</p>
-                                <p>Diagnosis 3: {{consultationService.selectedConsultation.data.diagnosis3}}</p>
-                                <p>Diagnosis 4: {{consultationService.selectedConsultation.data.diagnosis4}}</p>
-                                <p>Diagnosis 5: {{consultationService.selectedConsultation.data.diagnosis5}}</p>
-                                <p>Diagnosis 6: {{consultationService.selectedConsultation.data.diagnosis6}}</p>
-                                <p>Diagnosis 7: {{consultationService.selectedConsultation.data.diagnosis7}}</p>
-                                <p>Diagnosis 8: {{consultationService.selectedConsultation.data.diagnosis8}}</p>
-                                <p>Diagnosis 9: {{consultationService.selectedConsultation.data.diagnosis9}}</p>
-                                <p>Diagnosis 10: {{consultationService.selectedConsultation.data.diagnosis10}}</p>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -372,207 +377,207 @@
             <div class="information information-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <b>Diagnosis</b>
+                        <h2>Diagnosis</h2>
                         <p>Diagnosis 1: {{consultationService.selectedConsultation.data.diagnosis1}}</p>
                     </div>
 
 
                     <div class="col-md-12">
-                        <b>Medicamentos Recetados</b>
+                        <h2>Medicamentos Recetados</h2>
                         <div class="row">
-                            <div class="col-md-8">
-                                <div class="row">
+                            <div class="col-md-12">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedicationName" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationName}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationDosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationPresentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedicationDosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationDuration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication1Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 1</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication1Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication2Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 2</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication2Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication3Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 3</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication3Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication4Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 4</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication4Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication5Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 5</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication5Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication6Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 6</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication6Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication7Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 7</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication7Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication8Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 8</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication8Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication9Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 9</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Name}}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Presentation}}</p>
                                     </div>
                                     <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication9Dosis}}</p>
+                                    </div>
+                                    <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Duration}}</p>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="consultationService.selectedConsultation.data.treatmentMedication10Name" class="row">
                                     <div class="col-md-3">
                                         <b>Medicamento 10</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Name}}</p>
                                     </div>
                                     <div class="col-md-3">
-                                        <b>Dosis</b>
-                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Dosis}}</p>
-                                    </div>
-                                    <div class="col-md-3">
                                         <b>Presentaci&oacute;n</b>
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Presentation}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <b>Dosis</b>
+                                        <p>{{consultationService.selectedConsultation.data.treatmentMedication10Dosis}}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <b>Duraci&oacute;n</b>
@@ -580,6 +585,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -594,7 +600,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="information information-title end">

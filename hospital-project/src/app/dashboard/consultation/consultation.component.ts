@@ -34,6 +34,8 @@ export class ConsultationComponent implements OnInit {
     upsertObject.data.patientKey = this.patientService.selectedPatient.data.$key;
     upsertObject.data.fullName = this.patientService.selectedPatient.data.names + ' ' + this.patientService.selectedPatient.data.fatherLastName + ' ' + this.patientService.selectedPatient.data.motherLastName;
     upsertObject.data.consultationType = this.consultationType;
+    upsertObject.data.consultationTime = moment().format('LT').valueOf();
+    upsertObject.data.consultationDate = moment(new Date()).format("MM-DD-YYYY").valueOf();    
     upsertObject.data.patientActualDate = upsertObject.data.patientActualDate ? upsertObject.data.patientActualDate : this.getAge(this.patientService.selectedPatient.data.dateOfBirth);
     if(upsertObject.data.$key == null){
       upsertObject.data.creationDate = moment().valueOf();
@@ -52,7 +54,6 @@ export class ConsultationComponent implements OnInit {
   getAge(date){
     return Math.floor(moment(new Date()).diff(moment(date,"YYYY-MM-DD"),'years',true));
   }
-  
 
   onResetButtonClick(consultationForm?: NgForm){
     this.resetForm(consultationForm);
