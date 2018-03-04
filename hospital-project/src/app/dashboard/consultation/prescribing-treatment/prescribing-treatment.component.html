@@ -7,200 +7,211 @@
             <div class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedicationName">Medicamentos 1</label>
-                    <input class="form-control" name="treatmentMedicationName" #treatmentMedicationName="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationName" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedicationDosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedicationDosis" #treatmentMedicationDosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationDosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedicationName" #treatmentMedicationName="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationName" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedicationPresentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedicationPresentation" #treatmentMedicationPresentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationPresentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedicationPresentation" #treatmentMedicationPresentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationPresentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedicationDosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedicationDosis" #treatmentMedicationDosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationDosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedicationDuration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedicationDuration" #treatmentMedicationDuration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationDuration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedicationDuration" #treatmentMedicationDuration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedicationDuration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedicationName)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication1Name">Medicamentos 2</label>
-                    <input class="form-control" name="treatmentMedication1Name" #treatmentMedication1Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication1Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication1Dosis" #treatmentMedication1Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication1Name" #treatmentMedication1Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication1Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication1Presentation" #treatmentMedication1Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication1Presentation" #treatmentMedication1Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication1Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication1Dosis" #treatmentMedication1Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication1Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication1Duration" #treatmentMedication1Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication1Duration" #treatmentMedication1Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication1Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication1Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication2Name">Medicamentos 3</label>
-                    <input class="form-control" name="treatmentMedication2Name" #treatmentMedication2Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication2Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication2Dosis" #treatmentMedication2Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication2Name" #treatmentMedication2Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication2Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication2Presentation" #treatmentMedication2Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication2Presentation" #treatmentMedication2Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication2Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication2Dosis" #treatmentMedication2Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication2Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication2Duration" #treatmentMedication2Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication2Duration" #treatmentMedication2Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication2Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication2Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication3Name">Medicamentos 4</label>
-                    <input class="form-control" name="treatmentMedication3Name" #treatmentMedication3Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication3Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication3Dosis" #treatmentMedication3Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication3Name" #treatmentMedication3Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication3Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication3Presentation" #treatmentMedication3Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication3Presentation" #treatmentMedication3Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication3Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication3Dosis" #treatmentMedication3Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication3Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication3Duration" #treatmentMedication3Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication3Duration" #treatmentMedication3Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication3Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication3Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication4Name">Medicamentos 5</label>
-                    <input class="form-control" name="treatmentMedication4Name" #treatmentMedication4Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication4Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication4Dosis" #treatmentMedication4Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication4Name" #treatmentMedication4Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication4Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication4Presentation" #treatmentMedication4Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication4Presentation" #treatmentMedication4Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication4Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication4Dosis" #treatmentMedication4Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication4Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication4Duration" #treatmentMedication4Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication4Duration" #treatmentMedication4Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication4Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication4Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication5Name">Medicamentos 6</label>
-                    <input class="form-control" name="treatmentMedication5Name" #treatmentMedication5Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication5Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication5Dosis" #treatmentMedication5Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication5Name" #treatmentMedication5Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication5Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication5Presentation" #treatmentMedication5Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication5Presentation" #treatmentMedication5Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication5Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication5Dosis" #treatmentMedication5Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication5Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication5Duration" #treatmentMedication5Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication5Duration" #treatmentMedication5Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication5Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication5Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication6Name">Medicamentos 7</label>
-                    <input class="form-control" name="treatmentMedication6Name" #treatmentMedication6Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication6Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication6Dosis" #treatmentMedication6Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication6Name" #treatmentMedication6Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication6Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication6Presentation" #treatmentMedication6Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication6Presentation" #treatmentMedication6Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication6Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication6Dosis" #treatmentMedication6Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication6Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication6Duration" #treatmentMedication6Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication6Duration" #treatmentMedication6Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication6Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication6Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication7Name">Medicamentos 8</label>
-                    <input class="form-control" name="treatmentMedication7Name" #treatmentMedication7Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication7Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication7Dosis" #treatmentMedication7Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication7Name" #treatmentMedication7Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication7Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication7Presentation" #treatmentMedication7Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication7Presentation" #treatmentMedication7Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication7Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication7Dosis" #treatmentMedication7Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication7Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication7Duration" #treatmentMedication7Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication7Duration" #treatmentMedication7Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication7Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication7Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication8Name">Medicamentos 9</label>
-                    <input class="form-control" name="treatmentMedication8Name" #treatmentMedication8Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication8Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication8Dosis" #treatmentMedication8Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication8Name" #treatmentMedication8Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication8Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication8Presentation" #treatmentMedication8Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication8Presentation" #treatmentMedication8Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication8Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication8Dosis" #treatmentMedication8Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication8Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication8Duration" #treatmentMedication8Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication8Duration" #treatmentMedication8Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication8Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication8Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication9Name">Medicamentos 10</label>
-                    <input class="form-control" name="treatmentMedication9Name" #treatmentMedication9Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication9Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication9Dosis" #treatmentMedication9Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication9Name" #treatmentMedication9Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication9Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication9Presentation" #treatmentMedication9Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication9Presentation" #treatmentMedication9Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication9Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication9Dosis" #treatmentMedication9Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication9Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication9Duration" #treatmentMedication9Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication9Duration" #treatmentMedication9Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication9Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
             <div [hidden]="canShow(treatmentMedication9Name)" class="form-row">
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication10Name">Medicamentos 11</label>
-                    <input class="form-control" name="treatmentMedication10Name" #treatmentMedication10Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="treatmentMedication10Dosis">Dosis</label>
-                    <input class="form-control" name="treatmentMedication10Dosis" #treatmentMedication10Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication10Name" #treatmentMedication10Name="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Name" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication10Presentation">Presentaci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication10Presentation" #treatmentMedication10Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication10Presentation" #treatmentMedication10Presentation="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Presentation" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="treatmentMedication10Dosis">Dosis</label>
+                    <input class="form-control" name="treatmentMedication10Dosis" #treatmentMedication10Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Dosis" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="treatmentMedication10Duration">Duraci&oacute;n</label>
-                    <input class="form-control" name="treatmentMedication10Duration" #treatmentMedication10Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="treatmentMedication10Duration" #treatmentMedication10Duration="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatmentMedication10Duration" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': otherPrescribedMedications.invalid && (otherPrescribedMedications.dirty || otherPrescribedMedications.touched),
+                    'has-success': otherPrescribedMedications.valid && (otherPrescribedMedications.dirty || otherPrescribedMedications.touched)
+                }">
+                <label for="otherPrescribedMedications">Otros Medicamentos</label>
+                <textarea class="form-control" name="otherPrescribedMedications" #otherPrescribedMedications="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.otherPrescribedMedications" placeholder="Describa" rows="2"></textarea>
+                <small *ngIf="otherPrescribedMedications.errors?.required && (otherPrescribedMedications.touched || otherPrescribedMedications.dirty)">*Campo Requerido</small>
+                <small *ngIf="otherPrescribedMedications.errors?.pattern && (otherPrescribedMedications.touched || otherPrescribedMedications.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
     </div>

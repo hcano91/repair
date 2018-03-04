@@ -3,29 +3,31 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h3>An&aacute;lisis Objetivo</h3>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveWeight.invalid && (objectiveWeight.dirty || objectiveWeight.touched),
                     'has-success': objectiveWeight.valid && (objectiveWeight.dirty || objectiveWeight.touched)
                 }">
                 <label for="objectiveWeight">Peso (Kg)</label>
-                <input class="form-control" name="objectiveWeight" #objectiveWeight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveWeight" placeholder="72.1" required pattern="[0-9]+(\.[0-9][0-9]?)?">
+                <input type="number" (ngModelChange)="calculateData($event, objectiveSize.value)" class="form-control" name="objectiveWeight" #objectiveWeight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveWeight" placeholder="72.1" required
+                    pattern="[0-9]+(\.[0-9][0-9]?)?">
                 <small *ngIf="objectiveWeight.errors?.required && (objectiveWeight.touched || objectiveWeight.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveWeight.errors?.pattern && (objectiveWeight.touched || objectiveWeight.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveSize.invalid && (objectiveSize.dirty || objectiveSize.touched),
                     'has-success': objectiveSize.valid && (objectiveSize.dirty || objectiveSize.touched)
                 }">
                 <label for="objectiveSize">Talla (Metros)</label>
-                <input class="form-control" name="objectiveSize" #objectiveSize="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSize" placeholder="1.72" required pattern="[0-9]+(\.[0-9][0-9]?)?">
+                <input type="number" (ngModelChange)="calculateData(objectiveWeight.value, $event)" class="form-control" name="objectiveSize" #objectiveSize="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSize" placeholder="1.72" required
+                    pattern="[0-9]+(\.[0-9][0-9]?)?">
                 <small *ngIf="objectiveSize.errors?.required && (objectiveSize.touched || objectiveSize.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveSize.errors?.pattern && (objectiveSize.touched || objectiveSize.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveTA.invalid && (objectiveTA.dirty || objectiveTA.touched),
                     'has-success': objectiveTA.valid && (objectiveTA.dirty || objectiveTA.touched)
@@ -36,7 +38,7 @@
                 <small *ngIf="objectiveTA.errors?.pattern && (objectiveTA.touched || objectiveTA.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveFC.invalid && (objectiveFC.dirty || objectiveFC.touched),
                     'has-success': objectiveFC.valid && (objectiveFC.dirty || objectiveFC.touched)
@@ -47,7 +49,7 @@
                 <small *ngIf="objectiveFC.errors?.pattern && (objectiveFC.touched || objectiveFC.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveFR.invalid && (objectiveFR.dirty || objectiveFR.touched),
                     'has-success': objectiveFR.valid && (objectiveFR.dirty || objectiveFR.touched)
@@ -58,7 +60,7 @@
                 <small *ngIf="objectiveFR.errors?.pattern && (objectiveFR.touched || objectiveFR.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveTemperature.invalid && (objectiveTemperature.dirty || objectiveTemperature.touched),
                     'has-success': objectiveTemperature.valid && (objectiveTemperature.dirty || objectiveTemperature.touched)
@@ -69,24 +71,24 @@
                 <small *ngIf="objectiveTemperature.errors?.pattern && (objectiveTemperature.touched || objectiveTemperature.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveIMC.invalid && (objectiveIMC.dirty || objectiveIMC.touched),
                     'has-success': objectiveIMC.valid && (objectiveIMC.dirty || objectiveIMC.touched)
                 }">
-                <label for="objectiveIMC">*IMC</label>
-                <input class="form-control" name="objectiveIMC" #objectiveIMC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveIMC" placeholder="" required pattern="^[A-zÀ-ÿ0-9 ]*$">
+                <label for="objectiveIMC">*IMC: <span>{{printedIMC(objectiveIMC.value)}}</span></label>
+                <input [hidden]="true" class="form-control" name="objectiveIMC" #objectiveIMC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveIMC" placeholder="" required pattern="^[A-zÀ-ÿ0-9 ]*$">
                 <small *ngIf="objectiveIMC.errors?.required && (objectiveIMC.touched || objectiveIMC.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveIMC.errors?.pattern && (objectiveIMC.touched || objectiveIMC.dirty)">*Dato inv&aacute;lido</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div class="form-group" [ngClass]="{
                     'has-danger': objectiveBodySurface.invalid && (objectiveBodySurface.dirty || objectiveBodySurface.touched),
                     'has-success': objectiveBodySurface.valid && (objectiveBodySurface.dirty || objectiveBodySurface.touched)
                 }">
-                <label for="objectiveBodySurface">*Superficie corporal</label>
-                <input class="form-control" name="objectiveBodySurface" #objectiveBodySurface="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveBodySurface" placeholder="" required pattern="^[A-zÀ-ÿ0-9 ]*$">
+                <label for="objectiveBodySurface">*Superficie corporal (m<sup>2</sup>): <span>{{printedBodySurface(objectiveBodySurface.value)}}</span></label>
+                <input [hidden]="true" class="form-control" name="objectiveBodySurface" #objectiveBodySurface="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveBodySurface" placeholder="" required pattern="^[A-zÀ-ÿ0-9 ]*$">
                 <small *ngIf="objectiveBodySurface.errors?.required && (objectiveBodySurface.touched || objectiveBodySurface.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveBodySurface.errors?.pattern && (objectiveBodySurface.touched || objectiveBodySurface.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -172,16 +174,15 @@
                     'has-danger': objectiveSqueezeTestLeft.invalid && (objectiveSqueezeTestLeft.dirty || objectiveSqueezeTestLeft.touched),
                     'has-success': objectiveSqueezeTestLeft.valid && (objectiveSqueezeTestLeft.dirty || objectiveSqueezeTestLeft.touched)
                 }">
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <label for="objectiveSqueezeTestLeft">*Squeeze Test Izquierdo</label>
-                    </div>
-                    <select class="form-control" name="objectiveSqueezeTestLeft" #objectiveSqueezeTestLeft="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSqueezeTestLeft" required>
-                        <option selected [ngValue]="objectiveSqueezeTestLeft" value="">Seleccione...</option>
-                        <option [ngValue]="objectiveSqueezeTestLeft" value="Positivo">Positivo</option>
-                        <option [ngValue]="objectiveSqueezeTestLeft" value="Negativo">Negativo</option>
-                    </select>
-                </div>
+
+                <label for="objectiveSqueezeTestLeft">*Squeeze Test Izquierdo</label>
+
+                <select class="form-control" name="objectiveSqueezeTestLeft" #objectiveSqueezeTestLeft="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSqueezeTestLeft" required>
+                    <option selected [ngValue]="objectiveSqueezeTestLeft" value="">Seleccione...</option>
+                    <option [ngValue]="objectiveSqueezeTestLeft" value="Positivo">Positivo</option>
+                    <option [ngValue]="objectiveSqueezeTestLeft" value="Negativo">Negativo</option>
+                </select>
+
                 <small *ngIf="objectiveSqueezeTestLeft.errors?.required && (objectiveSqueezeTestLeft.touched || objectiveSqueezeTestLeft.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveSqueezeTestLeft.errors?.pattern && (objectiveSqueezeTestLeft.touched || objectiveSqueezeTestLeft.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -223,16 +224,16 @@
                     'has-danger': objectiveSqueezeTestRight.invalid && (objectiveSqueezeTestRight.dirty || objectiveSqueezeTestRight.touched),
                     'has-success': objectiveSqueezeTestRight.valid && (objectiveSqueezeTestRight.dirty || objectiveSqueezeTestRight.touched)
                 }">
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <label for="objectiveSqueezeTestRight">*Squeeze Test Derecho</label>
-                    </div>
-                    <select class="form-control" name="objectiveSqueezeTestRight" #objectiveSqueezeTestRight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSqueezeTestRight" required>
-                        <option selected [ngValue]="objectiveSqueezeTestRight" value="">Seleccione...</option>
-                        <option [ngValue]="objectiveSqueezeTestRight" value="Positivo">Positivo</option>
-                        <option [ngValue]="objectiveSqueezeTestRight" value="Negativo">Negativo</option>
-                    </select>
-                </div>
+
+
+                <label for="objectiveSqueezeTestRight">*Squeeze Test Derecho</label>
+
+                <select class="form-control" name="objectiveSqueezeTestRight" #objectiveSqueezeTestRight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveSqueezeTestRight" required>
+                    <option selected [ngValue]="objectiveSqueezeTestRight" value="">Seleccione...</option>
+                    <option [ngValue]="objectiveSqueezeTestRight" value="Positivo">Positivo</option>
+                    <option [ngValue]="objectiveSqueezeTestRight" value="Negativo">Negativo</option>
+                </select>
+
                 <small *ngIf="objectiveSqueezeTestRight.errors?.required && (objectiveSqueezeTestRight.touched || objectiveSqueezeTestRight.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveSqueezeTestRight.errors?.pattern && (objectiveSqueezeTestRight.touched || objectiveSqueezeTestRight.dirty)">*Dato inv&aacute;lido</small>
             </div>

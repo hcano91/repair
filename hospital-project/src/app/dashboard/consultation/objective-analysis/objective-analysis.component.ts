@@ -12,6 +12,35 @@ export class ObjectiveAnalysisComponent implements OnInit {
   @Input() consultationType: string;
   constructor(public consultationService: ConsultationService) { }
 
+  calculateIMC(weight, size) {
+    this.consultationService.selectedConsultation.data.objectiveIMC = weight / Math.pow(size,2);
+  }
+
+  calculateBodySurface(weight, size) {
+    this.consultationService.selectedConsultation.data.objectiveBodySurface = 0.007184 * Math.pow(weight, 0.425) * Math.pow((size*100), 0.725);
+  }
+
+  calculateData(weight, size) {
+    this.calculateIMC(weight, size);
+    this.calculateBodySurface(weight, size);
+  }
+
+  printedIMC(imc){
+    if(!(isNaN(imc) || typeof imc === "undefined")) {
+      return parseFloat("" + imc).toFixed(2);
+    } else {
+      return "Falta llenar Peso y/o Talla."
+    }
+  }
+
+  printedBodySurface(bodySurface){
+    if(!(isNaN(bodySurface) || typeof bodySurface === "undefined")) {
+      return parseFloat("" + bodySurface).toFixed(2);
+    } else {
+      return "Falta llenar Peso y/o Talla."
+    }
+  }
+
   ngOnInit() {
   }
 

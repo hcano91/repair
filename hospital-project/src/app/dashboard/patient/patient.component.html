@@ -1,6 +1,6 @@
 <form class="validating" (ngSubmit)="onSubmitForm(patientForm)" #patientForm="ngForm">
     <div class="patient-information--buttons">
-        <button class="btn btn-secondary" type="submit" [disabled]="!patientForm.valid">
+        <button class="btn btn-secondary" type="submit" [disabled]="!patientForm.valid || !formIsComplete.value">
             <i class="fa fa-floppy-o"></i>Guardar
         </button>
         <button *ngIf="!isEditingPatient" class="btn btn-secondary" type="button" (click)="onResetButtonClick(patientForm)">
@@ -668,8 +668,8 @@
                         </div>
                         <input class="form-control" [disabled]="!arterialHypertension.value" type="date" name="arterialHypertensionDate" #arterialHypertensionDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.arterialHypertensionDate">
                     </div>
-                    <label for="arterialHypertensionTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
-                    <div class="input-group">
+                    <label *ngIf="arterialHypertension.value" for="arterialHypertensionTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
+                    <div *ngIf="arterialHypertension.value" class="input-group">
                         <div class="input-group-addon">
                             <div class="input-group-text">
                                 <input type="checkbox" [disabled]="!arterialHypertension.value" [(ngModel)]="patientService.selectedPatient.data.arterialHypertensionTreatedByDoctor" #arterialHypertensionTreatedByDoctor="ngModel" name="arterialHypertensionTreatedByDoctor">
@@ -691,8 +691,8 @@
                         </div>
                         <input class="form-control" [disabled]="!iAM.value" type="date" name="iAMDate" #iAMDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.iAMDate">
                     </div>
-                    <label for="iAMTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
-                    <div class="input-group">
+                    <label *ngIf="iAM.value" for="iAMTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
+                    <div *ngIf="iAM.value" class="input-group">
                         <div class="input-group-addon">
                             <div class="input-group-text">
                                 <input type="checkbox" [disabled]="!iAM.value" [(ngModel)]="patientService.selectedPatient.data.iAMTreatedByDoctor" #iAMTreatedByDoctor="ngModel" name="iAMTreatedByDoctor">
@@ -713,8 +713,8 @@
                         </div>
                         <input class="form-control" [disabled]="!eVC.value" type="date" name="eVCDate" #eVCDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.eVCDate">
                     </div>
-                    <label for="eVCTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
-                    <div class="input-group">
+                    <label *ngIf="eVC.value" for="eVCTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
+                    <div *ngIf="eVC.value" class="input-group">
                         <div class="input-group-addon">
                             <div class="input-group-text">
                                 <input type="checkbox" [disabled]="!eVC.value" [(ngModel)]="patientService.selectedPatient.data.eVCTreatedByDoctor" #eVCTreatedByDoctor="ngModel" name="eVCTreatedByDoctor">
@@ -722,8 +722,8 @@
                         </div>
                         <input class="form-control" [disabled]="!eVCTreatedByDoctor.value" name="eVCSpecialty" #eVCSpecialty="ngModel" [(ngModel)]="patientService.selectedPatient.data.eVCSpecialty" placeholder="Especialidad" pattern="^[A-zÀ-ÿ ]*$">
                     </div>
-                    <label for="eVCSequel">Secuelas</label>
-                    <div class="input-group">
+                    <label *ngIf="eVC.value" for="eVCSequel">Secuelas</label>
+                    <div *ngIf="eVC.value" class="input-group">
                         <div class="input-group-addon">
                             <div class="input-group-text">
                                 <input type="checkbox" [disabled]="!eVC.value" [(ngModel)]="patientService.selectedPatient.data.eVCSequel" #eVCSequel="ngModel" name="eVCSequel">
@@ -782,8 +782,8 @@
                         <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayHospital" #hospitalStayDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayHospital" placeholder="Hospital" pattern="^[A-zÀ-ÿ0-9 ]*$">
                         <input class="form-control" [disabled]="!hospitalStay.value" type="date" name="hospitalStayDate" #hospitalStayDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayDate">
                     </div>
-                    <label for="hospitalStayReason">Motivo</label>
-                    <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayReason" #hospitalStayReason="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayReason" placeholder="Motivo" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <label *ngIf="hospitalStay.value" for="hospitalStayReason">Motivo</label>
+                    <input *ngIf="hospitalStay.value" class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayReason" #hospitalStayReason="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayReason" placeholder="Motivo" pattern="^[A-zÀ-ÿ0-9 ]*$">
                 </div>
             </div>
         </div>
@@ -791,7 +791,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h3>Antecedentes Gineco-obst&eacute;ticos</h3>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="form-group" [ngClass]="{
                         'has-danger': ivsa.invalid && (ivsa.dirty || ivsa.touched),
                         'has-success': ivsa.valid && (ivsa.dirty || ivsa.touched)
@@ -802,7 +802,7 @@
                     <small *ngIf="ivsa.errors?.pattern && (ivsa.touched || ivsa.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="form-group" [ngClass]="{
                         'has-danger': contacts.invalid && (contacts.dirty || contacts.touched),
                         'has-success': contacts.valid && (contacts.dirty || contacts.touched)
@@ -813,7 +813,7 @@
                     <small *ngIf="contacts.errors?.pattern && (contacts.touched || contacts.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="form-group" [ngClass]="{
                         'has-danger': menarche.invalid && (menarche.dirty || menarche.touched),
                         'has-success': menarche.valid && (menarche.dirty || menarche.touched)
@@ -824,7 +824,7 @@
                     <small *ngIf="menarche.errors?.pattern && (menarche.touched || menarche.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="form-group" [ngClass]="{
                         'has-danger': pregnancies.invalid && (pregnancies.dirty || pregnancies.touched),
                         'has-success': pregnancies.valid && (pregnancies.dirty || pregnancies.touched)
@@ -835,7 +835,7 @@
                     <small *ngIf="pregnancies.errors?.pattern && (pregnancies.touched || pregnancies.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="form-group" [ngClass]="{
                         'has-danger': timesInLabor.invalid && (timesInLabor.dirty || timesInLabor.touched),
                         'has-success': timesInLabor.valid && (timesInLabor.dirty || timesInLabor.touched)
@@ -846,7 +846,7 @@
                     <small *ngIf="timesInLabor.errors?.pattern && (timesInLabor.touched || timesInLabor.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="form-group" [ngClass]="{
                         'has-danger': cesareans.invalid && (cesareans.dirty || cesareans.touched),
                         'has-success': cesareans.valid && (cesareans.dirty || cesareans.touched)
@@ -859,7 +859,7 @@
                     <input *ngIf="cesareans.value>0" class="form-control" name="cesareansReason" #cesareansReason="ngModel" [(ngModel)]="patientService.selectedPatient.data.cesareansReason" placeholder="Raz&oacute;n" pattern="^[A-zÀ-ÿ0-9,. ]*$">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="form-group" [ngClass]="{
                         'has-danger': abortions.invalid && (abortions.dirty || abortions.touched),
                         'has-success': abortions.valid && (abortions.dirty || abortions.touched)
@@ -898,30 +898,32 @@
 
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <label for="lastDateMammography">&Uacute;ltima Mamograf&iacute;a</label>
-                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.notHadMammography" #notHadMammography="ngModel" name="notHadMammography"> Nunca
+                <p><input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.notHadMammography" #notHadMammography="ngModel" name="notHadMammography"> Nunca</p>
                 <div *ngIf="!notHadMammography.value" class="form-group" [ngClass]="{
-                                    'has-danger': lastDateMammography.invalid && (lastDateMammography.dirty || lastDateMammography.touched),
-                                    'has-success': lastDateMammography.valid && (lastDateMammography.dirty || lastDateMammography.touched)
-                                }">
+                        'has-danger': lastDateMammography.invalid && (lastDateMammography.dirty || lastDateMammography.touched),
+                        'has-success': lastDateMammography.valid && (lastDateMammography.dirty || lastDateMammography.touched)
+                    }">
 
                     <input class="form-control" type="date" name="lastDateMammography" #lastDateMammography="ngModel" [(ngModel)]="patientService.selectedPatient.data.lastDateMammography">
                     <small *ngIf="lastDateMammography.errors?.required && (lastDateMammography.touched || lastDateMammography.dirty)">*Campo Requerido</small>
                     <small *ngIf="lastDateMammography.errors?.pattern && (lastDateMammography.touched || lastDateMammography.dirty)">*Dato inv&aacute;lido</small>
-                    <input class="form-control" name="mammographyFindings" #mammographyFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.mammographyFindings" placeholder="0" pattern="^[A-zÀ-ÿ0-9 ]*$" required>
+                    <br>
+                    <input class="form-control" name="mammographyFindings" #mammographyFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.mammographyFindings" placeholder="Hallazgos" pattern="^[A-zÀ-ÿ0-9 ]*$" required>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <label for="lastDatePapanicolau">&Uacute;ltimo Papanicolau</label>
-                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.notHadPapanicolau" #notHadPapanicolau="ngModel" name="notHadPapanicolau"> Nunca
+                <p><input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.notHadPapanicolau" #notHadPapanicolau="ngModel" name="notHadPapanicolau"> Nunca</p>
                 <div *ngIf="!notHadPapanicolau.value" class="form-group" [ngClass]="{
-                            'has-danger': lastDatePapanicolau.invalid && (lastDatePapanicolau.dirty || lastDatePapanicolau.touched),
-                            'has-success': lastDatePapanicolau.valid && (lastDatePapanicolau.dirty || lastDatePapanicolau.touched)
-                        }">
+                        'has-danger': lastDatePapanicolau.invalid && (lastDatePapanicolau.dirty || lastDatePapanicolau.touched),
+                        'has-success': lastDatePapanicolau.valid && (lastDatePapanicolau.dirty || lastDatePapanicolau.touched)
+                    }">
 
                     <input class="form-control" type="date" name="lastDatePapanicolau" #lastDatePapanicolau="ngModel" [(ngModel)]="patientService.selectedPatient.data.lastDatePapanicolau">
                     <small *ngIf="lastDatePapanicolau.errors?.required && (lastDatePapanicolau.touched || lastDatePapanicolau.dirty)">*Campo Requerido</small>
                     <small *ngIf="lastDatePapanicolau.errors?.pattern && (lastDatePapanicolau.touched || lastDatePapanicolau.dirty)">*Dato inv&aacute;lido</small>
-                    <input class="form-control" name="papnicolauFindings" #papnicolauFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.papnicolauFindings" placeholder="0" pattern="^[A-zÀ-ÿ0-9 ]*$" required>
+                    <br>
+                    <input class="form-control" name="papnicolauFindings" #papnicolauFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.papnicolauFindings" placeholder="Hallazgos" pattern="^[A-zÀ-ÿ0-9 ]*$" required>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -951,6 +953,9 @@
 
         </div>
         <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3>Diagnosis Inicial</h3>
+            </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
                             'has-danger': mostLikelyDiagnosis.invalid && (mostLikelyDiagnosis.dirty || mostLikelyDiagnosis.touched),
@@ -974,6 +979,18 @@
                     </select>
                     <small *ngIf="mostLikelyDiagnosis.errors?.required && (mostLikelyDiagnosis.touched || mostLikelyDiagnosis.dirty)">*Campo Requerido</small>
                     <small *ngIf="mostLikelyDiagnosis.errors?.pattern && (mostLikelyDiagnosis.touched || mostLikelyDiagnosis.dirty)">*Dato inv&aacute;lido</small>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.formIsComplete" #formIsComplete="ngModel" name="formIsComplete">Se pregunt&oacute; acerca de las <strong>Alegias</strong> del paciente y la informaci&oacute;n
+                                proporcionada es completa y actualizada.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

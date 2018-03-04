@@ -34,6 +34,7 @@ export class ConsultationComponent implements OnInit {
     upsertObject.data.patientKey = this.patientService.selectedPatient.data.$key;
     upsertObject.data.fullName = this.patientService.selectedPatient.data.names + ' ' + this.patientService.selectedPatient.data.fatherLastName + ' ' + this.patientService.selectedPatient.data.motherLastName;
     upsertObject.data.consultationType = this.consultationType;
+    upsertObject.data.patientActualDate = upsertObject.data.patientActualDate ? upsertObject.data.patientActualDate : this.getAge(this.patientService.selectedPatient.data.dateOfBirth);
     if(upsertObject.data.$key == null){
       upsertObject.data.creationDate = moment().valueOf();
       this.consultationService.insert(upsertObject);
