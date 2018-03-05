@@ -20,6 +20,13 @@ export class PatientService {
     return this.patientList;
   }
 
+  getPatientsByData(dataName, dataValue): AngularFireList<any> {
+    this.patientList = this.firebase.list('patients', ref => ref.orderByChild(dataName)
+    .startAt(dataValue)
+    .endAt(dataValue + "\uf8ff"));
+    return this.patientList;
+  }
+
   insert(patient: Patient){
     var patientKeys = Object.keys(patient.data);
     var objectToPush = {};

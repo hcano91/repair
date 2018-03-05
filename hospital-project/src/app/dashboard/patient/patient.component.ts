@@ -21,6 +21,7 @@ export class PatientComponent implements OnInit {
     var upsertObject = {
       data: patientForm.value
     }
+    upsertObject.data.fullName = patientForm.value.names + ' ' + patientForm.value.fatherLastName + ' ' + patientForm.value.motherLastName;
     if(upsertObject.data.$key == null)
       this.patientService.insert(upsertObject);
     else
