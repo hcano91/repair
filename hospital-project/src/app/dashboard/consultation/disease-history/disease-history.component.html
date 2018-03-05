@@ -784,7 +784,7 @@
                     'has-danger': esclerosisType.invalid && (esclerosisType.dirty || esclerosisType.touched),
                     'has-success': esclerosisType.valid && (esclerosisType.dirty || esclerosisType.touched)
                 }">
-                <label for="esclerosisType">*Typo de Esclerosis</label>
+                <label for="esclerosisType">*Tipo de Esclerosis</label>
                 <select class="form-control" name="esclerosisType" #esclerosisType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.esclerosisType" required>
                     <option selected [ngValue]="esclerosisType" value="">Seleccione...</option>
                     <option [ngValue]="esclerosisType" value="Sistemica difusa">Sist&eacute;mica difusa</option>
@@ -793,7 +793,7 @@
                 </select>
                 <small *ngIf="esclerosisType.errors?.required && (esclerosisType.touched || esclerosisType.dirty)">*Campo Requerido</small>
                 <small *ngIf="esclerosisType.errors?.pattern && (esclerosisType.touched || esclerosisType.dirty)">*Dato inv&aacute;lido</small>
-                <input *ngIf="esclerosisType.value === 'Otro'" class="form-control" name="esclerosisTypeOther" #esclerosisTypeOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.esclerosisTypeOther" placeholder="Resultado" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                <input *ngIf="esclerosisType.value === 'Otro'" class="form-control" name="esclerosisTypeOther" #esclerosisTypeOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.esclerosisTypeOther" placeholder="Defina" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
             </div>
         </div>
         <div *ngIf="consultationType==='Esclerosis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -898,7 +898,7 @@
                     'has-danger': miositisType.invalid && (miositisType.dirty || miositisType.touched),
                     'has-success': miositisType.valid && (miositisType.dirty || miositisType.touched)
                 }">
-                <label for="miositisType">*Typo de Miositis</label>
+                <label for="miositisType">*Tipo de Miositis</label>
                 <select class="form-control" name="miositisType" #miositisType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.miositisType" required>
                     <option selected [ngValue]="miositisType" value="">Seleccione...</option>
                     <option [ngValue]="miositisType" value="Dermatomiositis">Dermatomiositis</option>
@@ -909,7 +909,7 @@
                 </select>
                 <small *ngIf="miositisType.errors?.required && (miositisType.touched || miositisType.dirty)">*Campo Requerido</small>
                 <small *ngIf="miositisType.errors?.pattern && (miositisType.touched || miositisType.dirty)">*Dato inv&aacute;lido</small>
-                <input *ngIf="miositisType.value === 'Otro'" class="form-control" name="miositisTypeOther" #miositisTypeOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.miositisTypeOther" placeholder="Resultado" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                <input *ngIf="miositisType.value === 'Otro'" class="form-control" name="miositisTypeOther" #miositisTypeOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.miositisTypeOther" placeholder="Defina" required pattern="^[A-zÀ-ÿ0-9,. ]*$">
             </div>
         </div>
         <div *ngIf="consultationType==='Miositis'" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

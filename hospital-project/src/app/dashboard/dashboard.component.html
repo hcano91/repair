@@ -18,3 +18,8 @@
         <app-consultation [isEditingConsultation]="theresEditingConsultation()" [consultationType]="consultationType" (visibleSectionEvent)="recieveVisibleSectionEvent($event)"></app-consultation>
     </div>
 </div>
+<div [hidden]="visibleSection!=='report'" class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <app-report (visibleSectionEvent)="recieveVisibleSectionEvent($event)"></app-report>
+    </div>
+</div>

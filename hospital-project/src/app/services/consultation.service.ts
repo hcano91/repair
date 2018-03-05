@@ -20,6 +20,11 @@ export class ConsultationService {
     return this.consultationsList;
   }
 
+  getConsultationsByMillisecondRange(startMillisecond, endMillisecond): AngularFireList<any> {
+    this.consultationsList = this.firebase.list('consultations', ref => ref.orderByChild('consultationDateMilliseconds').startAt(startMillisecond).endAt(endMillisecond));
+    return this.consultationsList;
+  }
+
   getConsultationsFromPatientKey(patientKey): AngularFireList<any> {
     this.consultationsList = this.firebase.list('consultations', ref => ref.orderByChild("patientKey").equalTo(patientKey));
     return this.consultationsList;

@@ -25,7 +25,7 @@ export class ConsultationComponent implements OnInit {
     private toastrService: ToastrService,
     private electronService: ElectronService) { 
       
-    }
+  }
 
   onSubmitForm(consultationForm: NgForm) {
     var upsertObject = {
@@ -36,6 +36,7 @@ export class ConsultationComponent implements OnInit {
     upsertObject.data.consultationType = this.consultationType;
     upsertObject.data.consultationTime = moment().format('LT').valueOf();
     upsertObject.data.consultationDate = moment(new Date()).format("MM-DD-YYYY").valueOf();    
+    upsertObject.data.consultationDateMilliseconds = moment(new Date()).format("x").valueOf();    
     upsertObject.data.patientActualDate = upsertObject.data.patientActualDate ? upsertObject.data.patientActualDate : this.getAge(this.patientService.selectedPatient.data.dateOfBirth);
     if(upsertObject.data.$key == null){
       upsertObject.data.creationDate = moment().valueOf();

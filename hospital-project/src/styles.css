@@ -59,4 +59,8 @@ form.validating .ng-invalid {
     .print-only {
         display: initial;
     }
+    b,
+    strong {
+        font-weight: bold !important;
+    }
 }

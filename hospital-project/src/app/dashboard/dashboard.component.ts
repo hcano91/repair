@@ -28,7 +28,6 @@ export class DashboardComponent implements OnInit {
       private consultationService: ConsultationService ) {
     this.router = router;
   }
-  
 
   recieveVisibleSectionEvent($event) {
     this.visibleSection = $event;

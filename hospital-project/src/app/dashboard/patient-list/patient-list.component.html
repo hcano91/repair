@@ -2,6 +2,7 @@
     <button type="button" class="btn btn-success" (click)="enterEditMode()">Agregar paciente</button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            <button type="button" class="btn btn-success mr-sm-2 ml-sm-2" (click)="enterReportMode()">Ver reportes</button>
         </ul>
         <form (ngSubmit)="onSubmitSearchForm(searchForm)" #searchForm="ngForm" class="form-inline my-2 my-lg-0">
             <select class="form-control mr-sm-2" name="searchType" #searchType="ngModel" [(ngModel)]="options.searchType" required>

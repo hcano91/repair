@@ -3,6 +3,7 @@ import { PatientService } from  '../../services/patient.service';
 import { Patient } from '../../models/patient.model';
 import * as _ from "lodash";
 import { NgForm } from '@angular/forms';
+import * as jsonexport from 'jsonexport/dist'
 
 @Component({
   selector: 'app-patient-list',
@@ -71,7 +72,29 @@ export class PatientListComponent implements OnInit {
     this.visibleSectionEvent.emit('patient');
   }
 
+  enterReportMode() {
+    this.visibleSectionEvent.emit('report');
+  }
+
   onSubmitSearchForm(searchForm: NgForm){
+    var patients = this.patientList;
+    
+    jsonexport(patients,function(err, csv){
+        if(err) return console.log(err);
+        console.log(csv);
+        var blob = new Blob(["\ufeff"+csv]);
+        if (window.navigator.msSaveOrOpenBlob)  // IE hack; see http://msdn.microsoft.com/en-us/library/ie/hh779016.aspx
+            window.navigator.msSaveBlob(blob, "filename.csv");
+        else
+        {
+            var a = window.document.createElement("a");
+            a.href = window.URL.createObjectURL(blob);
+            a.download = "filename.csv";
+            document.body.appendChild(a);
+            a.click();  // IE: "Access is denied"; see: https://connect.microsoft.com/IE/feedback/details/797361/ie-10-treats-blob-url-as-cross-origin-and-denies-access
+            document.body.removeChild(a);
+        }
+    });
     console.log(this.options.searchType, this.options.searchValue);
   }
 

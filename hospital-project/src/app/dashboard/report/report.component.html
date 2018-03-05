@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-success" (click)="onBackButtonClick()">De Vuelta a Pacientes</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Reporte de Consultas por Fecha</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form (ngSubmit)="onSubmitReportForm(reportForm)" #reportForm="ngForm" class="form-inline my-2 my-lg-0">
+            <label for="dateMin">Fecha inicial:</label><input class="form-control mr-sm-2" type="date" name="dateMin" #dateMin="ngModel" [(ngModel)]="options.dateMin" required>
+            <label for="dateMax">Fecha final:</label><input class="form-control mr-sm-2" type="date" name="dateMax" #dateMax="ngModel" [(ngModel)]="options.dateMax" required>
+            <button [disabled]="reportForm.invalid" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Exportar</button>
+        </form>
+    </div>
+</div>

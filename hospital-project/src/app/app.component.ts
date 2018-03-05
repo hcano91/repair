@@ -3,6 +3,7 @@ import { AuthenticationService } from './services/core/authentication.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from "angularfire2/auth";
 import { ErrorTranslationService } from "./services/core/errorTranslation.service";
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-root',

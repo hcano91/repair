@@ -42,6 +42,7 @@ import { DiagnosisComponent } from './dashboard/consultation/diagnosis/diagnosis
 import { IllnessActivityComponent } from './dashboard/consultation/illness-activity/illness-activity.component';
 import { PrescribingTreatmentComponent } from './dashboard/consultation/prescribing-treatment/prescribing-treatment.component';
 import { ForNextConsultationComponent } from './dashboard/consultation/for-next-consultation/for-next-consultation.component';
+import { ReportComponent } from './dashboard/report/report.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ForNextConsultationComponent } from './dashboard/consultation/for-next-
     DiagnosisComponent,
     IllnessActivityComponent,
     PrescribingTreatmentComponent,
-    ForNextConsultationComponent
+    ForNextConsultationComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
