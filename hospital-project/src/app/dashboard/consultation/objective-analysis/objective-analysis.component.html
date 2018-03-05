@@ -77,7 +77,7 @@
                     'has-success': objectiveIMC.valid && (objectiveIMC.dirty || objectiveIMC.touched)
                 }">
                 <label for="objectiveIMC">*IMC: <span>{{printedIMC(objectiveIMC.value)}}</span></label>
-                <input [hidden]="true" class="form-control" name="objectiveIMC" #objectiveIMC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveIMC" placeholder="" required pattern="^[A-zÀ-ÿ0-9 ]*$">
+                <input [hidden]="true" class="form-control" name="objectiveIMC" #objectiveIMC="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveIMC" placeholder="">
                 <small *ngIf="objectiveIMC.errors?.required && (objectiveIMC.touched || objectiveIMC.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveIMC.errors?.pattern && (objectiveIMC.touched || objectiveIMC.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -88,7 +88,7 @@
                     'has-success': objectiveBodySurface.valid && (objectiveBodySurface.dirty || objectiveBodySurface.touched)
                 }">
                 <label for="objectiveBodySurface">*Superficie corporal (m<sup>2</sup>): <span>{{printedBodySurface(objectiveBodySurface.value)}}</span></label>
-                <input [hidden]="true" class="form-control" name="objectiveBodySurface" #objectiveBodySurface="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveBodySurface" placeholder="" required pattern="^[A-zÀ-ÿ0-9 ]*$">
+                <input [hidden]="true" class="form-control" name="objectiveBodySurface" #objectiveBodySurface="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.objectiveBodySurface" placeholder="">
                 <small *ngIf="objectiveBodySurface.errors?.required && (objectiveBodySurface.touched || objectiveBodySurface.dirty)">*Campo Requerido</small>
                 <small *ngIf="objectiveBodySurface.errors?.pattern && (objectiveBodySurface.touched || objectiveBodySurface.dirty)">*Dato inv&aacute;lido</small>
             </div>
