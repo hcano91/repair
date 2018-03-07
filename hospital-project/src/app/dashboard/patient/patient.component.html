@@ -211,7 +211,7 @@
                         'has-success': street.valid && (street.dirty || street.touched)
                     }">
                     <label for="street">Calle</label>
-                    <input class="form-control" name="street" #street="ngModel" [(ngModel)]="patientService.selectedPatient.data.street" placeholder="Jos&eacute; Eleuterio Gonzalez" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="street" #street="ngModel" [(ngModel)]="patientService.selectedPatient.data.street" placeholder="Jos&eacute; Eleuterio Gonzalez">
                     <small *ngIf="street.errors?.required && (street.touched || street.dirty)">*Campo Requerido</small>
                     <small *ngIf="street.errors?.pattern && (street.touched || street.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -233,7 +233,7 @@
                                 'has-success': colony.valid && (colony.dirty || colony.touched)
                             }">
                     <label for="colony">Colonia</label>
-                    <input class="form-control" name="colony" #colony="ngModel" [(ngModel)]="patientService.selectedPatient.data.colony" placeholder="Mitras Centro" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="colony" #colony="ngModel" [(ngModel)]="patientService.selectedPatient.data.colony" placeholder="Mitras Centro">
                     <small *ngIf="colony.errors?.required && (colony.touched || colony.dirty)">*Campo Requerido</small>
                     <small *ngIf="colony.errors?.pattern && (colony.touched || colony.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -244,7 +244,7 @@
                                 'has-success': municipality.valid && (municipality.dirty || municipality.touched)
                             }">
                     <label for="municipality">Municipio o Localidad</label>
-                    <input class="form-control" name="municipality" #municipality="ngModel" [(ngModel)]="patientService.selectedPatient.data.municipality" placeholder="Monterrey" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" name="municipality" #municipality="ngModel" [(ngModel)]="patientService.selectedPatient.data.municipality" placeholder="Monterrey">
                     <small *ngIf="municipality.errors?.required && (municipality.touched || municipality.dirty)">*Campo Requerido</small>
                     <small *ngIf="municipality.errors?.pattern && (municipality.touched || municipality.dirty)">*Dato inv&aacute;lido</small>
                 </div>
@@ -443,7 +443,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.tabaquism" #tabaquism="ngModel" name="tabaquism">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!tabaquism.value" name="tabaquismDescription" #tabaquismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tabaquismDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!tabaquism.value" name="tabaquismDescription" #tabaquismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tabaquismDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -456,8 +456,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.biomassSmokeExposition" #biomassSmokeExposition="ngModel" name="biomassSmokeExposition">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!biomassSmokeExposition.value" name="biomassSmokeExpositionDescription" #biomassSmokeExpositionDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.biomassSmokeExpositionDescription" placeholder="Describa"
-                            pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!biomassSmokeExposition.value" name="biomassSmokeExpositionDescription" #biomassSmokeExpositionDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.biomassSmokeExpositionDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -470,7 +469,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.alcoholism" #alcoholism="ngModel" name="alcoholism">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!alcoholism.value" name="alcoholismDescription" #alcoholismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alcoholismDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!alcoholism.value" name="alcoholismDescription" #alcoholismDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alcoholismDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -483,7 +482,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.drugAddiction" #drugAddiction="ngModel" name="drugAddiction">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!drugAddiction.value" name="drugAddictionDescription" #drugAddictionDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.drugAddictionDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!drugAddiction.value" name="drugAddictionDescription" #drugAddictionDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.drugAddictionDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -496,7 +495,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.tatoos" #tatoos="ngModel" name="tatoos">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!tatoos.value" name="tatoosDescription" #tatoosDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tatoosDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!tatoos.value" name="tatoosDescription" #tatoosDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.tatoosDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -509,7 +508,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.transfusions" #transfusions="ngModel" name="transfusions">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!transfusions.value" name="transfusionsDescription" #transfusionsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.transfusionsDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!transfusions.value" name="transfusionsDescription" #transfusionsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.transfusionsDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -522,7 +521,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.travels" #travels="ngModel" name="travels">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!travels.value" name="travelsDescription" #travelsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.travelsDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!travels.value" name="travelsDescription" #travelsDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.travelsDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -535,7 +534,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.pdd" #pdd="ngModel" name="pdd">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!pdd.value" name="pddDescription" #pddDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.pddDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!pdd.value" name="pddDescription" #pddDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.pddDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -548,7 +547,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.combe" #combe="ngModel" name="combe">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!combe.value" name="combeDescription" #combeDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.combeDescription" placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!combe.value" name="combeDescription" #combeDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.combeDescription" placeholder="Describa">
                     </div>
                 </div>
             </div>
@@ -566,6 +565,8 @@
                         </div>
                         <input class="form-control" [disabled]="!pneumococcus.value" type="date" name="pneumococcusDate" #pneumococcusDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.pneumococcusDate">
                     </div>
+                    <label *ngIf="pneumococcus.value" for="pneumococcusDefine">Motivo</label>
+                    <input *ngIf="pneumococcus.value" class="form-control" [disabled]="!pneumococcus.value" name="pneumococcusDefine" #pneumococcusDefine="ngModel" [(ngModel)]="patientService.selectedPatient.data.pneumococcusDefine" placeholder="Defina">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -579,6 +580,8 @@
                         </div>
                         <input class="form-control" [disabled]="!influenza.value" type="date" name="influenzaDate" #influenzaDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.influenzaDate">
                     </div>
+                    <label *ngIf="influenza.value" for="influenzaDefine">Motivo</label>
+                    <input *ngIf="influenza.value" class="form-control" [disabled]="!influenza.value" name="influenzaDefine" #influenzaDefine="ngModel" [(ngModel)]="patientService.selectedPatient.data.influenzaDefine" placeholder="Defina">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -592,6 +595,8 @@
                         </div>
                         <input class="form-control" [disabled]="!herpesZoster.value" type="date" name="herpesZosterDate" #herpesZosterDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.herpesZosterDate">
                     </div>
+                    <label *ngIf="herpesZoster.value" for="herpesZosterDefine">Motivo</label>
+                    <input *ngIf="herpesZoster.value" class="form-control" [disabled]="!herpesZoster.value" name="herpesZosterDefine" #herpesZosterDefine="ngModel" [(ngModel)]="patientService.selectedPatient.data.herpesZosterDefine" placeholder="Defina">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -605,19 +610,23 @@
                         </div>
                         <input class="form-control" [disabled]="!vph.value" type="date" name="vphDate" #vphDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.vphDate">
                     </div>
+                    <label *ngIf="vph.value" for="vphDefine">Motivo</label>
+                    <input *ngIf="vph.value" class="form-control" [disabled]="!vph.value" name="vphDefine" #vphDefine="ngModel" [(ngModel)]="patientService.selectedPatient.data.vphDefine" placeholder="Defina">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="form-group">
-                    <label for="otherPersonalbackground">Otro</label>
+                    <label for="otherVaccinations">Otro</label>
                     <div class="input-group">
                         <div class="input-group-addon">
                             <div class="input-group-text">
-                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.otherPersonalbackground" #otherPersonalbackground="ngModel" name="otherPersonalbackground">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.otherVaccinations" #otherVaccinations="ngModel" name="otherVaccinations">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!otherPersonalbackground.value" type="date" name="otherPersonalbackgroundDate" #otherPersonalbackgroundDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherPersonalbackgroundDate">
+                        <input class="form-control" [disabled]="!otherVaccinations.value" type="date" name="otherVaccinationsDate" #otherVaccinationsDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherVaccinationsDate">
                     </div>
+                    <label *ngIf="otherVaccinations.value" for="otherVaccinationsDefine">Motivo</label>
+                    <input *ngIf="otherVaccinations.value" class="form-control" [disabled]="!otherVaccinations.value" name="otherVaccinationsDefine" #otherVaccinationsDefine="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherVaccinationsDefine" placeholder="Defina">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -643,7 +652,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitus" #diabetesMelitus="ngModel" name="diabetesMelitus">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!diabetesMelitus.value" name="diabetesMelitusType" #diabetesMelitusDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitusType" placeholder="Tipo" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!diabetesMelitus.value" name="diabetesMelitusType" #diabetesMelitusDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitusType" placeholder="Tipo">
                         <input class="form-control" [disabled]="!diabetesMelitus.value" type="date" name="diabetesMelitusDate" #diabetesMelitusDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.diabetesMelitusDate">
                     </div>
                     <label *ngIf="diabetesMelitus.value" for="diabetesMelitusTreatedByDoctor">Control con alg&uacute;n m&eacute;dico</label>
@@ -729,7 +738,7 @@
                                 <input type="checkbox" [disabled]="!eVC.value" [(ngModel)]="patientService.selectedPatient.data.eVCSequel" #eVCSequel="ngModel" name="eVCSequel">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!eVCSequel.value" name="eVCSequelType" #eVCSequelType="ngModel" [(ngModel)]="patientService.selectedPatient.data.eVCSequelType" placeholder="Tipo" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!eVCSequel.value" name="eVCSequelType" #eVCSequelType="ngModel" [(ngModel)]="patientService.selectedPatient.data.eVCSequelType" placeholder="Tipo">
                     </div>
                 </div>
             </div>
@@ -742,7 +751,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.surgeries" #surgeries="ngModel" name="surgeries">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!surgeries.value" name="surgeriesDescription" #surgeriesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.surgeriesDescription" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!surgeries.value" name="surgeriesDescription" #surgeriesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.surgeriesDescription" placeholder="Especifique">
                     </div>
                 </div>
             </div>
@@ -755,7 +764,7 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.alergies" #alergies="ngModel" name="alergies">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!alergies.value" name="alergiesDescription" #alergiesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alergiesDescription" placeholder="Especifique" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!alergies.value" name="alergiesDescription" #alergiesDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.alergiesDescription" placeholder="Especifique">
                     </div>
                 </div>
             </div>
@@ -779,11 +788,11 @@
                                 <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.hospitalStay" #hospitalStay="ngModel" name="hospitalStay">
                             </div>
                         </div>
-                        <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayHospital" #hospitalStayDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayHospital" placeholder="Hospital" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        <input class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayHospital" #hospitalStayDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayHospital" placeholder="Hospital">
                         <input class="form-control" [disabled]="!hospitalStay.value" type="date" name="hospitalStayDate" #hospitalStayDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayDate">
                     </div>
                     <label *ngIf="hospitalStay.value" for="hospitalStayReason">Motivo</label>
-                    <input *ngIf="hospitalStay.value" class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayReason" #hospitalStayReason="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayReason" placeholder="Motivo" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input *ngIf="hospitalStay.value" class="form-control" [disabled]="!hospitalStay.value" name="hospitalStayReason" #hospitalStayReason="ngModel" [(ngModel)]="patientService.selectedPatient.data.hospitalStayReason" placeholder="Motivo">
                 </div>
             </div>
         </div>
@@ -908,7 +917,7 @@
                     <small *ngIf="lastDateMammography.errors?.required && (lastDateMammography.touched || lastDateMammography.dirty)">*Campo Requerido</small>
                     <small *ngIf="lastDateMammography.errors?.pattern && (lastDateMammography.touched || lastDateMammography.dirty)">*Dato inv&aacute;lido</small>
                     <br>
-                    <input class="form-control" name="mammographyFindings" #mammographyFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.mammographyFindings" placeholder="Hallazgos" pattern="^[A-zÀ-ÿ0-9 ]*$" required>
+                    <input class="form-control" name="mammographyFindings" #mammographyFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.mammographyFindings" placeholder="Hallazgos" required>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -923,7 +932,7 @@
                     <small *ngIf="lastDatePapanicolau.errors?.required && (lastDatePapanicolau.touched || lastDatePapanicolau.dirty)">*Campo Requerido</small>
                     <small *ngIf="lastDatePapanicolau.errors?.pattern && (lastDatePapanicolau.touched || lastDatePapanicolau.dirty)">*Dato inv&aacute;lido</small>
                     <br>
-                    <input class="form-control" name="papnicolauFindings" #papnicolauFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.papnicolauFindings" placeholder="Hallazgos" pattern="^[A-zÀ-ÿ0-9 ]*$" required>
+                    <input class="form-control" name="papnicolauFindings" #papnicolauFindings="ngModel" [(ngModel)]="patientService.selectedPatient.data.papnicolauFindings" placeholder="Hallazgos" required>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

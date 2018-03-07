@@ -18,13 +18,13 @@ export class ConsultationComponent implements OnInit {
   @Input() isEditingConsultation: boolean;
 
   
-
+  _moment:any;
 
   constructor( public patientService: PatientService,
     public consultationService: ConsultationService,
     private toastrService: ToastrService,
     private electronService: ElectronService) { 
-      
+      this._moment = moment;
   }
 
   onSubmitForm(consultationForm: NgForm) {
@@ -50,6 +50,14 @@ export class ConsultationComponent implements OnInit {
     this.onResetButtonClick(consultationForm);
     this.visibleSectionEvent.emit('patient');
     this.toastrService.success('Submitted Successfully', "Patient Register");
+  }
+
+  getToday() {
+    return moment(new Date()).format("MM-DD-YYYY").valueOf();
+  }
+
+  getActualTime() {
+    return moment().format('LT').valueOf();
   }
 
   getAge(date){

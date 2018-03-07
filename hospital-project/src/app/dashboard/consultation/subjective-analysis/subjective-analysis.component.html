@@ -28,10 +28,11 @@
                 <label for="levelOfPainNight">*Dolor nocturno</label>
                 <select class="form-control" name="levelOfPainNight" #levelOfPainNight="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.levelOfPainNight" required>
                     <option selected [ngValue]="levelOfPainNight" value="">Seleccione...</option>
-                    <option [ngValue]="levelOfPainNight" value="Másculino">Ausente</option>
-                    <option [ngValue]="levelOfPainNight" value="Leve">Leve</option>
-                    <option [ngValue]="levelOfPainNight" value="Moderado">Moderado</option>
-                    <option [ngValue]="levelOfPainNight" value="Grave">Grave</option>
+                    <option [ngValue]="levelOfPainNight" value="Ausente">Ausente</option>
+                    <option [ngValue]="levelOfPainNight" value="Rara vez">Rara vez</option>
+                    <option [ngValue]="levelOfPainNight" value="Frecuente">Frecuente</option>
+                    <option [ngValue]="levelOfPainNight" value="Lo despierta en la noche">Lo despierta en la noche</option>
+                    <option [ngValue]="levelOfPainNight" value="Impide el sue&ntilde;o">Impide el sue&ntilde;o</option>
                 </select>
                 <small *ngIf="levelOfPainNight.errors?.required && (levelOfPainNight.touched || levelOfPainNight.dirty)">*Campo Requerido</small>
                 <small *ngIf="levelOfPainNight.errors?.pattern && (levelOfPainNight.touched || levelOfPainNight.dirty)">*Dato inv&aacute;lido</small>

@@ -4,7 +4,6 @@
             <h3>Embarazo</h3>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.notRememberPeriodDate" #notRememberPeriodDate="ngModel" name="notRememberPeriodDate"> Recuerda Fecha de &uacute;ltima menstruaci&oacute;n
             <div *ngIf="!notRememberPeriodDate.value" class="form-group" [ngClass]="{
                 'has-danger': lastPeriodDate.invalid && (lastPeriodDate.dirty || lastPeriodDate.touched),
                 'has-success': lastPeriodDate.valid && (lastPeriodDate.dirty || lastPeriodDate.touched)
@@ -23,6 +22,7 @@
                 <small *ngIf="lastPeriodDescription.errors?.required && (lastPeriodDescription.touched || lastPeriodDescription.dirty)">*Campo Requerido</small>
                 <small *ngIf="lastPeriodDescription.errors?.pattern && (lastPeriodDescription.touched || lastPeriodDescription.dirty)">*Dato inv&aacute;lido</small>
             </div>
+            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.notRememberPeriodDate" #notRememberPeriodDate="ngModel" name="notRememberPeriodDate"> No recuerda Fecha de &uacute;ltima menstruaci&oacute;n
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group" [ngClass]="{
@@ -131,7 +131,7 @@
             </div>
         </div>
         <div *ngIf="getAge()" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h5>Ex&aacute;menes necesarios para pacientes embarazadas o con deseo de embarazo</h5>
+            <h4>Ex&aacute;menes necesarios para pacientes embarazadas o con deseo de embarazo</h4>
         </div>
         <div *ngIf="getAge()" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
@@ -145,9 +145,6 @@
                     <input class="form-control" [disabled]="!antiCPPExam.value" name="antiCPPExamResult" #antiCPPExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
                 </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4>Ex&aacute;menes de pacientes embarazadas</h4>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
