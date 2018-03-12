@@ -113,6 +113,7 @@
                     </div>
                     <div class="col-md-4">
                         <h2>Diagn&oacute;stico</h2>
+                        <p *ngIf="consultationService.selectedConsultation.data.diagnosis">{{consultationService.selectedConsultation.data.diagnosis}}</p>
                         <p *ngIf="consultationService.selectedConsultation.data.diagnosis1">{{consultationService.selectedConsultation.data.diagnosis1}}</p>
                         <p *ngIf="consultationService.selectedConsultation.data.diagnosis2">{{consultationService.selectedConsultation.data.diagnosis2}}</p>
                         <p *ngIf="consultationService.selectedConsultation.data.diagnosis3">{{consultationService.selectedConsultation.data.diagnosis3}}</p>
@@ -342,7 +343,7 @@
             <div class="information information-body medical-reciept">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Diagnosis{{':' + consultationService.selectedConsultation.data.diagnosis1}}</h2>
+                        <h2>Diagn&oacute;stico {{':' + consultationService.selectedConsultation.data.diagnosis}}</h2>
                     </div>
                     <div class="col-md-12">
                         <h2>Medicamentos Recetados</h2>
