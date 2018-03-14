@@ -9,7 +9,7 @@
                 'has-success': lastPeriodDate.valid && (lastPeriodDate.dirty || lastPeriodDate.touched)
             }">
                 <label for="lastPeriodDate">*Fecha de &uacute;ltima Menstruaci&oacute;n</label>
-                <input class="form-control" type="date" name="lastPeriodDate" #lastPeriodDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lastPeriodDate" required>
+                <input class="form-control" type="date" name="lastPeriodDate" #lastPeriodDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lastPeriodDate">
                 <small *ngIf="lastPeriodDate.errors?.required && (lastPeriodDate.touched || lastPeriodDate.dirty)">*Campo Requerido</small>
                 <small *ngIf="lastPeriodDate.errors?.pattern && (lastPeriodDate.touched || lastPeriodDate.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -18,7 +18,7 @@
                 'has-success': lastPeriodDescription.valid && (lastPeriodDescription.dirty || lastPeriodDescription.touched)
             }">
                 <label for="lastPeriodDescription">*Fecha de &uacute;ltima Menstruaci&oacute;n</label>
-                <input class="form-control" name="lastPeriodDescription" #lastPeriodDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lastPeriodDescription" placeholder="ej. Dos meses" required>
+                <input class="form-control" name="lastPeriodDescription" #lastPeriodDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.lastPeriodDescription" placeholder="ej. Dos meses">
                 <small *ngIf="lastPeriodDescription.errors?.required && (lastPeriodDescription.touched || lastPeriodDescription.dirty)">*Campo Requerido</small>
                 <small *ngIf="lastPeriodDescription.errors?.pattern && (lastPeriodDescription.touched || lastPeriodDescription.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -104,15 +104,19 @@
             </div>
         </div>
         <div *ngIf="getAge()" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+                    'has-danger': wantsPregnancy.invalid && (wantsPregnancy.dirty || wantsPregnancy.touched),
+                    'has-success': wantsPregnancy.valid && (wantsPregnancy.dirty || wantsPregnancy.touched)
+                }">
                 <label for="wantsPregnancy">Paciente desea Embarazo</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancy" #wantsPregnancy="ngModel" name="wantsPregnancy">
-                        </div>
-                    </div>
-                </div>
+                <select class="form-control" name="wantsPregnancy" #wantsPregnancy="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancy" required>
+                    <option selected [ngValue]="wantsPregnancy" value="">Seleccione...</option>
+                    <option [ngValue]="wantsPregnancy" value="true">S&iacute;</option>
+                    <option [ngValue]="wantsPregnancy" value="false">No</option>
+                </select>
+                <small *ngIf="wantsPregnancy.errors?.required && (wantsPregnancy.touched || wantsPregnancy.dirty)">*Campo Requerido</small>
+                <small *ngIf="wantsPregnancy.errors?.pattern && (wantsPregnancy.touched || wantsPregnancy.dirty)">*Dato inv&aacute;lido</small>
+                <input class="form-control" *ngIf="wantsPregnancy.value==='true'" name="wantsPregnancyDescription" #wantsPregnancyDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancyDescription" placeholder="Describa">
             </div>
         </div>
         <div *ngIf="getAge()" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -129,113 +133,6 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="getAge()" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4>Ex&aacute;menes necesarios para pacientes embarazadas o con deseo de embarazo</h4>
-        </div>
-        <div *ngIf="getAge()" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="antiCPPExam">AntiCCP</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExam" #antiCPPExam="ngModel" name="antiCPPExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!antiCPPExam.value" name="antiCPPExamResult" #antiCPPExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="FrExam">FR</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.FrExam" #FrExam="ngModel" name="FrExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!FrExam.value" name="FrExamResult" #FrExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.FrExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="anticoagulantExam">Anticoagulante l&uacute;pico</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.anticoagulantExam" #anticoagulantExam="ngModel" name="anticoagulantExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!anticoagulantExam.value" name="anticoagulantExamResult" #anticoagulantExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticoagulantExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="roExam">Ro</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.roExam" #roExam="ngModel" name="roExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!roExam.value" name="roExamResult" #roExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.roExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="anticardiolipinExam">Anticardiolipinas</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.anticardiolipinExam" #anticardiolipinExam="ngModel" name="anticardiolipinExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!anticardiolipinExam.value" name="anticardiolipinExamResult" #anticardiolipinExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticardiolipinExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="anaExam">ANA</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.anaExam" #anaExam="ngModel" name="anaExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!anaExam.value" name="anaExamResult" #anaExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anaExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="antiB2GPIExam">Anti B2GPI</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiB2GPIExam" #antiB2GPIExam="ngModel" name="antiB2GPIExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!antiB2GPIExam.value" name="antiB2GPIExamResult" #antiB2GPIExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiB2GPIExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group">
-                <label for="laExam">La</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <div class="input-group-text">
-                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.laExam" #laExam="ngModel" name="laExam">
-                        </div>
-                    </div>
-                    <input class="form-control" [disabled]="!laExam.value" name="laExamResult" #laExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.laExamResult" placeholder="Resultado">
-                </div>
-            </div>
-        </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
                 <label for="pregnantToday">Actualmente embarazada</label>
@@ -248,8 +145,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
     <div class="row" *ngIf="pregnantToday.value">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

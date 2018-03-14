@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedicationDosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedicationDosis" #actualTreatmentMedicationDosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDosis" placeholder="Especifique">
+                    <textarea class="form-control" name="actualTreatmentMedicationDosis" #actualTreatmentMedicationDosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDosis" placeholder="Especifique"></textarea>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedicationStart">Inicio</label>
@@ -19,7 +19,26 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedicationDependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedicationDependency" #actualTreatmentMedicationDependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDependency" placeholder="Especifique">
+                    <select class="form-control" name="actualTreatmentMedicationDependency" #actualTreatmentMedicationDependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDependency">
+                        <option selected [ngValue]="actualTreatmentMedicationDependency" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedicationDependency" value="Bueno (>75%)">Bueno (&gt;75%)</option>
+                        <option [ngValue]="actualTreatmentMedicationDependency" value="Regular (50-74%)">Regular (50-74%)</option>
+                        <option [ngValue]="actualTreatmentMedicationDependency" value="Malo (25 - 49%)">Malo (25 - 49%)</option>
+                        <option [ngValue]="actualTreatmentMedicationDependency" value="Nulo (<25%)">Nulo (&gt;25%)</option>
+                    </select>
+                    <label *ngIf="actualTreatmentMedicationDependency.value==='Regular (50-74%)' || actualTreatmentMedicationDependency.value==='Malo (25 - 49%)' || actualTreatmentMedicationDependency.value==='Nulo (<25%)'" for="actualTreatmentMedicationDependency">Raz&oacute;n</label>
+                    <select *ngIf="actualTreatmentMedicationDependency.value==='Regular (50-74%)' || actualTreatmentMedicationDependency.value==='Malo (25 - 49%)' || actualTreatmentMedicationDependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedicationDependencyReason"
+                        #actualTreatmentMedicationDependencyReason="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationDependencyReason">
+                        <option selected [ngValue]="actualTreatmentMedicationDependencyReason" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedicationDependencyReason" value="Económica">Econ&oacute;mica</option>
+                        <option [ngValue]="actualTreatmentMedicationDependencyReason" value="Falta de disponibilidad">Falta de disponibilidad</option>
+                        <option [ngValue]="actualTreatmentMedicationDependencyReason" value="Efectos secundarios">Efectos secundarios</option>
+                        <option [ngValue]="actualTreatmentMedicationDependencyReason" value="Decisión propia">Decisi&oacute;n propia</option>
+                        <option [ngValue]="actualTreatmentMedicationDependencyReason" value="Olvido de dosis">Olvido de dosis</option>
+                        <option [ngValue]="actualTreatmentMedicationDependencyReason" value="Otra, definir">Otra, definir</option>
+                    </select>
+                    <input *ngIf="actualTreatmentMedicationDependency.value==='Regular (50-74%)' || actualTreatmentMedicationDependency.value==='Malo (25 - 49%)' || actualTreatmentMedicationDependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedicationDependencyReasonOther"
+                        #actualTreatmentMedicationDependencyReasonOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedicationStartDependencyReasonOther" placeholder="Especifique">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedicationName)" class="form-row">
@@ -29,7 +48,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication1Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication1Dosis" #actualTreatmentMedication1Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dosis" placeholder="Especifique">
+                    <textarea class="form-control" name="actualTreatmentMedication1Dosis" #actualTreatmentMedication1Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dosis" placeholder="Especifique"></textarea>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication1Start">Inicio</label>
@@ -37,7 +56,26 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication1Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication1Dependency" #actualTreatmentMedication1Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dependency" placeholder="Especifique">
+                    <select class="form-control" name="actualTreatmentMedication1Dependency" #actualTreatmentMedication1Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1Dependency">
+                        <option selected [ngValue]="actualTreatmentMedication1Dependency" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication1Dependency" value="Bueno (>75%)">Bueno (&gt;75%)</option>
+                        <option [ngValue]="actualTreatmentMedication1Dependency" value="Regular (50-74%)">Regular (50-74%)</option>
+                        <option [ngValue]="actualTreatmentMedication1Dependency" value="Malo (25 - 49%)">Malo (25 - 49%)</option>
+                        <option [ngValue]="actualTreatmentMedication1Dependency" value="Nulo (<25%)">Nulo (&gt;25%)</option>
+                    </select>
+                    <label *ngIf="actualTreatmentMedication1Dependency.value==='Regular (50-74%)' || actualTreatmentMedication1Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication1Dependency.value==='Nulo (<25%)'" for="actualTreatmentMedication1Dependency">Raz&oacute;n</label>
+                    <select *ngIf="actualTreatmentMedication1Dependency.value==='Regular (50-74%)' || actualTreatmentMedication1Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication1Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication1DependencyReason"
+                        #actualTreatmentMedication1DependencyReason="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1DependencyReason">
+                        <option selected [ngValue]="actualTreatmentMedication1DependencyReason" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication1DependencyReason" value="Económica">Econ&oacute;mica</option>
+                        <option [ngValue]="actualTreatmentMedication1DependencyReason" value="Falta de disponibilidad">Falta de disponibilidad</option>
+                        <option [ngValue]="actualTreatmentMedication1DependencyReason" value="Efectos secundarios">Efectos secundarios</option>
+                        <option [ngValue]="actualTreatmentMedication1DependencyReason" value="Decisión propia">Decisi&oacute;n propia</option>
+                        <option [ngValue]="actualTreatmentMedication1DependencyReason" value="Olvido de dosis">Olvido de dosis</option>
+                        <option [ngValue]="actualTreatmentMedication1DependencyReason" value="Otra, definir">Otra, definir</option>
+                    </select>
+                    <input *ngIf="actualTreatmentMedication1Dependency.value==='Regular (50-74%)' || actualTreatmentMedication1Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication1Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication1DependencyReasonOther"
+                        #actualTreatmentMedication1DependencyReasonOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication1StartDependencyReasonOther" placeholder="Especifique">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication1Name)" class="form-row">
@@ -47,7 +85,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication2Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication2Dosis" #actualTreatmentMedication2Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dosis" placeholder="Especifique">
+                    <textarea class="form-control" name="actualTreatmentMedication2Dosis" #actualTreatmentMedication2Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dosis" placeholder="Especifique"></textarea>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication2Start">Inicio</label>
@@ -55,7 +93,26 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication2Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication2Dependency" #actualTreatmentMedication2Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dependency" placeholder="Especifique">
+                    <select class="form-control" name="actualTreatmentMedication2Dependency" #actualTreatmentMedication2Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2Dependency">
+                        <option selected [ngValue]="actualTreatmentMedication2Dependency" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication2Dependency" value="Bueno (>75%)">Bueno (&gt;75%)</option>
+                        <option [ngValue]="actualTreatmentMedication2Dependency" value="Regular (50-74%)">Regular (50-74%)</option>
+                        <option [ngValue]="actualTreatmentMedication2Dependency" value="Malo (25 - 49%)">Malo (25 - 49%)</option>
+                        <option [ngValue]="actualTreatmentMedication2Dependency" value="Nulo (<25%)">Nulo (&gt;25%)</option>
+                    </select>
+                    <label *ngIf="actualTreatmentMedication2Dependency.value==='Regular (50-74%)' || actualTreatmentMedication2Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication2Dependency.value==='Nulo (<25%)'" for="actualTreatmentMedication2Dependency">Raz&oacute;n</label>
+                    <select *ngIf="actualTreatmentMedication2Dependency.value==='Regular (50-74%)' || actualTreatmentMedication2Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication2Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication2DependencyReason"
+                        #actualTreatmentMedication2DependencyReason="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2DependencyReason">
+                        <option selected [ngValue]="actualTreatmentMedication2DependencyReason" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication2DependencyReason" value="Económica">Econ&oacute;mica</option>
+                        <option [ngValue]="actualTreatmentMedication2DependencyReason" value="Falta de disponibilidad">Falta de disponibilidad</option>
+                        <option [ngValue]="actualTreatmentMedication2DependencyReason" value="Efectos secundarios">Efectos secundarios</option>
+                        <option [ngValue]="actualTreatmentMedication2DependencyReason" value="Decisión propia">Decisi&oacute;n propia</option>
+                        <option [ngValue]="actualTreatmentMedication2DependencyReason" value="Olvido de dosis">Olvido de dosis</option>
+                        <option [ngValue]="actualTreatmentMedication2DependencyReason" value="Otra, definir">Otra, definir</option>
+                    </select>
+                    <input *ngIf="actualTreatmentMedication2Dependency.value==='Regular (50-74%)' || actualTreatmentMedication2Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication2Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication2DependencyReasonOther"
+                        #actualTreatmentMedication2DependencyReasonOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication2StartDependencyReasonOther" placeholder="Especifique">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication2Name)" class="form-row">
@@ -65,7 +122,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication3Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication3Dosis" #actualTreatmentMedication3Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dosis" placeholder="Especifique">
+                    <textarea class="form-control" name="actualTreatmentMedication3Dosis" #actualTreatmentMedication3Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dosis" placeholder="Especifique"></textarea>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication3Start">Inicio</label>
@@ -73,7 +130,26 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication3Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication3Dependency" #actualTreatmentMedication3Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dependency" placeholder="Especifique">
+                    <select class="form-control" name="actualTreatmentMedication3Dependency" #actualTreatmentMedication3Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3Dependency">
+                        <option selected [ngValue]="actualTreatmentMedication3Dependency" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication3Dependency" value="Bueno (>75%)">Bueno (&gt;75%)</option>
+                        <option [ngValue]="actualTreatmentMedication3Dependency" value="Regular (50-74%)">Regular (50-74%)</option>
+                        <option [ngValue]="actualTreatmentMedication3Dependency" value="Malo (25 - 49%)">Malo (25 - 49%)</option>
+                        <option [ngValue]="actualTreatmentMedication3Dependency" value="Nulo (<25%)">Nulo (&gt;25%)</option>
+                    </select>
+                    <label *ngIf="actualTreatmentMedication3Dependency.value==='Regular (50-74%)' || actualTreatmentMedication3Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication3Dependency.value==='Nulo (<25%)'" for="actualTreatmentMedication3Dependency">Raz&oacute;n</label>
+                    <select *ngIf="actualTreatmentMedication3Dependency.value==='Regular (50-74%)' || actualTreatmentMedication3Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication3Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication3DependencyReason"
+                        #actualTreatmentMedication3DependencyReason="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3DependencyReason">
+                        <option selected [ngValue]="actualTreatmentMedication3DependencyReason" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication3DependencyReason" value="Económica">Econ&oacute;mica</option>
+                        <option [ngValue]="actualTreatmentMedication3DependencyReason" value="Falta de disponibilidad">Falta de disponibilidad</option>
+                        <option [ngValue]="actualTreatmentMedication3DependencyReason" value="Efectos secundarios">Efectos secundarios</option>
+                        <option [ngValue]="actualTreatmentMedication3DependencyReason" value="Decisión propia">Decisi&oacute;n propia</option>
+                        <option [ngValue]="actualTreatmentMedication3DependencyReason" value="Olvido de dosis">Olvido de dosis</option>
+                        <option [ngValue]="actualTreatmentMedication3DependencyReason" value="Otra, definir">Otra, definir</option>
+                    </select>
+                    <input *ngIf="actualTreatmentMedication3Dependency.value==='Regular (50-74%)' || actualTreatmentMedication3Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication3Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication3DependencyReasonOther"
+                        #actualTreatmentMedication3DependencyReasonOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication3StartDependencyReasonOther" placeholder="Especifique">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication3Name)" class="form-row">
@@ -83,7 +159,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication4Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication4Dosis" #actualTreatmentMedication4Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dosis" placeholder="Especifique">
+                    <textarea class="form-control" name="actualTreatmentMedication4Dosis" #actualTreatmentMedication4Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dosis" placeholder="Especifique"></textarea>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication4Start">Inicio</label>
@@ -91,7 +167,26 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication4Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication4Dependency" #actualTreatmentMedication4Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dependency" placeholder="Especifique">
+                    <select class="form-control" name="actualTreatmentMedication4Dependency" #actualTreatmentMedication4Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4Dependency">
+                        <option selected [ngValue]="actualTreatmentMedication4Dependency" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication4Dependency" value="Bueno (>75%)">Bueno (&gt;75%)</option>
+                        <option [ngValue]="actualTreatmentMedication4Dependency" value="Regular (50-74%)">Regular (50-74%)</option>
+                        <option [ngValue]="actualTreatmentMedication4Dependency" value="Malo (25 - 49%)">Malo (25 - 49%)</option>
+                        <option [ngValue]="actualTreatmentMedication4Dependency" value="Nulo (<25%)">Nulo (&gt;25%)</option>
+                    </select>
+                    <label *ngIf="actualTreatmentMedication4Dependency.value==='Regular (50-74%)' || actualTreatmentMedication4Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication4Dependency.value==='Nulo (<25%)'" for="actualTreatmentMedication4Dependency">Raz&oacute;n</label>
+                    <select *ngIf="actualTreatmentMedication4Dependency.value==='Regular (50-74%)' || actualTreatmentMedication4Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication4Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication4DependencyReason"
+                        #actualTreatmentMedication4DependencyReason="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4DependencyReason">
+                        <option selected [ngValue]="actualTreatmentMedication4DependencyReason" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication4DependencyReason" value="Económica">Econ&oacute;mica</option>
+                        <option [ngValue]="actualTreatmentMedication4DependencyReason" value="Falta de disponibilidad">Falta de disponibilidad</option>
+                        <option [ngValue]="actualTreatmentMedication4DependencyReason" value="Efectos secundarios">Efectos secundarios</option>
+                        <option [ngValue]="actualTreatmentMedication4DependencyReason" value="Decisión propia">Decisi&oacute;n propia</option>
+                        <option [ngValue]="actualTreatmentMedication4DependencyReason" value="Olvido de dosis">Olvido de dosis</option>
+                        <option [ngValue]="actualTreatmentMedication4DependencyReason" value="Otra, definir">Otra, definir</option>
+                    </select>
+                    <input *ngIf="actualTreatmentMedication4Dependency.value==='Regular (50-74%)' || actualTreatmentMedication4Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication4Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication4DependencyReasonOther"
+                        #actualTreatmentMedication4DependencyReasonOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication4StartDependencyReasonOther" placeholder="Especifique">
                 </div>
             </div>
             <div [hidden]="canShow(actualTreatmentMedication4Name)" class="form-row">
@@ -101,7 +196,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication5Dosis">Dosis</label>
-                    <input class="form-control" name="actualTreatmentMedication5Dosis" #actualTreatmentMedication5Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dosis" placeholder="Especifique">
+                    <textarea class="form-control" name="actualTreatmentMedication5Dosis" #actualTreatmentMedication5Dosis="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dosis" placeholder="Especifique"></textarea>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication5Start">Inicio</label>
@@ -109,7 +204,27 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="actualTreatmentMedication5Dependency">Apego</label>
-                    <input class="form-control" name="actualTreatmentMedication5Dependency" #actualTreatmentMedication5Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dependency" placeholder="Especifique">
+                    <select class="form-control" name="actualTreatmentMedication5Dependency" #actualTreatmentMedication5Dependency="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5Dependency">
+                        <option selected [ngValue]="actualTreatmentMedication5Dependency" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication5Dependency" value="Bueno (>75%)">Bueno (&gt;75%)</option>
+                        <option [ngValue]="actualTreatmentMedication5Dependency" value="Regular (50-74%)">Regular (50-74%)</option>
+                        <option [ngValue]="actualTreatmentMedication5Dependency" value="Malo (25 - 49%)">Malo (25 - 49%)</option>
+                        <option [ngValue]="actualTreatmentMedication5Dependency" value="Nulo (<25%)">Nulo (&gt;25%)</option>
+                    </select>
+                    <label *ngIf="actualTreatmentMedication5Dependency.value==='Regular (50-74%)' || actualTreatmentMedication5Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication5Dependency.value==='Nulo (<25%)'" for="actualTreatmentMedication5Dependency">Raz&oacute;n</label>
+                    <select *ngIf="actualTreatmentMedication5Dependency.value==='Regular (50-74%)' || actualTreatmentMedication5Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication5Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication5DependencyReason"
+                        #actualTreatmentMedication5DependencyReason="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5DependencyReason">
+                        <option selected [ngValue]="actualTreatmentMedication5DependencyReason" value="">Seleccione...</option>
+                        <option [ngValue]="actualTreatmentMedication5DependencyReason" value="Económica">Econ&oacute;mica</option>
+                        <option [ngValue]="actualTreatmentMedication5DependencyReason" value="Falta de disponibilidad">Falta de disponibilidad</option>
+                        <option [ngValue]="actualTreatmentMedication5DependencyReason" value="Efectos secundarios">Efectos secundarios</option>
+                        <option [ngValue]="actualTreatmentMedication5DependencyReason" value="Decisión propia">Decisi&oacute;n propia</option>
+                        <option [ngValue]="actualTreatmentMedication5DependencyReason" value="Olvido de dosis">Olvido de dosis</option>
+                        <option [ngValue]="actualTreatmentMedication5DependencyReason" value="Otra, definir">Otra, definir</option>
+                    </select>
+                    <input *ngIf="actualTreatmentMedication5Dependency.value==='Regular (50-74%)' || actualTreatmentMedication5Dependency.value==='Malo (25 - 49%)' || actualTreatmentMedication5Dependency.value==='Nulo (<25%)'" class="form-control" name="actualTreatmentMedication5DependencyReasonOther"
+                        #actualTreatmentMedication5DependencyReasonOther="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.actualTreatmentMedication5StartDependencyReasonOther" placeholder="Especifique">
+
                 </div>
             </div>
         </div>

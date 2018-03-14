@@ -45,6 +45,17 @@ export class PatientComponent implements OnInit {
     this.patientService.selectedPatient = {data:{}};
   }
 
+  getAgeValid() {
+    var age = 0;
+    try{
+      age = Math.floor(moment(new Date()).diff(moment(this.patientService.selectedPatient.data.dateOfBirth,"YYYY-MM-DD"),'years',true));
+    }
+    catch(e){
+
+    }
+    return (age >=15 && age <=44);
+  }
+
   exitEditMode() {
     this.resetForm();
     this.visibleSectionEvent.emit('patient-list');

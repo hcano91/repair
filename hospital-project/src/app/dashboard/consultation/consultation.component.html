@@ -10,7 +10,7 @@
             <i class="fa fa-arrow-left" aria-hidden="true"></i>Volver a Paciente
         </button>
         <button class="btn btn-secondary" type="button" (click)="printToPDF()">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>Print
+            <i class="fa fa-print" aria-hidden="true"></i>Print
         </button>
     </div>
     <div class="consultation-information">
@@ -138,7 +138,7 @@
                             <div class="col-md-6">M&eacute;dico: {{consultationService.selectedConsultation.data.doctorEvaluation}}</div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <h2>Medicamentos Recetados</h2>
                         <div class="row">
                             <div class="col-md-12">
@@ -327,7 +327,7 @@
                 <p><strong>NOMBRE:</strong> {{patientService.selectedPatient.data.names + ' ' + patientService.selectedPatient.data.fatherLastName + ' ' + patientService.selectedPatient.data.motherLastName}}</p>
                 <p><strong>REGISTRO:</strong> {{this.patientService.selectedPatient.data.register}}&nbsp;&nbsp;&nbsp;&nbsp;<strong>EDAD:</strong> {{getAge(patientService.selectedPatient.data.dateOfBirth)}}&nbsp;&nbsp;&nbsp;&nbsp;<strong>SEXO:</strong> {{patientService.selectedPatient.data.gender}}</p>
                 <p><strong>DEPTO/SERV:</strong> Servicio de Reumatolog&iacute;a</p>
-                <p><strong>FECHA:</strong> {{patientService.selectedPatient.data.creationDate}}</p>
+                <p><strong>FECHA:</strong><span *ngIf="consultationService.selectedConsultation.data.consultationDate"> {{consultationService.selectedConsultation.data.consultationDate}}</span><span *ngIf="!consultationService.selectedConsultation.data.consultationDate"> {{getToday()}}</span></p>
             </div>
         </div>
     </div>
@@ -353,13 +353,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationName}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationPresentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationDosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedicationDuration}}</p>
                                     </div>
                                 </div>
@@ -367,13 +367,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication1Duration}}</p>
                                     </div>
                                 </div>
@@ -381,13 +381,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication2Duration}}</p>
                                     </div>
                                 </div>
@@ -395,13 +395,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication3Duration}}</p>
                                     </div>
                                 </div>
@@ -409,13 +409,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication4Duration}}</p>
                                     </div>
                                 </div>
@@ -423,13 +423,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication5Duration}}</p>
                                     </div>
                                 </div>
@@ -437,13 +437,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication6Duration}}</p>
                                     </div>
                                 </div>
@@ -451,13 +451,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication7Duration}}</p>
                                     </div>
                                 </div>
@@ -465,13 +465,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication8Duration}}</p>
                                     </div>
                                 </div>
@@ -479,13 +479,13 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication9Duration}}</p>
                                     </div>
                                 </div>
@@ -493,18 +493,17 @@
                                     <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Name}}</p>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Presentation}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-9">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Dosis}}</p>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <p>{{consultationService.selectedConsultation.data.treatmentMedication10Duration}}</p>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div style="margin-top: 20px;" class="col-md-12">

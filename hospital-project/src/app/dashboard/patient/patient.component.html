@@ -272,11 +272,10 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label for="latestStudies">*Referencia de</label>
                 <div class="form-group row">
-
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.internalMedicineReference" #internalMedicineReference="ngModel" name="internalMedicineReference" value="Medicina Interna">Medicina Interna
@@ -312,6 +311,8 @@
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.generalSurgeryReference" #generalSurgeryReference="ngModel" name="generalSurgeryReference" value="Cirugía General">Cirugía General
                             </label>
                         </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.plasticSurgeryReference" #plasticSurgeryReference="ngModel" name="plasticSurgeryReference" value="Cirugía Plástica">Cirugía Plástica
@@ -342,13 +343,13 @@
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.sportsMedicine" #sportsMedicine="ngModel" name="sportsMedicine" value="Medicina del Deporte">Medicina del Deporte
                             </label>
                         </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.infectologyReference" #infectologyReference="ngModel" name="infectologyReference" value="Infectología">Infectología
                             </label>
                         </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.nefrologyReference" #nefrologyReference="ngModel" name="nefrologyReference" value="Nefrología">Nefrología
@@ -384,6 +385,8 @@
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.pediatryReference" #pediatryReference="ngModel" name="pediatryReference" value="Pediatría">Pediatría
                             </label>
                         </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.traumatologyReference" #traumatologyReference="ngModel" name="traumatologyReference" value="Traumatología y Ortopedia">Traumatología y Ortopedia
@@ -410,7 +413,7 @@
                                     <input class="form-check-input" type="checkbox" [(ngModel)]="patientService.selectedPatient.data.otherReference" #otherReference="ngModel" name="otherReference" value="Otro">Otro
                                 </label>
                         </div>
-                        <input *ngIf="otherReference.value" class="form-control" name="otherOccupation" #otherOccupation="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherOccupation" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
+                        <input *ngIf="otherReference.value" class="form-control" name="otherReferenceDescription" #otherReferenceDescription="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherReferenceDescription" placeholder="Especifique" required pattern="^[A-zÀ-ÿ ]*$">
                     </div>
                 </div>
             </div>
@@ -805,7 +808,116 @@
                 </div>
             </div>
 
+            <div *ngIf="getAgeValid()" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h4>Ex&aacute;menes necesarios para pacientes embarazadas o con deseo de embarazo</h4>
+            </div>
+            <div *ngIf="getAgeValid()" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="antiCPPExam">AntiCCP</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.antiCPPExam" #antiCPPExam="ngModel" name="antiCPPExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!antiCPPExam.value" name="antiCPPExamResult" #antiCPPExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.antiCPPExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="FrExam">FR</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.FrExam" #FrExam="ngModel" name="FrExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!FrExam.value" name="FrExamResult" #FrExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.FrExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="anticoagulantExam">Anticoagulante l&uacute;pico</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.anticoagulantExam" #anticoagulantExam="ngModel" name="anticoagulantExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!anticoagulantExam.value" name="anticoagulantExamResult" #anticoagulantExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.anticoagulantExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="roExam">Ro</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.roExam" #roExam="ngModel" name="roExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!roExam.value" name="roExamResult" #roExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.roExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="anticardiolipinExam">Anticardiolipinas</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.anticardiolipinExam" #anticardiolipinExam="ngModel" name="anticardiolipinExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!anticardiolipinExam.value" name="anticardiolipinExamResult" #anticardiolipinExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.anticardiolipinExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="anaExam">ANA</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.anaExam" #anaExam="ngModel" name="anaExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!anaExam.value" name="anaExamResult" #anaExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.anaExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="antiB2GPIExam">Anti B2GPI</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.antiB2GPIExam" #antiB2GPIExam="ngModel" name="antiB2GPIExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!antiB2GPIExam.value" name="antiB2GPIExamResult" #antiB2GPIExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.antiB2GPIExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="laExam">La</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.laExam" #laExam="ngModel" name="laExam">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!laExam.value" name="laExamResult" #laExamResult="ngModel" [(ngModel)]="patientService.selectedPatient.data.laExamResult" placeholder="Resultado">
+                    </div>
+                </div>
+            </div>
+
         </div>
+
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h3>Enfermedades</h3>
@@ -966,7 +1078,7 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3>Diagnosis Inicial</h3>
+                <h3>Diagn&oacute;stico Inicial</h3>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="form-group" [ngClass]="{
@@ -987,10 +1099,247 @@
                         <option [ngValue]="mostLikelyDiagnosis" value="Fibromialgia">Fibromialgia</option>
                         <option [ngValue]="mostLikelyDiagnosis" value="Vasculitis">Vasculitis</option>
                         <option [ngValue]="mostLikelyDiagnosis" value="Ninguno">Ninguno</option>
+                        <option [ngValue]="mostLikelyDiagnosis" value="Primera vez">Primera vez</option>
                         <option [ngValue]="mostLikelyDiagnosis" value="Otra">Otra</option>
                     </select>
                     <small *ngIf="mostLikelyDiagnosis.errors?.required && (mostLikelyDiagnosis.touched || mostLikelyDiagnosis.dirty)">*Campo Requerido</small>
                     <small *ngIf="mostLikelyDiagnosis.errors?.pattern && (mostLikelyDiagnosis.touched || mostLikelyDiagnosis.dirty)">*Dato inv&aacute;lido</small>
+                    <input *ngIf="mostLikelyDiagnosis.value==='Otra'" class="form-control" name="mostLikelyDiagnosisDefine" #mostLikelyDiagnosisDefine="ngModel" [(ngModel)]="patientService.selectedPatient.data.mostLikelyDiagnosisDefine" placeholder="Defina">
+                </div>
+            </div>
+            <div *ngIf="consultationType!=='Forma General'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3>Antecedentes de Enfermedad</h3>
+            </div>
+            <div *ngIf="consultationType!=='Forma General'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h4>Historia de la enfermedad</h4>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="form-group" [ngClass]="{
+                            'has-danger': symptomsStart.invalid && (symptomsStart.dirty || symptomsStart.touched),
+                            'has-success': symptomsStart.valid && (symptomsStart.dirty || symptomsStart.touched)
+                        }">
+                    <label for="symptomsStart">*Inicio de S&iacute;ntomas</label>
+                    <input class="form-control" name="symptomsStart" #symptomsStart="ngModel" [(ngModel)]="patientService.selectedPatient.data.symptomsStart" placeholder="ej. hace 2 días" required pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <small *ngIf="symptomsStart.errors?.required && (symptomsStart.touched || symptomsStart.dirty)">*Campo Requerido</small>
+                    <small *ngIf="symptomsStart.errors?.pattern && (symptomsStart.touched || symptomsStart.dirty)">*Dato inv&aacute;lido</small>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="form-group" [ngClass]="{
+                            'has-danger': dateOfDiagnosis.invalid && (dateOfDiagnosis.dirty || dateOfDiagnosis.touched),
+                            'has-success': dateOfDiagnosis.valid && (dateOfDiagnosis.dirty || dateOfDiagnosis.touched)
+                        }">
+                    <label for="dateOfDiagnosis">Fecha de Diagn&oacute;stico</label>
+                    <input class="form-control" type="date" name="dateOfDiagnosis" #dateOfDiagnosis="ngModel" [(ngModel)]="patientService.selectedPatient.data.dateOfDiagnosis">
+                    <small *ngIf="dateOfDiagnosis.errors?.required && (dateOfDiagnosis.touched || dateOfDiagnosis.dirty)">*Campo Requerido</small>
+                    <small *ngIf="dateOfDiagnosis.errors?.pattern && (dateOfDiagnosis.touched || dateOfDiagnosis.dirty)">*Dato inv&aacute;lido</small>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="diagnosedByReumatologist">Diagn&oacute;stico por un Reumat&oacute;logo</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.diagnosedByReumatologist" #diagnosedByReumatologist="ngModel" name="diagnosedByReumatologist">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!diagnosedByReumatologist.value" name="diagnosedByReumatologistPlace" #diagnosedByReumatologistPlace="ngModel" [(ngModel)]="patientService.selectedPatient.data.diagnosedByReumatologistPlace" placeholder="¿D&oacute;nde?"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group" [ngClass]="{
+                            'has-danger': diagnosisAntibodies.invalid && (diagnosisAntibodies.dirty || diagnosisAntibodies.touched),
+                            'has-success': diagnosisAntibodies.valid && (diagnosisAntibodies.dirty || diagnosisAntibodies.touched)
+                        }">
+                    <label for="diagnosisAntibodies">Anticuerpos al diagn&oacute;stico</label>
+                    <textarea class="form-control" name="diagnosisAntibodies" #diagnosisAntibodies="ngModel" [(ngModel)]="patientService.selectedPatient.data.diagnosisAntibodies" placeholder="Describa" rows="2"></textarea>
+                    <small *ngIf="diagnosisAntibodies.errors?.required && (diagnosisAntibodies.touched || diagnosisAntibodies.dirty)">*Campo Requerido</small>
+                    <small *ngIf="diagnosisAntibodies.errors?.pattern && (diagnosisAntibodies.touched || diagnosisAntibodies.dirty)">*Dato inv&aacute;lido</small>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h4>Historia del tratamiento</h4>
+                <p>Alguna vez ha utilizado los siguientes medicamentos. Si los suspendió, ¿cu&aacute;l fue la razón?:</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="mtxMedication">MTX</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.mtxMedication" #mtxMedication="ngModel" name="mtxMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!mtxMedication.value" name="mtxMedicationSuspended" #mtxMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.mtxMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="lfmMedication">LFM</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.lfmMedication" #lfmMedication="ngModel" name="lfmMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!lfmMedication.value" name="lfmMedicationSuspended" #lfmMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.lfmMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="sszMedication">SSZ</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.sszMedication" #sszMedication="ngModel" name="sszMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!sszMedication.value" name="sszMedicationSuspended" #sszMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.sszMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="hcqMedication">HCQ</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.hcqMedication" #hcqMedication="ngModel" name="hcqMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!hcqMedication.value" name="hcqMedicationSuspended" #hcqMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.hcqMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="clqMedication">CLQ</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.clqMedication" #clqMedication="ngModel" name="clqMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!clqMedication.value" name="clqMedicationSuspended" #clqMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.clqMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="azaMedication">AZA</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.azaMedication" #azaMedication="ngModel" name="azaMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!azaMedication.value" name="azaMedicationSuspended" #azaMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.azaMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="cfmMedication">CFM</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.cfmMedication" #cfmMedication="ngModel" name="cfmMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!cfmMedication.value" name="cfmMedicationSuspended" #cfmMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.cfmMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="mmfMedication">MMF</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.mmfMedication" #mmfMedication="ngModel" name="mmfMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!mmfMedication.value" name="mmfMedicationSuspended" #mmfMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.mmfMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="bioMedication">Biol&oacute;gicos</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.bioMedication" #bioMedication="ngModel" name="bioMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!bioMedication.value" name="bioMedicationSuspended" #bioMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.bioMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="glucocorticoidesMedication">Glucocorticoides</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="patientService.selectedPatient.data.glucocorticoidesMedication" #glucocorticoidesMedication="ngModel" name="glucocorticoidesMedication">
+                            </div>
+                        </div>
+                        <input class="form-control" [disabled]="!glucocorticoidesMedication.value" name="glucocorticoidesMedicationSpecify" #glucocorticoidesMedicationSpecify="ngModel" [(ngModel)]="patientService.selectedPatient.data.glucocorticoidesMedicationSpecify" placeholder="Especifique cu&aacute;les"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                    <div *ngIf="glucocorticoidesMedication.value" class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                Inicio
+                            </div>
+                        </div>
+                        <input class="form-control" type="date" name="glucocorticoidesMedicationStartDate" #glucocorticoidesMedicationStartDate="ngModel" [(ngModel)]="patientService.selectedPatient.data.glucocorticoidesMedicationStartDate">
+                    </div>
+                    <div *ngIf="glucocorticoidesMedication.value" class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                Suspensi&oacute;n
+                            </div>
+                        </div>
+                        <input class="form-control" name="glucocorticoidesMedicationSuspended" #glucocorticoidesMedicationSuspended="ngModel" [(ngModel)]="patientService.selectedPatient.data.glucocorticoidesMedicationSuspended" placeholder="Si suspendi&oacute;, explique por qu&eacute;"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                    <div *ngIf="glucocorticoidesMedication.value" class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                Efectos Secundarios
+                            </div>
+                        </div>
+                        <input class="form-control" name="glucocorticoidesMedicationSecondaryEffects" #glucocorticoidesMedicationSecondaryEffects="ngModel" [(ngModel)]="patientService.selectedPatient.data.glucocorticoidesMedicationSecondaryEffects" placeholder="Efectos Secundarios"
+                            pattern="^[A-zÀ-ÿ0-9,. ]*$">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group" [ngClass]="{
+                            'has-danger': otherMedicationsHistory.invalid && (otherMedicationsHistory.dirty || otherMedicationsHistory.touched),
+                            'has-success': otherMedicationsHistory.valid && (otherMedicationsHistory.dirty || otherMedicationsHistory.touched)
+                        }">
+                    <label for="otherMedicationsHistory">Otros Medicamentos</label>
+                    <textarea class="form-control" name="otherMedicationsHistory" #otherMedicationsHistory="ngModel" [(ngModel)]="patientService.selectedPatient.data.otherMedicationsHistory" placeholder="Otros Medicamentos." rows="2"></textarea>
+                    <small *ngIf="otherMedicationsHistory.errors?.required && (otherMedicationsHistory.touched || otherMedicationsHistory.dirty)">*Campo Requerido</small>
+                    <small *ngIf="otherMedicationsHistory.errors?.pattern && (otherMedicationsHistory.touched || otherMedicationsHistory.dirty)">*Dato inv&aacute;lido</small>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
