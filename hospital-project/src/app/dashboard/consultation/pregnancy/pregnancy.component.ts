@@ -23,7 +23,7 @@ export class PregnancyComponent implements OnInit {
       catch(e){
 
       }
-      return (age >=15 && age <=40);
+      return (age >=15 && age <=44);
     }
     
   ngOnInit() {

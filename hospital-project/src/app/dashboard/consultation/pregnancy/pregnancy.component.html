@@ -112,7 +112,6 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancy" #wantsPregnancy="ngModel" name="wantsPregnancy">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!wantsPregnancy.value" type="date" name="wantsPregnancyDate" #wantsPregnancyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.wantsPregnancyDate">
                 </div>
             </div>
         </div>
@@ -126,7 +125,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!pregnancyContraindication.value" name="pregnancyContraindicationDescription" #pregnancyContraindicationDescription="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.pregnancyContraindicationDescription"
-                        placeholder="Describa" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        placeholder="Describa">
                 </div>
             </div>
         </div>
@@ -142,7 +141,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExam" #antiCPPExam="ngModel" name="antiCPPExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!antiCPPExam.value" name="antiCPPExamResult" #antiCPPExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9,./ ]*$">
+                    <input class="form-control" [disabled]="!antiCPPExam.value" name="antiCPPExamResult" #antiCPPExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiCPPExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -155,7 +154,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.FrExam" #FrExam="ngModel" name="FrExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!FrExam.value" name="FrExamResult" #FrExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.FrExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!FrExam.value" name="FrExamResult" #FrExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.FrExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -168,7 +167,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.anticoagulantExam" #anticoagulantExam="ngModel" name="anticoagulantExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!anticoagulantExam.value" name="anticoagulantExamResult" #anticoagulantExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticoagulantExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!anticoagulantExam.value" name="anticoagulantExamResult" #anticoagulantExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticoagulantExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -181,7 +180,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.roExam" #roExam="ngModel" name="roExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!roExam.value" name="roExamResult" #roExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.roExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!roExam.value" name="roExamResult" #roExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.roExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -194,7 +193,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.anticardiolipinExam" #anticardiolipinExam="ngModel" name="anticardiolipinExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!anticardiolipinExam.value" name="anticardiolipinExamResult" #anticardiolipinExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticardiolipinExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!anticardiolipinExam.value" name="anticardiolipinExamResult" #anticardiolipinExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anticardiolipinExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -207,7 +206,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.anaExam" #anaExam="ngModel" name="anaExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!anaExam.value" name="anaExamResult" #anaExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anaExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!anaExam.value" name="anaExamResult" #anaExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.anaExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -220,7 +219,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.antiB2GPIExam" #antiB2GPIExam="ngModel" name="antiB2GPIExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!antiB2GPIExam.value" name="antiB2GPIExamResult" #antiB2GPIExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiB2GPIExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!antiB2GPIExam.value" name="antiB2GPIExamResult" #antiB2GPIExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.antiB2GPIExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -233,7 +232,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.laExam" #laExam="ngModel" name="laExam">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!laExam.value" name="laExamResult" #laExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.laExamResult" placeholder="Resultado" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!laExam.value" name="laExamResult" #laExamResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.laExamResult" placeholder="Resultado">
                 </div>
             </div>
         </div>
@@ -287,7 +286,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.prenatalControl" #prenatalControl="ngModel" name="prenatalControl">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!prenatalControl.value" name="prenatalControlDefinition" #prenatalControlDefinition="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.prenatalControlDefinition" placeholder="Defina" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!prenatalControl.value" name="prenatalControlDefinition" #prenatalControlDefinition="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.prenatalControlDefinition" placeholder="Defina">
                 </div>
             </div>
         </div>
@@ -324,7 +323,7 @@
                         </div>
                     </div>
                     <input class="form-control" [disabled]="!teratogenicalRiskMedication.value" name="teratogenicalRiskMedicationResult" #teratogenicalRiskMedicationResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.teratogenicalRiskMedicationResult"
-                        placeholder="Defina" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                        placeholder="Defina">
                 </div>
             </div>
         </div>
@@ -337,7 +336,7 @@
                             <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.suspendedMedications" #suspendedMedications="ngModel" name="suspendedMedications">
                         </div>
                     </div>
-                    <input class="form-control" [disabled]="!suspendedMedications.value" name="suspendedMedicationsResult" #suspendedMedicationsResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.suspendedMedicationsResult" placeholder="Defina" pattern="^[A-zÀ-ÿ0-9 ]*$">
+                    <input class="form-control" [disabled]="!suspendedMedications.value" name="suspendedMedicationsResult" #suspendedMedicationsResult="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.suspendedMedicationsResult" placeholder="Defina">
                 </div>
             </div>
         </div>

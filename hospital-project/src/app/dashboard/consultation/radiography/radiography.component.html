@@ -64,7 +64,7 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
-                <label for="other1Radiography">Other</label>
+                <label for="other1Radiography">Otra</label>
                 <div class="input-group">
                     <div class="input-group-addon">
                         <div class="input-group-text">
@@ -95,6 +95,187 @@
                         </div>
                     </div>
                     <input class="form-control" name="other1RadiographyFindings" #other1Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other1RadiographyFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="other2Radiography">Otra</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.other2Radiography" #other2Radiography="ngModel" name="other2Radiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="other2Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Tipo
+                        </div>
+                    </div>
+                    <input class="form-control" name="other2RadiographyType" #other2Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other2RadiographyType" placeholder="">
+                </div>
+                <div *ngIf="other2Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Fecha
+                        </div>
+                    </div>
+                    <input class="form-control" type="date" name="other2RadiographyDate" #other2RadiographyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other2RadiographyDate">
+                </div>
+                <div *ngIf="other2Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="other2RadiographyFindings" #other2Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other2RadiographyFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="other3Radiography">Otra</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.other3Radiography" #other3Radiography="ngModel" name="other3Radiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="other3Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Tipo
+                        </div>
+                    </div>
+                    <input class="form-control" name="other3RadiographyType" #other3Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other3RadiographyType" placeholder="">
+                </div>
+                <div *ngIf="other3Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Fecha
+                        </div>
+                    </div>
+                    <input class="form-control" type="date" name="other3RadiographyDate" #other3RadiographyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other3RadiographyDate">
+                </div>
+                <div *ngIf="other3Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="other3RadiographyFindings" #other3Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other3RadiographyFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="other4Radiography">Otra</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.other4Radiography" #other4Radiography="ngModel" name="other4Radiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="other4Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Tipo
+                        </div>
+                    </div>
+                    <input class="form-control" name="other4RadiographyType" #other4Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other4RadiographyType" placeholder="">
+                </div>
+                <div *ngIf="other4Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Fecha
+                        </div>
+                    </div>
+                    <input class="form-control" type="date" name="other4RadiographyDate" #other4RadiographyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other4RadiographyDate">
+                </div>
+                <div *ngIf="other4Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="other4RadiographyFindings" #other4Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other4RadiographyFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="other5Radiography">Otra</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.other5Radiography" #other5Radiography="ngModel" name="other5Radiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="other5Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Tipo
+                        </div>
+                    </div>
+                    <input class="form-control" name="other5RadiographyType" #other5Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other5RadiographyType" placeholder="">
+                </div>
+                <div *ngIf="other5Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Fecha
+                        </div>
+                    </div>
+                    <input class="form-control" type="date" name="other5RadiographyDate" #other5RadiographyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other5RadiographyDate">
+                </div>
+                <div *ngIf="other5Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="other5RadiographyFindings" #other5Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other5RadiographyFindings" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+                <label for="other6Radiography">Otra</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.other6Radiography" #other6Radiography="ngModel" name="other6Radiography">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="other6Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Tipo
+                        </div>
+                    </div>
+                    <input class="form-control" name="other6RadiographyType" #other6Type="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other6RadiographyType" placeholder="">
+                </div>
+                <div *ngIf="other6Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Fecha
+                        </div>
+                    </div>
+                    <input class="form-control" type="date" name="other6RadiographyDate" #other6RadiographyDate="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other6RadiographyDate">
+                </div>
+                <div *ngIf="other6Radiography.value" class="input-group">
+                    <div class="input-group-addon">
+                        <div class="input-group-text">
+                            Hallazgos
+                        </div>
+                    </div>
+                    <input class="form-control" name="other6RadiographyFindings" #other6Findings="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.other6RadiographyFindings" placeholder="">
                 </div>
             </div>
         </div>

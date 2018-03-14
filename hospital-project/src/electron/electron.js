@@ -1,5 +1,5 @@
 const electron = require('electron');
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
@@ -7,6 +7,7 @@ const os = require('os');
 const ipc = electron.ipcMain;
 const shell = electron.shell;
 let win;
+let menu;
 
 function createWindow() {
     win = new BrowserWindow({
@@ -21,6 +22,26 @@ function createWindow() {
     win.on('close', function() {
         win = null
     });
+    var template = [{
+        label: "REPAIR",
+        submenu: [
+            { label: "Cerrar", accelerator: "Command+Q", click: function() { app.quit(); } }
+        ]
+    }, {
+        label: "Editar",
+        submenu: [
+            { label: "Deshacer", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+            { label: "Rehacer", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+            { type: "separator" },
+            { label: "Cortar", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+            { label: "Copiar", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+            { label: "Pegar", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+            { label: "Seleccionar Todo", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+        ]
+    }];
+
+    menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 }
 
 app.on('ready', createWindow)
