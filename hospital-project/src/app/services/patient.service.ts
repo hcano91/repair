@@ -13,10 +13,10 @@ export class PatientService {
 
   getPatients(offset, startKey?, options?): AngularFireList<any> {
     if( startKey == null ) {
-      this.patientList = this.firebase.list('patients', ref => ref.orderByKey().limitToFirst(offset + 1));
+      this.patientList = this.firebase.list('patients', ref => ref.orderByKey().limitToLast(offset + 1));
     }
     else
-      this.patientList = this.firebase.list('patients', ref => ref.orderByKey().startAt(startKey).limitToFirst(offset + 1));
+      this.patientList = this.firebase.list('patients', ref => ref.orderByKey().endAt(startKey).limitToLast(offset + 1));
     return this.patientList;
   }
 

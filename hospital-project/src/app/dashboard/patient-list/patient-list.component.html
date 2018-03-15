@@ -9,7 +9,6 @@
                 <option default value>Buscar Por...</option>
                 <option value="register">Registro</option>
                 <option value="fullName">Nombre</option>
-                <option value="curp">CURP</option>
                 <option value="mostLikelyDiagnosis">Padecimiento</option>
             </select>
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search" name="searchValue" #searchValue="ngModel" [(ngModel)]="options.searchValue" required>
@@ -24,7 +23,7 @@
             <tr>
                 <th>#Registro</th>
                 <th>Nombre</th>
-                <th>CURP</th>
+                <th>&Uacute;ltima modificaci&oacute;n</th>
                 <th>Padecimiento</th>
                 <th></th>
             </tr>
@@ -32,7 +31,7 @@
         <tr *ngFor="let patient of patientList">
             <td>{{patient.register}}</td>
             <td>{{patient.names}} {{patient.fatherLastName}} {{patient.motherLastName}}</td>
-            <td>{{patient.curp}}</td>
+            <td>{{patient.lastModifiedDate}}</td>
             <td>{{patient.mostLikelyDiagnosis}}</td>
             <td>
                 <a class="btn float-right" (click)="onDeleteButtonClick(patient.$key)">

@@ -22,6 +22,7 @@ export class PatientComponent implements OnInit {
       data: patientForm.value
     }
     upsertObject.data.fullName = patientForm.value.names + ' ' + patientForm.value.fatherLastName + ' ' + patientForm.value.motherLastName;
+    upsertObject.data.lastModifiedDate = moment().format('YYYY-MM-DD');
     if(upsertObject.data.$key == null)
       this.patientService.insert(upsertObject);
     else
