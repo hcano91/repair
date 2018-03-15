@@ -20,7 +20,15 @@
                     'has-success': treatingDoctor.valid && (treatingDoctor.dirty || treatingDoctor.touched)
                 }">
                 <label for="treatingDoctor">M&eacute;dico tratante</label>
-                <input class="form-control" name="treatingDoctor" #treatingDoctor="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatingDoctor" placeholder="Dr. Juan Manuel">
+                <select class="form-control" name="treatingDoctor" #treatingDoctor="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.treatingDoctor" required>
+                    <option selected [ngValue]="treatingDoctor" value="">Seleccione...</option>
+                    <option [ngValue]="treatingDoctor" value="Dra. Griselda Serna Peña | Cédula profesional 8041923">Dra. Griselda Serna Peña | Cédula profesional 8041923 </option>
+                    <option [ngValue]="treatingDoctor" value="Dr. Juan Pablo Carrizales Luna | Cédula profesional 7947928">Dr. Juan Pablo Carrizales Luna | Cédula profesional 7947928 </option>
+                    <option [ngValue]="treatingDoctor" value="Dr. Luis Eduardo Ramírez Monterrubio | Cédula profesional 8042870">Dr. Luis Eduardo Ramírez Monterrubio | Cédula profesional 8042870 </option>
+                    <option [ngValue]="treatingDoctor" value="Dr. Octavio Ilizaliturri Guerra | Cédula profesional 8457511">Dr. Octavio Ilizaliturri Guerra | Cédula profesional 8457511 </option>
+                    <option [ngValue]="treatingDoctor" value="Dra. Rita Angélica Pineda Sic | Cédula profesional en trámite">Dra. Rita Angélica Pineda Sic | Cédula profesional en trámite </option>
+                    <option [ngValue]="treatingDoctor" value="Dr. Rodolfo Allan Uriarte Botello | 6276057">Dr. Rodolfo Allan Uriarte Botello | 6276057 </option>
+                </select>
                 <small *ngIf="treatingDoctor.errors?.required && (treatingDoctor.touched || treatingDoctor.dirty)">*Campo Requerido</small>
                 <small *ngIf="treatingDoctor.errors?.pattern && (treatingDoctor.touched || treatingDoctor.dirty)">*Dato inv&aacute;lido</small>
             </div>
@@ -31,7 +39,23 @@
                     'has-success': supervisingDoctor.valid && (supervisingDoctor.dirty || supervisingDoctor.touched)
                 }">
                 <label for="supervisingDoctor">Profesor</label>
-                <input class="form-control" name="supervisingDoctor" #supervisingDoctor="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.supervisingDoctor" placeholder="Dr. Juan Manuel">
+                <select class="form-control" name="supervisingDoctor" #supervisingDoctor="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.supervisingDoctor" required>
+                    <option selected [ngValue]="supervisingDoctor" value="">Seleccione...</option>
+                    <option [ngValue]="supervisingDoctor" value="Dr. med. Dionicio Ángel Galarza Delgado">Dr. med. Dionicio &Aacute;ngel Galarza Delgado</option>
+                    <option [ngValue]="supervisingDoctor" value="Dr. M.C. Mario Alberto Garza Elizondo">Dr. M.C. Mario Alberto Garza Elizondo</option>
+                    <option [ngValue]="supervisingDoctor" value="Dr. med. Miguel Ángel Villarreal Alarcón">Dr. med. Miguel &Aacute;ngel Villarreal Alarcón</option>
+                    <option [ngValue]="supervisingDoctor" value="Dr. med. Jorge Antonio Esquivel Valerio">Dr. med. Jorge Antonio Esquivel Valerio</option>
+                    <option [ngValue]="supervisingDoctor" value="Dra. med. Cassandra Michelle Skinner Taylor">Dra. med. Cassandra Michelle Skinner Taylor</option>
+                    <option [ngValue]="supervisingDoctor" value="Dra. med. Diana Elsa Flores Alvarado">Dra. med. Diana Elsa Flores Alvarado</option>
+                    <option [ngValue]="supervisingDoctor" value="Dr. med. David Vega Morales">Dr. med. David Vega Morales</option>
+                    <option [ngValue]="supervisingDoctor" value="Dra. med. Janett Carmen Luzmila Riega Torres">Dra. med. Janett Carmen Luzmila Riega Torres</option>
+                    <option [ngValue]="supervisingDoctor" value="Dra. Lorena Pérez Barbosa">Dra. Lorena Pérez Barbosa</option>
+                    <option [ngValue]="supervisingDoctor" value="Dr. Roberto Negrete López">Dr. Roberto Negrete López</option>
+                    <option [ngValue]="supervisingDoctor" value="Dra. Lorenia Beatriz de la Cruz Becerra">Dra. Lorenia Beatriz de la Cruz Becerra</option>
+                    <option [ngValue]="supervisingDoctor" value="Dra. Iris Jazmín Colunga Pedraza">Dra. Iris Jazmín Colunga Pedraza</option>
+                    <option [ngValue]="supervisingDoctor" value="Dra. Ana Cecilia Arana Guajardo">Dra. Ana Cecilia Arana Guajardo</option>
+                    <option [ngValue]="supervisingDoctor" value="Dr. Iván de Jesús Hernández Galarza">Dr. Iván de Jesús Hernández Galarza</option>
+                </select>
                 <small *ngIf="supervisingDoctor.errors?.required && (supervisingDoctor.touched || supervisingDoctor.dirty)">*Campo Requerido</small>
                 <small *ngIf="supervisingDoctor.errors?.pattern && (supervisingDoctor.touched || supervisingDoctor.dirty)">*Dato inv&aacute;lido</small>
             </div>

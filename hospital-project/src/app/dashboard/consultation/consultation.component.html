@@ -1,6 +1,6 @@
 <form class="validating no-print" (ngSubmit)="onSubmitForm(consultationForm)" #consultationForm="ngForm">
     <div class="consultation-information--buttons">
-        <button class="btn btn-secondary" type="submit" [disabled]="!consultationForm.valid">
+        <button class="btn btn-secondary" type="submit" [disabled]="!consultationForm.valid || !formIsComplete.value">
             <i class="fa fa-floppy-o"></i>Guardar
         </button>
         <button *ngIf="!isEditingConsultation" class="btn btn-secondary" type="button" (click)="onResetButtonClick(consultationForm)">
@@ -38,6 +38,20 @@
         <app-illness-activity [consultationType]="consultationType"></app-illness-activity>
         <app-prescribing-treatment [consultationType]="consultationType"></app-prescribing-treatment>
         <app-for-next-consultation [consultationType]="consultationType"></app-for-next-consultation>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <div class="input-group-text">
+                                <input type="checkbox" [(ngModel)]="consultationService.selectedConsultation.data.formIsComplete" #formIsComplete="ngModel" name="formIsComplete">Se declara que se revis&oacute; que no se presentaran eventos adversos a
+                                medicamentos en el paciente y la informaci&oacute;n proporcionada es correcta.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </form>
 {{consultationService.selectedConsultation.data.urineResultPh | json}}

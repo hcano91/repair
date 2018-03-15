@@ -59,15 +59,15 @@
                     }">
                 <label for="spaType">*Tipo de Espondiloartritis</label>
                 <select class="form-control" name="spaType" #spaType="ngModel" [(ngModel)]="consultationService.selectedConsultation.data.spaType" required>
-                        <option selected [ngValue]="spaType" value="">Seleccione...</option>
-                        <option [ngValue]="spaType" value="Axial">Axial</option>
-                        <option [ngValue]="spaType" value="Periferica">Perif&eacute;rica</option>
-                        <option [ngValue]="spaType" value="Mixta">Mixta</option>
-                        <option [ngValue]="spaType" value="Asociada a enfermedad intestinal">Asociada a enfermedad intestinal</option>
-                        <option [ngValue]="spaType" value="Indiferenciada">Indiferenciada</option>
-                        <option [ngValue]="spaType" value="Artritis Psoriasica">Artritis Psori&aacute;sica</option>
-                        <option [ngValue]="spaType" value="No radiografica">No radiogr&aacute;fica</option>
-                    </select>
+                    <option selected [ngValue]="spaType" value="">Seleccione...</option>
+                    <option [ngValue]="spaType" value="Axial">Axial</option>
+                    <option [ngValue]="spaType" value="Periferica">Perif&eacute;rica</option>
+                    <option [ngValue]="spaType" value="Mixta">Mixta</option>
+                    <option [ngValue]="spaType" value="Asociada a enfermedad intestinal">Asociada a enfermedad intestinal</option>
+                    <option [ngValue]="spaType" value="Indiferenciada">Indiferenciada</option>
+                    <option [ngValue]="spaType" value="Artritis Psoriasica">Artritis Psori&aacute;sica</option>
+                    <option [ngValue]="spaType" value="No radiografica">No radiogr&aacute;fica</option>
+                </select>
                 <small *ngIf="spaType.errors?.required && (spaType.touched || spaType.dirty)">*Campo Requerido</small>
                 <small *ngIf="spaType.errors?.pattern && (spaType.touched || spaType.dirty)">*Dato inv&aacute;lido</small>
             </div>
