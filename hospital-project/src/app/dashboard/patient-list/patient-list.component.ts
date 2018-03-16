@@ -59,15 +59,16 @@ export class PatientListComponent implements OnInit {
       .subscribe(patients => {
         this.patientList = [];
         var startAt = 1;
-        if(this.patientList.length < this.offset + 1){
+        var endAt = patients.length;
+        if(patients.length < this.offset + 1){
           startAt = 0;
         }
-        _.slice(patients, startAt).forEach(element => {
+        _.slice(patients, startAt, endAt).forEach(element => {
           var y  = element.payload.toJSON();
           y["$key"] = element.key;
           this.patientList.unshift(y as Patient);
         });
-        if(this.patientList.length === this.offset + 1)
+        if(patients.length === this.offset + 1)
           this.nextKey = _.get(patients[0], 'key');
         else
           this.nextKey = null;
@@ -84,19 +85,19 @@ export class PatientListComponent implements OnInit {
 
   onSubmitSearchForm(searchForm: NgForm){
     var patients = this.patientList;
-    var startAt = 1;
-    if(this.patientList.length < this.offset + 1){
-      startAt = 0;
-    }
     this.subscription = this.patientService.getPatientsByData(this.options.searchType, this.options.searchValue).snapshotChanges()
       .subscribe(patients => {
         this.patientList = [];
+        var startAt = 1;
+        if(patients.length < this.offset + 1){
+          startAt = 0;
+        }
         _.slice(patients, startAt).forEach(element => {
           var y  = element.payload.toJSON();
           y["$key"] = element.key;
           this.patientList.unshift(y as Patient);
         });
-        if(this.patientList.length === this.offset + 1)
+        if(patients.length === this.offset + 1)
           this.nextKey = _.get(patients[0], 'key');
         else
           this.nextKey = null;
